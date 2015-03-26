@@ -1,0 +1,88 @@
+﻿@model List<Youffer.Web.Resources.ViewModel.WebClientWishListModel>
+@{
+    Layout = null;
+}
+@if (Model.Count() > 0)
+{
+    foreach (var item in Model)
+    {
+        if (item.SubInterest.Any())
+        {
+            int subInterestCount = item.SubInterest.Count(); Random rnd = new Random(); int interest = rnd.Next(0, subInterestCount);
+            <div class="col-lg-3" style="min-height: 290px;">
+
+                <div class="lead block-client">
+                    <div class="strip">
+                        @if (Convert.ToInt16(item.Ranking) == 5)
+                        {
+                            <img src="/img/top-rated.png" />
+                        }
+                    </div>
+
+                    <div class="price-tag">
+                        <em class="order">Order-</em>
+                        <em>$5</em>
+                    </div>
+
+                    <div style="display: inherit; min-width:241px;">
+                        <div class="client-pic-span" style="width: 29% !important;">
+                            @if (!string.IsNullOrWhiteSpace(item.Client.ImageUrl))
+                            {
+                                <img class="client-pic" src="@item.Client.ImageUrl" />
+                            }
+                            else
+                            {
+                                <img class="client-pic" src="@Youffer.Web.Common.Dummy.DummyData.NoImage" />
+                            }
+                            <br /><br />
+                        </div>
+
+                        <span style="width:70%; padding-left: 10px;">
+                            <span style="padding-top: 0px;">
+                                @if (item.Client.Age > 0)
+                            {
+                                    @(item.Client.FirstName +", "+ item.Client.Age)
+                            }
+                            else
+                            {
+                                        @item.Client.FirstName
+                            }
+                            </span>
+                            @if (!string.IsNullOrWhiteSpace(item.Client.Flag))
+                            {<img width="30px" class="flag" src="@item.Client.Flag" /><br />}
+
+                            <span class="clearfix"></span>
+
+                            <br /><br />
+                            <span class="clearfix"></span>
+
+                        </span>
+                    </div>
+                    <br/>
+                    <span class="interest-in">
+                        <span style="color: grey;padding-top: 0px; ">Needs:</span><br />
+                        <h5>@item.SubInterest[interest]&nbsp;</h5> <br />
+                    </span>
+
+                    <span class="clearfix"></span>
+                    <div class="rating">
+                        <span class="star">
+                            @{Html.RenderAction("GetRating", "Common", new { rating = item.Ranking, disabled = true, className = Guid.NewGuid(), title = "Rate" });}
+                        </span>                        
+                    </div>
+                    <br />
+
+                    <center style="margin-bottom:10px;">
+                            <a href="#"> <button class="buy-button pop1" style="margin-top:10px;" onclick="ShowRegisterForm();">Buy ($5)</button> </a><br />
+                        <div class="view-profile" style="">
+                            <a href="#" style="cursor:pointer;" onclick="ShowRegisterForm();"> View Profile </a>
+                        </div>
+                    </center>
+
+                    <span class="clearfix"></span>
+                </div>
+            </div>
+        }
+    }
+}
+

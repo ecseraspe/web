@@ -1,0 +1,214 @@
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\AutoMapper.Net4.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Youffer.Web.dll.config
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Youffer.Web.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Youffer.Web.pdb
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Antlr3.Runtime.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\AutoMapper.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\EntityFramework.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\EntityFramework.SqlServer.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\log4net.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\MVC Foolproof Validation.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Newtonsoft.Json.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Owin.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\System.Web.Helpers.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\System.Web.Mvc.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\System.Web.Optimization.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\System.Web.Razor.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.Deployment.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.Razor.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\WebGrease.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Youffer.Resources.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Youffer.Web.Common.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Youffer.Web.Framework.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Youffer.Web.Resources.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Youffer.Web.Common.pdb
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Youffer.Web.Framework.pdb
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Youffer.Web.Resources.pdb
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\AutoMapper.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\log4net.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\System.Web.Helpers.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\System.Web.Mvc.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\System.Web.Optimization.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\System.Web.Razor.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.Deployment.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.Razor.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Antlr3.Runtime.pdb
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Youffer.Resources.pdb
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Newtonsoft.Json.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\EntityFramework.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\EntityFramework.SqlServer.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\obj\Debug\Youffer.Web.csprojResolveAssemblyReference.cache
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\obj\Debug\Youffer.Web.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web\obj\Debug\Youffer.Web.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\AutoMapper.Net4.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.dll.config
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Antlr3.Runtime.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\AutoMapper.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\EntityFramework.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\EntityFramework.SqlServer.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\log4net.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\MVC Foolproof Validation.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Newtonsoft.Json.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Owin.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\System.Web.Helpers.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\System.Web.Mvc.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\System.Web.Optimization.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\System.Web.Razor.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.Deployment.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.Razor.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\WebGrease.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.Common.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.Framework.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.Resources.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.Common.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.Framework.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.Resources.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\AutoMapper.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\log4net.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\System.Web.Helpers.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\System.Web.Mvc.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\System.Web.Optimization.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\System.Web.Razor.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.Deployment.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.Razor.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Antlr3.Runtime.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Newtonsoft.Json.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\EntityFramework.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\EntityFramework.SqlServer.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\obj\Debug\Youffer.Web.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\obj\Debug\Youffer.Web.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web\obj\Debug\Youffer.Web.pdb
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\AutoMapper.Net4.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.pdb
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Antlr3.Runtime.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\AutoMapper.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\EntityFramework.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\EntityFramework.SqlServer.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\log4net.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\MVC Foolproof Validation.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Newtonsoft.Json.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Owin.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\System.Web.Helpers.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\System.Web.Mvc.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\System.Web.Optimization.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\System.Web.Razor.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.Deployment.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.Razor.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\WebGrease.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.Common.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.Framework.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.Resources.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.Common.pdb
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.Framework.pdb
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Youffer.Web.Resources.pdb
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\AutoMapper.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\log4net.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\System.Web.Helpers.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\System.Web.Mvc.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\System.Web.Optimization.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\System.Web.Razor.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.Deployment.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\System.Web.WebPages.Razor.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Antlr3.Runtime.pdb
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Newtonsoft.Json.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\EntityFramework.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\EntityFramework.SqlServer.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\obj\Debug\Youffer.Web.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\obj\Debug\Youffer.Web.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web\obj\Debug\Youffer.Web.pdb

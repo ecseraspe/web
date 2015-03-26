@@ -1,0 +1,41 @@
+﻿@model List<Youffer.Web.Resources.ViewModel.WebMessageModel>
+@foreach (var message in Model)
+{
+    <tr class="messageHistory" style="cursor:pointer;" data-wishlistid="@message.ClientWishListId" data-id="@message.MessageId">
+        <td class="profile-pop" style="width:25%">
+            <div class="name">
+                <div>
+                    <table>
+                        <tr style="border-bottom: 0; height: 30px;">
+                            <td style="padding-right: 3px;">
+                                @if (!string.IsNullOrWhiteSpace(message.ImageUrl))
+                                {
+                                    <div class="smaller-image" style="background: url(@message.ImageUrl) center no-repeat; background-size: cover;"></div>
+                                }
+                                else
+                                {
+                                    <div class="smaller-image" style="background: url(@Youffer.Web.Common.Dummy.DummyData.NoImage) center no-repeat; background-size: cover;"></div>
+                                }
+                            </td>
+                            <td style="padding-right: 3px;">
+                                <div style="width: 70px; word-break:break-all;">@message.Name</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>           
+        </td>
+        <td style="width: 50%;">
+            @if (message.MessageMedia != null)
+            {
+                <div class="messgeDescription">Attachment : @message.MessageMedia.OriginalFileName </div>
+            }
+            else
+            {
+                <div class="messgeDescription">@Html.Raw(message.MessageDescription)</div>
+            }
+        </td>
+        <td style="width:25%">@message.CreatedOn.ToString("MM/dd/yyyy")</td>
+    </tr>
+
+}

@@ -1,0 +1,44 @@
+﻿@model List<Youffer.Web.Resources.ViewModel.WebMessageModel>
+@{
+    if (Model.Any())
+    {
+        <div id="divDashboardMessagesScroll" style="max-height:500px; overflow:auto;">
+            <table id="tblDashboardMessages" class="tableCls">
+                <thead>
+                    <tr>
+                        <th style="width:25%">Sender</th>
+                        <th style="width:50%" class="">Last Message</th>
+                        <th style="width:25%" class="">Updated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @Html.Partial("~/Views/Lead/_NewDashboardMessageContent.cshtml", Model)
+                    @*_NewDashboardMessageContent*@
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <center><h2>Sorry, no results to display.</h2></center>
+    }
+}
+<script>
+    $(document).ready(function () {
+        $("#divDashboardMessagesScroll").scroll(function () {
+            if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+                GetMoreAllMessage(-1, -1, BindDashboardAllMessageOnScroll, false, true);
+            }
+        });
+
+        $("#tblDashboardMessages").on("click", ".messageHistory td", function () {
+            var row = $(this).parent("tr")
+            if (row != undefined && row.length > 0) {
+                var wishlist = $(row).data("wishlistid");
+                if (wishlist != undefined && wishlist.length > 0) {
+                    ShowMessageHistory(wishlist);
+                }
+            }
+        });
+    });
+</script>

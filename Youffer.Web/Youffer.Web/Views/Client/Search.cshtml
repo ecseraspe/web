@@ -1,0 +1,402 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebClientSearchPanelModel
+@{
+    ViewBag.Title = "Search";
+}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<link href="~/Content/clientBox.css" rel="stylesheet" />
+<style>
+    #ddlCountry option {
+        width: 100%;
+        margin-left: 50px;
+    }
+
+    .InterestName {
+        border: 0;
+        outline: 0;
+        width: 220px;
+        height: 31px;
+        margin-left: 30px;
+        font-size: 15px;
+        float: left;
+    }
+
+    body {
+        font-weight: normal;
+        width: 100%;
+        font-size: 15px;
+        overflow: auto;
+        background: #f7f7f7;
+    }
+
+    .search-heading {
+        font-weight: normal;
+        letter-spacing: -1px;
+        margin-top: 40px;
+        color: #000;
+    }
+
+    .search-big {
+        width: 270px;
+        padding: 5px 10px;
+        font-weight: 500;
+        border: 1px solid rgb(220, 220, 220);
+        outline: 0;
+        position: relative;
+        float: left;
+        background: #fff;
+        font-size: 16px;
+        border-radius: 0;
+        box-shadow: none;
+        color: #7A7A7A;
+        position: relative;
+    }
+
+    .search-div {
+        width: 100%;
+    }
+
+        .search-div .fa-search {
+            font-size: 26px;
+            margin-left: 0px;
+            line-height: 33px;
+            color: #D8D8D8;
+            float: left;
+            width: 24px;
+            z-index: 1;
+            left: 10px;
+        }
+
+        .search-div .gender, .search-div .country {
+            float: left;
+            margin-left: 15px;
+        }
+
+    .search-filter .age-filter select, .search-filter .gender select {
+        height: 42px;
+        outline: 0;
+        border: 1px solid rgb(220, 220, 220);
+        position: relative;
+        background: #fff;
+        padding: 5px;
+        color: #7A7A7A;
+        font-weight: 400;
+        font-size: 15px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .age-filter {
+        float: left;
+    }
+
+    .gender, .country {
+        float: left;
+        margin-left: 20px;
+    }
+
+    .search-filter .search-div .big-btn {
+        width: 100px;
+        float: none;
+        margin: auto;
+        border: none;
+        font-size: 17px;
+        text-align: center;
+        outline: none;
+        position: relative;
+        background-color: #f7d800 !important;
+        height: 42px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+        .search-filter .search-div .big-btn:hover, .search-filter .search-div .big-btn:active {
+            background-color: #e8ad00 !important;
+        }
+
+    #AgeFrom, #AgeTo {
+        width: 75px;
+    }
+
+    .ui-autocomplete {
+        font-family: helvetica_lightregular;
+        font-size: 15px;
+        font-weight: normal !important;
+        color: #7A7A7A;
+        top: 256px !important;
+        max-width: 230px !important;
+        min-width: 230px !important;
+        border-top-width: 1px !important;
+        overflow: auto;
+        max-height: 250px !important;
+    }
+
+    .ui-menu .ui-menu-item {
+        padding: 3px 2px 3px 2px !important;
+    }
+</style>
+
+<div style="width: 1024px; margin: auto;">
+    <h2 class="search-heading">Clients Search</h2>
+</div>
+<script>
+    //get all business type, it will bind data without dealy.
+        @{
+@:allBusinessTypesAutoComplete = [];
+                                                                                                                                    foreach(var item in ViewBag.BusinessTypes)
+{
+@:allBusinessTypesAutoComplete.push("@Html.Raw(item.BusinessType)")
+                                                                                                                                                }
+}
+</script>
+<div class="large-box" style="border: 0; background: #fff;">
+    <div>
+        <div class="large-box-data" id="" style="padding: 15px;">
+            @using (Ajax.BeginForm("Search", "Client", new { }, new AjaxOptions { OnBegin = "validateRequest", HttpMethod = "POST", OnSuccess = "SearchClientSuccess", OnComplete = "SearchClientComplete" }, new { id = "formSearchClientPanel" }))
+            {
+                @Html.HiddenFor(x => x.SortByColumn, new { Value = 0, id = "hSortbyColumn" })
+                @Html.HiddenFor(x => x.SortDirection, new { Value = 1, id = "hSortByDirection" })
+                @Html.HiddenFor(x => x.LastPageId, new { Value = 1, id = "hLastPageId" })
+                @Html.HiddenFor(x => x.FetchCount, new { Value = 8, id = "hFetchCount" })
+                <div>
+                    <div id="divCountryBasedSearchMessage" style="display:none;">All search is based on your country: US</div>
+                    <div style="margin-left:10px;"> @Html.ValidationMessageFor(X => X.AgeTo)</div>
+                    <div class="search-filter">
+                        <div class="row">
+                            <div class="search-div" style="width: auto; margin-left: 15px; float: left;">
+                                <div class="search-big" style="margin-left: 0;">
+                                    <i class="fa fa-search"></i>
+                                    @Html.TextBoxFor(x => x.SubInterestName, new { id = "SubInterestName", @class = "InterestName" })
+                                </div>
+
+                                <div class="country gender">
+                                    @if (ViewBag.Country != null)
+                                    {
+                                        if (ViewBag.Country.ToString().ToLower() == "United States".ToLower())
+                                        {
+                                            @Html.DropDownListFor(x => x.State, new SelectList(string.Empty, "Value", "Text"), "All States", new { id = "ddlState", style = "width: 200px;" })
+                                            @Html.HiddenFor(x => x.Country, new { Value = ViewBag.Country, id = "hCountry" })
+                                        }
+                                        else
+                                        {
+                                            @Html.DropDownListFor(x => x.Country, new SelectList(string.Empty, "Value", "Text"), "All Countries", new { id = "ddlCountry", style = "width: 200px;" })
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @Html.DropDownListFor(x => x.Country, new SelectList(string.Empty, "Value", "Text"), "All Countries", new { id = "ddlCountry", style = "width: 200px;" })
+                                    }
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div style="float: left; margin-left: 17px; margin-right: 15px;">
+                                <div class="age-filter">
+                                    Age: &nbsp;
+                                    @Html.DropDownListFor(x => x.AgeFrom, new SelectList(new[] { new { Value = "0", Text = "From" } }, "Value", "Text"))
+                                    &nbsp;
+                                    @Html.DropDownListFor(x => x.AgeTo, new SelectList(new[] { new { Value = "0", Text = "To" } }, "Value", "Text"))
+                                </div>
+
+                                <div class="gender">
+                                    Gender:&nbsp;
+                                    @Html.DropDownListFor(x => x.Gender, new SelectList(new[]
+                                          {
+                                              new{ID=string.Empty, Name="All"},
+                                              new {ID="Male",Name="Male"},
+                                              new{ID="Female",Name="Female"},
+                                          },
+                                          "ID", "Name", 1))
+                                </div>
+
+                            </div>
+
+                            <div class="search-div" style="width: auto;">
+                                <input type="submit" class="big-btn" id="btnClientSearch" value="Search" style="" />
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px; margin-bottom: 10px; color: #7A7A7A;">
+                            <div class=" col-lg-6 age-filter">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            @Html.CheckBoxFor(x => x.OnlyActiveClient, new { type = "checkbox", style = "width: 15px; height: 15px; margin-right: 15px;" })
+                                        </td>
+                                        <td width="255px">
+                                            <span>Show active only</span> &nbsp; &nbsp; &nbsp; &nbsp;
+                                        </td>
+                                        <td>
+                                            @Html.CheckBoxFor(x => x.OnlyReviewedClient, new { type = "checkbox", style = "width: 15px; height: 15px; margin-right: 15px;" })
+                                        </td>
+                                        <td>
+                                            <span>Only reviewed clients</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="large-box">
+    <div>
+        <div class="box-heading">
+            Search Results
+        </div>
+        <div class="large-box-data" id="">
+            <div id="divSearchClientError"></div>
+            <div id="search-result-container" style="text-align: center;"></div>
+        </div>
+
+    </div>
+</div>
+<div id="divLoadMoreSearchClient" style="clear: both; margin: auto;text-align: center;margin-top: 20px; display:none;">
+    <a style="cursor:pointer;color: #7A7A7A;font-weight: bolder !important;" onclick="GetMoreSearchClient(-1, -1, BindMoreSearchClient, false, 8)">Load More</a>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        GetAge('AgeFrom,AgeTo');
+        if ($("#hCountry").length > 0) {
+            if ($("#hCountry").val().toLowerCase() == "United States".toLowerCase()) {
+                $("#divCountryBasedSearchMessage").show();
+                GetStates($("#hCountry").val(), "ddlState");
+            }
+            else {
+                GetAllCountry(BindAllCountry);
+            }
+        }
+        else {
+            GetAllCountry(BindAllCountry);
+        }
+        $("#SubInterestName").autocomplete({
+            source: allBusinessTypesAutoComplete
+        });
+    });
+
+    function validateRequest() {
+        var res = $(".InterestName").val();
+        if (res.length == 0) {
+            popAlert("", "Please select your business type.");
+            return false;
+        }
+        else {
+            showLoader();
+            return true;
+        }
+    }
+
+    function SearchClientComplete(data) {
+        if (data.AuthError) {
+            handleAjaxError(data);
+            return;
+        }
+        closePopAlert();
+    }
+
+    function SearchClientSuccess(res) {
+        hideLoader();
+        if (res.AuthError) {
+            handleAjaxError(res);
+            return;
+        }
+        if (res.count > 0) {
+            $("#divSearchClientError").html('').hide
+            $("#search-result-container").html(res.view);
+            // reset page id for scrolling
+            moreSearchResultLastPageId = 2;
+
+            if (res.count == moreSearchClientFetchCount) {
+                $("#divLoadMoreSearchClient").show();
+            }
+        }
+        else {
+            $("#divSearchClientError").html("<center><h2>Sorry, no results to display.</h2></center>");
+            $("#search-result-container").html('');
+            $("#divSearchClientError").show();
+        }
+    }
+
+    function BindMoreSearchClient(res) {
+        if (res.count > 0) {
+            $("#divSearchClientError").html('').hide
+            $("#search-result-container").append(res.view);
+            if (res.count < moreSearchClientFetchCount) {
+                $("#divLoadMoreSearchClient").html("<label style='color: #7A7A7A;font-weight: bolder !important;'>No more results to show.</span>");
+            }
+        }
+        else {
+            $("#divLoadMoreSearchClient").html("<label style='color: #7A7A7A;font-weight: bolder !important;'>No more results to show.</span>");
+        }
+    }
+
+    // get more data for Search Client on sorting and scrolling
+    var moreSearchClientLastPageId = 2;
+    var moreSearchClientRequestIsBusy = false;
+    var moreSearchClientSortBy = 0; // table header index.
+    var moreSearchClientSortDirection = 1; // 1 for Asc, 2 for Desc
+    var moreSearchClientRefill = false;
+    var moreSearchClientFetchCount = 8;
+    function GetMoreSearchClient(sortByColumn, sortDirection, callBackFunction, isRefill, moreSearchClientFetchCount) {
+        if (!moreSearchClientRequestIsBusy) {
+            moreSearchClientRequestIsBusy = true;
+            // if sortByColumn = -1 then it will be sort by previous sorting order
+            moreSearchClientSortBy = sortByColumn < 0 ? moreSearchClientSortBy : sortByColumn;
+            moreSearchClientSortDirection = sortDirection < 0 ? moreSearchClientSortDirection : sortDirection;
+            moreSearchClientRefill = (isRefill != undefined && isRefill) ? isRefill : false;
+            moreSearchClientLastPageId = (isRefill != undefined && isRefill) ? 2 : moreSearchClientLastPageId;
+            var searchModel = getSearchPanelData();
+            searchModel.SortByColumn = moreSearchClientSortBy;
+            searchModel.SortDirection = moreSearchClientSortDirection;
+            searchModel.LastPageId = moreSearchClientLastPageId;
+            searchModel.FetchCount = moreSearchClientFetchCount;
+            $.ajax({
+                url: '/Client/MoreSearch',
+                type: 'POST',
+                data: { model: JSON.stringify(searchModel) },
+            }).done(function (data) {
+                if (data.AuthError) {
+                    handleAjaxError(data);
+                    return;
+                }
+                moreSearchClientRequestIsBusy = false;
+                moreSearchClientLastPageId++;
+                callBackFunction(data);
+            });
+        }
+    }
+
+    function getSearchPanelData() {
+        var SubInterestName = $("#formSearchClientPanel #SubInterestName").val();
+        var Country = $("#formSearchClientPanel #ddlCountry").val();
+        var AgeFrom = $("#formSearchClientPanel #AgeFrom").val();
+        AgeFrom = (AgeFrom != "" && AgeFrom != undefined) ? AgeFrom : 0;
+        var AgeTo = $("#formSearchClientPanel #AgeTo").val();
+        AgeTo = (AgeTo != "" && AgeTo != undefined) ? AgeTo : 0;
+        var Gender = $("#formSearchClientPanel #Gender").val();
+        var OnlyActiveClient = $("#formSearchClientPanel #OnlyActiveClient").is(":checked");
+        var OnlyReviewedClient = $("#formSearchClientPanel #OnlyReviewedClient").is(":checked");
+        var SearchPanelModel = {
+            SubInterestName: SubInterestName,
+            Country: Country,
+            AgeFrom: AgeFrom,
+            AgeTo: AgeTo,
+            Gender: Gender,
+            OnlyActiveClient: OnlyActiveClient,
+            OnlyReviewedClient: OnlyReviewedClient,
+            SortByColumn: 0,
+            SortDirection: 0,
+            LastPageId: 2,
+            FetchCount: 8
+        };
+
+        return SearchPanelModel;
+    }
+</script>

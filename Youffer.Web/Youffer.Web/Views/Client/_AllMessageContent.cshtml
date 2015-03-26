@@ -1,0 +1,44 @@
+﻿@using Youffer.Web.Common.Helper;
+@model List<Youffer.Web.Resources.ViewModel.WebMessageModel>
+@foreach (var message in Model)
+{
+    <tr class="messageHistory" style="cursor:pointer;" data-wishlistid="@message.ClientWishListId" data-id="@message.MessageId">
+        <td class="profile-pop" style="max-width:150px;">
+            <div class="name">
+                <div>
+                    <table>
+                        <tr style="border-bottom: 0; height: 30px;">
+                            <td style="padding-right: 3px;">
+                                @if (!string.IsNullOrWhiteSpace(message.ImageUrl))
+                                {
+                                    <div class="smaller-image" style="background: url(@message.ImageUrl) center no-repeat; background-size: cover;"></div>
+                                }
+                                else
+                                {
+                                    <div class="smaller-image" style="background: url(@Youffer.Web.Common.Dummy.DummyData.NoImage) center no-repeat; background-size: cover;"></div>
+                                }
+                            </td>
+                            <td style="padding-right: 3px;">
+                                <div style="word-break:break-all;">@(GlobalConstants.SuperAdmin.ToLower().Equals(message.Name.ToLower()) ? "Youffer" : message.Name)</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </td>
+        <td>
+            @if (message.MessageMedia != null)
+            {
+                <div style="max-width: 450px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Attachment : @message.MessageMedia.OriginalFileName </div>
+            }
+            else
+            {
+                <div style="max-width: 450px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> @Html.Raw(message.MessageDescription)</div>
+            }
+        </td>
+        <td>@message.CreatedOn.ToString("MM/dd/yyyy")</td>
+        <td class="action-icons deleteMessage">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAQCAMAAAD+iNU2AAAA4VBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2IOqBAAAAS3RSTlMAr59vqTuoKCEarbenaHlXhz06LwYwqnhqKWxnjJSZD6NtQSMeB0NlP06WUBKXSl0LnByKLnoygExcEJiVFD6lAaakm00ItA1kLWuwkxv0AAAAoElEQVR4Xj3M1a7DQAwEUG8aToPQpMzMzAwX/v+D6nilzMPIR7YMlKLO9AKkUQZY5TzNLUEQmIFlMCwp2aZ36jtpERobiKBdh0qVu28DA60EMl3VAtdE+xHkyE7zz0J3uiCSzd5iibaHozF5Mp3N0bHnW+TVGrLorbLbkw9H8ukcX8j4VkZfb47KLZLv8Ai4ny8plELP/XDCz28myb+G8xcN5gw/mY1aBQAAAABJRU5ErkJggg==" class="delete-pop" onclick="DeleteMessage('@message.MessageId');" title="Delete" />
+        </td>
+    </tr>
+}

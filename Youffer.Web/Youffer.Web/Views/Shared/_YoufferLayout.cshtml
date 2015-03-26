@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href='@Youffer.Web.App_Start.Fingerprint.Tag("/Content/Youffer.css")' rel="stylesheet" />
+    <script src='@Youffer.Web.App_Start.Fingerprint.Tag("/Scripts/Youffer.js")'></script>
+    @if (Request.Url.Authority.ToLower().Contains("youffer.com"))
+    {
+        <!-- Start Visual Website Optimizer Asynchronous Code -->
+        <script type='text/javascript'>
+            var _vwo_code = (function () {
+                var account_id = 123534,
+                settings_tolerance = 2000,
+                library_tolerance = 2500,
+                use_existing_jquery = false,
+                // DO NOT EDIT BELOW THIS LINE
+                f = false, d = document; return { use_existing_jquery: function () { return use_existing_jquery; }, library_tolerance: function () { return library_tolerance; }, finish: function () { if (!f) { f = true; var a = d.getElementById('_vis_opt_path_hides'); if (a) a.parentNode.removeChild(a); } }, finished: function () { return f; }, load: function (a) { var b = d.createElement('script'); b.src = a; b.type = 'text/javascript'; b.innerText; b.onerror = function () { _vwo_code.finish(); }; d.getElementsByTagName('head')[0].appendChild(b); }, init: function () { settings_timer = setTimeout('_vwo_code.finish()', settings_tolerance); this.load('//dev.visualwebsiteoptimizer.com/j.php?a=' + account_id + '&u=' + encodeURIComponent(d.URL) + '&r=' + Math.random()); var a = d.createElement('style'), b = 'body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}', h = d.getElementsByTagName('head')[0]; a.setAttribute('id', '_vis_opt_path_hides'); a.setAttribute('type', 'text/css'); if (a.styleSheet) a.styleSheet.cssText = b; else a.appendChild(d.createTextNode(b)); h.appendChild(a); return settings_timer; } };
+            }()); _vwo_settings_timer = _vwo_code.init();
+        </script>
+        <!-- End Visual Website Optimizer Asynchronous Code -->
+
+        <script>(function () { var _fbq = window._fbq || (window._fbq = []); if (!_fbq.loaded) { var fbds = document.createElement('script'); fbds.async = true; fbds.src = '//connect.facebook.net/en_US/fbds.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fbds, s); _fbq.loaded = true; } _fbq.push(['addPixelId', '767291240026345']); })(); window._fbq = window._fbq || []; window._fbq.push(['track', 'PixelInitialized', {}]);</script>
+        <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=767291240026345&amp;ev=PixelInitialized" /></noscript>
+    }
+
+    @*signalR related referecne*@
+        @*<script src="~/Scripts/jquery.signalR-2.1.2.js"></script>*@
+        <script src="http://www.youffer.com:88/signalr/hubs"></script>
+        <script>
+            $(document).ready(function () {
+                companyId = '@Youffer.Web.Filter.YoufferSecurity.UserId';
+                domain = '@Youffer.Web.Common.Helper.AppSettings.Get(Youffer.Web.Common.Helper.GlobalConstants.DomainKey, "www.youffer.com")';
+            });
+
+        </script>
+        <script src="~/Scripts/PushMessage.js"></script>
+        @*signalR related referecne end*@
+        <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+        <!-- Custom Fonts -->
+        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'> <!-- font-family: 'Slabo 27px', serif; -->
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'> <!-- font-family: 'PT Sans', sans-serif; -->
+        <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'> <!-- font-family: 'Arvo', serif; -->
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <script>
+            $(document).ready(function () {
+                $('#leftPanel a').removeClass("active");
+                if (window.location.href.indexOf('/MyClients') > -1) {
+                    $('#myClients').addClass("active");
+                }
+                else if (window.location.href.indexOf('/Dashboard') > -1) {
+                    $('#home').addClass("active");
+                }
+                else if (window.location.href.indexOf('/ReviewClient') > -1) {
+                    $('#reviewClients').addClass("active");
+                }
+                else if (window.location.href.indexOf('/Invoices') > -1) {
+                    $('#invoices').addClass("active");
+                }
+                else if (window.location.href.indexOf('/Search') > -1) {
+                    $('#search').addClass("active");
+                }
+                else if (window.location.href.indexOf('/AllMessages') > -1) {
+                    $('#messages').addClass("active");
+                }
+                else if (window.location.href.indexOf('/Settings') > -1) {
+                    $('#settings').addClass("active");
+                }
+                else if (window.location.href.indexOf('/Statistics') > -1) {
+                    $('#statistics').addClass("active");
+                }
+                else if (window.location.href.indexOf('/Contact') > -1) {
+                    $('#contact').addClass("active");
+                }
+            })
+        </script>
+
+    </head>
+
+    @using Microsoft.AspNet.Identity
+    <body>
+        @if (Request.Url.Authority.ToLower().Contains("youffer.com"))
+        {
+            <!-- Google Tag Manager -->
+            <noscript>
+                <iframe src="//www.googletagmanager.com/ns.html?id=GTM-P58XX3"
+                        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+            </noscript>
+            <script>
+                (function (w, d, s, l, i) {
+                    w[l] = w[l] || []; w[l].push({
+                        'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                    }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+                })(window, document, 'script', 'dataLayer', 'GTM-P58XX3');</script>
+            <!-- End Google Tag Manager -->
+        }
+        <input type="hidden" id="webVersion" value="1.1" />
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="@Url.Action("Dashboard", "Admin")"><img src="data:image/png;base64,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" /></a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="@Url.Action("WhatIsYouffer", "Home")">What is Youffer?</a>
+                        </li>
+
+                        <li>
+                            <a href="@Url.Action("HowItWorks", "Home")">How It Works?</a>
+                        </li>
+
+                        <li>
+                            <a target="_blank" href="/Download" style="color: #1699cd; font-weight: 400;">Download App</a>
+                        </li>
+
+                        <li class="login-popup">
+                            <a class="login-btn-new" style="cursor:pointer" onclick="ShowloginForm();">Login</a>
+                        </li>
+
+                        <li class="register-popup">
+                            <a class="signup-btn" href="#" style="cursor:pointer" onclick="ShowRegisterForm();">Register</a>
+                        </li>
+                    </ul>
+                    @*<div id="_register"></div>
+                        <div id="_login"></div>*@
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+        <div class="popup-register" id="_register">
+            @{ Html.RenderAction("Register", "Account");}
+        </div>
+        <div class="popup-login" id="_login">
+            @{ Html.RenderAction("Login", "Account");}
+        </div>
+
+        <div class="popup-ForgotPassword" id="_forgotPassword">
+            @{ Html.RenderAction("ForgotPassword", "Account");}
+
+        </div>
+        <div class="popup-wrapper" style="width:auto; height:auto;"></div>
+        @RenderBody()
+        @{Html.RenderPartial("~/Views/Shared/HomePageFooter.cshtml");}
+        @*@Scripts.Render("~/bundles/bootstrap")*@
+        @Html.Partial("_PopAlert")
+        @Html.Partial("_PopConfirm")
+        @Html.Partial("DevicePreview")
+        @RenderSection("scripts", required: false)
+        @if (Request.Url.Authority.ToLower().Contains("youffer.com"))
+        {
+            <script>
+                (function (i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+                ga('create', 'UA-58589051-1', 'auto');
+                ga('send', 'pageview');
+            </script>
+        }
+        @*<script type='text/javascript'>(function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '50badc76-f59d-4d94-857c-02ec10140177', f: true }); done = true; } }; })();</script>*@
+        ><!-- begin olark code -->
+        <script data-cfasync="false" type='text/javascript'>
+            /*<![CDATA[*/window.olark || (function (c) {
+                var f = window, d = document, l = f.location.protocol == "https:" ? "https:" : "http:", z = c.name, r = "load"; var nt = function () {
+                    f[z] = function () {
+                        (a.s = a.s || []).push(arguments)
+                    }; var a = f[z]._ = {
+                    }, q = c.methods.length; while (q--) {
+                        (function (n) {
+                            f[z][n] = function () {
+                                f[z]("call", n, arguments)
+                            }
+                        })(c.methods[q])
+                    } a.l = c.loader; a.i = nt; a.p = {
+                        0: +new Date
+                    }; a.P = function (u) {
+                        a.p[u] = new Date - a.p[0]
+                    }; function s() {
+                        a.P(r); f[z](r)
+                    } f.addEventListener ? f.addEventListener(r, s, false) : f.attachEvent("on" + r, s); var ld = function () {
+                        function p(hd) {
+                            hd = "head"; return ["<", hd, "></", hd, "><", i, ' onl' + 'oad="var d=', g, ";d.getElementsByTagName('head')[0].", j, "(d.", h, "('script')).", k, "='", l, "//", a.l, "'", '"', "></", i, ">"].join("")
+                        } var i = "body", m = d[i]; if (!m) {
+                            return setTimeout(ld, 100)
+                        } a.P(1); var j = "appendChild", h = "createElement", k = "src", n = d[h]("div"), v = n[j](d[h](z)), b = d[h]("iframe"), g = "document", e = "domain", o; n.style.display = "none"; m.insertBefore(n, m.firstChild).id = z; b.frameBorder = "0"; b.id = z + "-loader"; if (/MSIE[ ]+6/.test(navigator.userAgent)) {
+                            b.src = "javascript:false"
+                        } b.allowTransparency = "true"; v[j](b); try {
+                            b.contentWindow[g].open()
+                        } catch (w) {
+                            c[e] = d[e]; o = "javascript:var d=" + g + ".open();d.domain='" + d.domain + "';"; b[k] = o + "void(0);"
+                        } try {
+                            var t = b.contentWindow[g]; t.write(p()); t.close()
+                        } catch (x) {
+                            b[k] = o + 'd.write("' + p().replace(/"/g, String.fromCharCode(92) + '"') + '");d.close();'
+                        } a.P(2)
+                    }; ld()
+                }; nt()
+            })({
+                loader: "static.olark.com/jsclient/loader0.js", name: "olark", methods: ["configure", "extend", "declare", "identify"]
+            });
+
+            @{
+            var youfferOlarkId = "";
+            if (Request.Url.Authority.ToLower().Contains("youffer.com"))
+            {
+                youfferOlarkId = "7564-588-10-3386";
+            }
+            else
+            {
+                youfferOlarkId = "6678-912-10-5270";
+            }
+                    }
+            /* custom configuration goes here (www.olark.com/documentation) */
+            olark.identify('@youfferOlarkId');/*]]>*/</script><noscript><a href="https://www.olark.com/site/@youfferOlarkId/contact" title="Contact us" target="_blank">Questions? Feedback?</a> powered by <a href="http://www.olark.com?welcome" title="Olark live chat software">Olark live chat software</a></noscript>
+        <!-- end olark code -->
+    </body>
+</html>

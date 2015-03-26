@@ -1,0 +1,10 @@
+﻿Initiate request "api/company/getdashboard?lastPageId=0&fetchCnt=8&interest=" at 3/16/2015 12:36:26 PM
+Request "api/company/getdashboard?lastPageId=0&fetchCnt=8&interest=" complete at 3/16/2015 12:37:04 PM
+Initiate request "api/company/company-details" at 3/16/2015 12:37:04 PM
+Request "api/company/company-details" complete at 3/16/2015 12:37:06 PM
+Initiate request "api/company/payment-config?country=India" at 3/16/2015 12:37:06 PM
+Request "api/company/payment-config?country=India" complete at 3/16/2015 12:37:06 PM
+Initiate request "api/company/getcompanymessages?lastpageId=0&fetchCount=10&sortBy=&direction=desc" at 3/16/2015 12:37:18 PM
+Request "api/company/getcompanymessages?lastpageId=0&fetchCount=10&sortBy=&direction=desc" complete at 3/16/2015 12:37:19 PM
+Initiate request "api/company/unreviewedclients?lastpageId=0&fetchCount=10" at 3/16/2015 12:37:20 PM
+Request "api/company/unreviewedclients?lastpageId=0&fetchCount=10" complete at 3/16/2015 12:37:22 PM

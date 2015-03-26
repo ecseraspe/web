@@ -1,0 +1,180 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebRegisterModel
+
+
+<style>
+    #registerChosenPopUp .chosen-container {
+        outline: 0;
+        font-weight: 400;
+        display: block;
+        width: 100%;
+        min-height: 45px !important;
+        padding: 6px 12px 6px 43px !important;
+        font-size: 16px !important;
+        line-height: 1.428571429;
+        color: #555;
+        vertical-align: middle;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc !important;
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1) !important;
+        -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        margin-bottom: 10px;
+    }
+
+    .register-form .chosen-choices {
+        max-height: 50px !important;
+        overflow: auto !important;
+    }
+
+    .register-form .chosen-drop {
+        margin-top: -5px;
+    }
+
+    #registerChosenPopUp .chosen-container-multi .chosen-choices li.search-field input[type="text"], #registerChosenPopUp .chosen-container-multi .chosen-choices li.search-choice {
+        margin-top: 7px;
+        display: block;
+    }
+</style>
+<script>
+    $.validator.unobtrusive.parse(document);
+    $(document).ready(function () {
+        $("#ddlBusinesstype").chosen({ no_results_text: "Oops, nothing found!" });
+
+        $('#ddlBusinesstype').on('change', function (evt, params) {
+            if ($(this).val() != null && $(this).val() != undefined) {
+                $(".hSelectedBusinessTypes").val($(this).val().join(","));
+                $('span[data-valmsg-for="SelectedBusinessType"] span').remove();
+            }
+            else {
+                $(".hSelectedBusinessTypes").val("");
+            }
+        });
+    });
+
+    function RegisterFail(err) {
+        $("#divRegisterFail").html(err.responseText);
+    }
+
+    function RegisterSuccess(data) {
+        if (data != undefined && data == true) {
+            //closeRegisterPopup();
+            @if(Request.Url.Authority.ToLower().Contains("youffer.com")){
+            @:ga('send', 'event', 'Registration', 'Join Youffer', 'Company Registration', 1);
+
+            }
+            window.location = '@Url.Action("Dashboard", "Admin", new {step="registration-success" })';
+        }
+        else {
+            $("#_register").html(data);
+            ShowRegisterForm();
+        }
+    }
+</script>
+
+<!-- popup Register -->
+<div class="popup-register">
+    <div class="popup-signup" id="popup" style="max-height: 1000px; top: 50px; position: absolute;">
+        <div class="popup-content">
+            <!-- register form begin -->
+            <div class="popup-content-login" style="display: block;">
+                <div onclick="closeRegisterPopup();" class="Cs_close_icon" style="margin-right: 0px"></div>
+                <h3 class="text-center">Join Our Online Revolution</h3>
+                @*
+                    facebook and google plus login removed.
+                    <div class="input-wrap text-center">
+                        <center>
+                        (If you already have Company page )
+                        <img src="/img/fb-connect.png" class="login-img" style="margin-bottom:10px;" onclick="ConnectWithFacebook();" />
+                        <a href="#"><img src="/img/gconnect.png" class="login-img" /></a> <br />
+                    </center>
+                    </div>
+                *@
+
+                @using (Ajax.BeginForm("Register", "Account", new { }, new AjaxOptions { HttpMethod = "POST", OnBegin = "DisableRegister", OnComplete = "EnableRegister", OnSuccess = "RegisterSuccess", OnFailure = "RegisterFail" }, new { @class = "register-form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div id="divRegisterFail">@Html.ValidationMessage("registerError")</div>
+                    <div class="input-wrap" style="">
+                        @Html.TextBoxFor(x => x.SelectedBusinessType, new { @class = "not-visible hSelectedBusinessTypes" })
+                        <div class="register-img-Div">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAABGCAMAAACANYYPAAAAPFBMVEUXoNb///8XoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYxauUbAAAAE3RSTlMAAAIJCikrR1xjg6Oox9Hc4ujz8mJuBwAAAGRJREFUeF7tlMsOgCAMBFtF8QU++P9/NfW+gaNsOklvc5tmRVVlCFVGE7+bS5ULyy5HASQOmb/gGgCZpGDeAQ9JwWMB3CQFtwlw+uT65PYn438mKYgX6dcFfXKNphc1Ymkm9Si/F+x/XeWygucAAAAASUVORK5CYII=" style="margin-top: 6px;" class="register-img" />
+                        </div>
+                        @Html.TextBoxFor(x => x.CompanyName, new { id = "register-input", @placeholder = "Company Name", maxlength = "100", @class = "registerTxt" })
+                        @Html.ValidationMessageFor(x => x.CompanyName)
+
+                        <div class="register-img-Div">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD0AAAAmCAMAAABArWODAAAA6lBMVEUXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNbJh/MnAAAATXRSTlMAAQIDBAUGBwgJCgsNDhARExQWGhweICIkJikrLjAzNjg7PkFER0tOUVVYXF9jZ2tvc3d7f4OIjJGVmp6jqK2yt7zBx8zR19zi6O3z+e6mPhMAAAHRSURBVHhendRtU9pAGIXhOzFYGouWglSQvlhECoK1LVqoINWINAnn//+dzuzslEETEzgfM3Pl2czZJ4DzU1ulB7gVaG1h42P4iqczqIab4vk+7lh40sileL8Znnq8mctoPZRwRpvgSziOZbXiD9DNjz/DhWS0fZvDUZzPhmW8qda0ZgXzJdm5K/B2oSdaYYWdm2x85XCy1DMtncFFFm7j/JAStKnu4/IlG9XY/aNkbaorL9Jx4FMJlaxtdYVZGh67nEpp2lbnDJPxOc61MrRmu5wm2LiJHyhLm+qqkZ7kcZ/3kXJoqUPxyZhbj56UrW1161vzHfe38mlb3WprdGIucX69KEPDbk34DjM6t554FGuUzMC7V9SbMMit+3AYqYs3MVtxLg2gucylozp07LX/1jGvkG52zF5m6nsf95dMgj3+m3mJwixTXzn4weoYq12OGzjDDN2CeqTknEM7VduielL6knEYpeqJZ4pNz8MefpCi+9iK0xMd4Y6TdNQwv/isdGHwXAe+eZydkWsvjtW2KG+STe2cg8WabsHBo3ImqlG4tdoW9Wmp/OngDK3W1MO51Ea5dmgbrT7mIJvlvkg1Em4Dyn+1ccIqrwOAL9oqbdx/gqNjjmwq9SkAAAAASUVORK5CYII=" style="margin-top: 16px;" class="register-img" />
+                        </div>
+                        @Html.TextBoxFor(x => x.Email, new { id = "register-input", @placeholder = "Email", maxlength = "100", @class = "registerTxt" })
+                        @Html.ValidationMessageFor(x => x.Email)
+
+                        <div class="register-img-Div">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAMAAADypuvZAAABs1BMVEUXoNb///8XoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNZOsqSxAAAAkHRSTlMAAAIBBQPz/fv3CBRXWMPrIxcqHG3oxxjK9fkr01YvIdUpQh4TmK8PJgkGg+LA3MXXvn9Z5swEGshpzw3xlU1hINFnrYXkDDE+C7lKFjjt2YulEeDp2iUdLKZ3OXk0wXHeTkcOo1W6qJJLQ7JfLkCG7yigTHuaiRV8sGxPGaIHNxAynhsiSSddb7eUNV6RNmS5YdPOAAACdElEQVR4XpXV91PbMBQHcFWO7dgOIaMkQCATsgkpI+xRoMxR9uzee++999CfXGLJ3MlSbPf7k+R3n+hOfn4BFhHn7ozcQzgPHmZE/eGRg9QmgraCqKzGBDtUGUBMzr6xRtpuE4uU0EUrFEy7ES8tWm2UuYRq5LtWCwkr5nOu7K2SVVe+BhptpsnV2+/y09kpfb38mY8yRdo8XtMfqwWluuto46I9mTLnggBH9Va38hgPuXoQlS6XURmQqvsP0xx0GtG5LhiVREt1H7rAGvhNptHoIYqWq3tpl0XiJKIzkjNKBXKrLHLJJiTvkEruOKqJ2N6J4cJN938gVJ4Iq08X9At3jpDkfX7mBLJHbKxQpcXOxFkET9mY+ieATUS2Rt4kB6Vs0LUca1wFayS9ZLtcvIys83qIQWIrqa0X+cZ9nvlyoYf05HAqwUftc2Yk1C2T3+vbGuQaKWKeRkJ3AzH+QCfi5oaAEWuUcOQY39yCpmEp1NWTVx4M8I2SFAGNoEfCpVLMF+KauwkAaASNu+69vx1HxnrS+CCa5h8tqcCERA+pdkb9eIQVGzefbbX97H5x9CATyVcQAAMxZkYbRgcZbJ/NvhUAHRpVDNMY1fTZu/EeF/iIPqccWJTIVLVDsI6YBt/HDbwaE62QbiRyQ8FPJwn3A2sEjXfqDn/pJeYrtEauhcN+2+kgjTxOGxa1NpL2DePekab6VABs0Do2PdtZfM48S1iETdw3jk8sLQGnqD/St4n1D+gUeaOL+AaV/n3gEPXPtDXpJv3LBx0ipXVN0U1zihQcoNBv8g+XHnKOkDFR/wDnyMg+dIz+6j1amlXzAnCK/gFdOWy4PiT7wwAAAABJRU5ErkJggg==" style="margin-top: 14px;" class="register-img" />
+                        </div>
+                        @Html.PasswordFor(x => x.Password, new { id = "register-input", @placeholder = "Password", maxlength = "100", @class = "registerTxt" })
+                        @Html.ValidationMessageFor(x => x.Password)
+
+                        <div class="register-img-Div">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAMAAADypuvZAAABs1BMVEUXoNb///8XoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNZOsqSxAAAAkHRSTlMAAAIBBQPz/fv3CBRXWMPrIxcqHG3oxxjK9fkr01YvIdUpQh4TmK8PJgkGg+LA3MXXvn9Z5swEGshpzw3xlU1hINFnrYXkDDE+C7lKFjjt2YulEeDp2iUdLKZ3OXk0wXHeTkcOo1W6qJJLQ7JfLkCG7yigTHuaiRV8sGxPGaIHNxAynhsiSSddb7eUNV6RNmS5YdPOAAACdElEQVR4XpXV91PbMBQHcFWO7dgOIaMkQCATsgkpI+xRoMxR9uzee++999CfXGLJ3MlSbPf7k+R3n+hOfn4BFhHn7ozcQzgPHmZE/eGRg9QmgraCqKzGBDtUGUBMzr6xRtpuE4uU0EUrFEy7ES8tWm2UuYRq5LtWCwkr5nOu7K2SVVe+BhptpsnV2+/y09kpfb38mY8yRdo8XtMfqwWluuto46I9mTLnggBH9Va38hgPuXoQlS6XURmQqvsP0xx0GtG5LhiVREt1H7rAGvhNptHoIYqWq3tpl0XiJKIzkjNKBXKrLHLJJiTvkEruOKqJ2N6J4cJN938gVJ4Iq08X9At3jpDkfX7mBLJHbKxQpcXOxFkET9mY+ieATUS2Rt4kB6Vs0LUca1wFayS9ZLtcvIys83qIQWIrqa0X+cZ9nvlyoYf05HAqwUftc2Yk1C2T3+vbGuQaKWKeRkJ3AzH+QCfi5oaAEWuUcOQY39yCpmEp1NWTVx4M8I2SFAGNoEfCpVLMF+KauwkAaASNu+69vx1HxnrS+CCa5h8tqcCERA+pdkb9eIQVGzefbbX97H5x9CATyVcQAAMxZkYbRgcZbJ/NvhUAHRpVDNMY1fTZu/EeF/iIPqccWJTIVLVDsI6YBt/HDbwaE62QbiRyQ8FPJwn3A2sEjXfqDn/pJeYrtEauhcN+2+kgjTxOGxa1NpL2DePekab6VABs0Do2PdtZfM48S1iETdw3jk8sLQGnqD/St4n1D+gUeaOL+AaV/n3gEPXPtDXpJv3LBx0ipXVN0U1zihQcoNBv8g+XHnKOkDFR/wDnyMg+dIz+6j1amlXzAnCK/gFdOWy4PiT7wwAAAABJRU5ErkJggg==" style="margin-top: 14px;" class="register-img" />
+                        </div>
+                        @Html.PasswordFor(x => x.ConfirmPassword, new { id = "register-input", @placeholder = "Confirm Password", maxlength = "100", @class = "registerTxt" })
+                        @Html.ValidationMessageFor(x => x.ConfirmPassword)
+
+                        <div class="register-img-Div">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAAA4CAMAAACVBGV+AAABFFBMVEUXoNYXoNYXoNYXoNYXoNYXoNYXoNb///8XoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYBzCBfAAAAW3RSTlMAkY44AV/DAPMLYRnFkgIIJ3cxGqJjj3U2OjM7sgoYVzeqx3vAILQEPq9wKmw9FoWMHmim+Wk5ncj7VPFbHW8TJoiG7xs1ibDrEvUXbWIVZ75KTKtdzswHUVAGyONm8AAAAVFJREFUeF7t1Fdv4kAUhuHPNmDANrYBAwm9twDpvffetu/5//8jgiiMSDIj2ZYirdbv3YyOnouj0YDbki2xsnvgpIJXnmZbdyu0T2grOm1nlS7bLoUh0agYe6tYJrp3KZwSLYOVI0q5FFJEC2DNEWlfLmhE+7NCSSCEPpZItQrbCXZMFloaO7ImQmkxokfeV+seHW/o0/vNldH5Re3DlB6RNRVXUfLT9QHWyF89ZHwKBgyfggTpnxAC4bGetW07W294FcohvBbaFQlp4tUASydeaeTi4c+LHwJm37KsvglY3KkchFVo3BkEqRA2PxGSYqE5UD6vM2QCbjqcqUFTsMlbJqAn2KREvO4AhcZVAMfTe3CAWF5RlHwMePAkVMHqehLoaQo8kzeBqk58nPPtP/4fAiEQAiEQDJ+CgbBP4TvMH76Anybw67eckb2Vkf/8VV8Arp+hJvRtcHYAAAAASUVORK5CYII=" style="margin-top: 15px; z-index: 99999;" class="register-img" />
+                        </div>
+                        <div id="registerChosenPopUp">
+                            <select id="ddlBusinesstype" multiple data-placeholder="Select Business Type" class="registerTxt">
+                                @foreach (var i in Model.BusinessType)
+                                {
+                                    <option value="@i.BusinessTypeId">@i.BusinessType</option>
+                                }
+                            </select>
+                        </div>
+                        @Html.ValidationMessageFor(x => x.SelectedBusinessType)
+                        <div class="register-img-Div">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAA1CAMAAAANg/lgAAAAxlBMVEUXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNaLSm5hAAAAQXRSTlMAAQIEBQYHCAkKDhARExQWGBocHiQmKSsuMDM2ODtBREdLUVhcY2drb3N7f4OIjJWanqOorbfBx8zR19zi6O3z+Qxo0/cAAAFhSURBVHheldTrUuJAEIDRzgyIaNAFIQILWRRQ5CYicpNc+v1faqugUp1k6Gn4/gVOpTqZVEOSrnsaLqwTI0b+RdQZ47EGyJXXeCooirYZYdJSsiNM9WK3fczk2mwhzuKdsuC/mGtswe+Yr8njTwOHmsUrNGqx+OsaPDfsgR9jaIz8B9i6Obu6Ab7HrH0FWypN9w9gb032W4FQn/AKKHnogqhDwj0RjwnvRFxF6lnUG8JboORD7EhYRYQDLelXpCYSVgFSnqR9pKJbATtbpNaO/K6pOQhN8IqH1Ie0/qA/Kv2BeaxPmG6U/Dw4v6TeMnqhAABKP3jMF9bNpgzQTo42do2x9xkdNqa23erGyDaDfC3k6xq6x+P4jv/+zLbK0E1eT8GoFrK6Zur7Xw77YFbcMLgNZ1LLs3bPbMJebNqDC0wl4+YLDXztIGP/gTU9JL6rgJRTX5zsTMEl6arX8srJ1X9Nu9dDsH0cpAAAAABJRU5ErkJggg==" style="margin-top: 11px;" class="register-img" />
+                        </div>
+                        <div style="clear: both;">
+                            @Html.DropDownListFor(x => x.CountryCode, new SelectList(Model.CountryCodeList, "Isd", "Display", "1"), new { id = "register-input", style = "float: left;width: 38%;border-right: none;border-top-right-radius: 0px;border-bottom-right-radius: 0px;" })
+                            @Html.TextBoxFor(x => x.PhoneNumber, new { id = "register-input", @placeholder = "Phone Number", maxlength = "11", @class = "registerTxt", style = "float: left;width: 62%;border-left: none;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" })
+                            @Html.ValidationMessageFor(x => x.PhoneNumber)
+                        </div>
+                        <div style="clear: both;">
+                            @Html.CheckBoxFor(x => x.Terms, new { @style = "float:left; margin-top: 20px; padding: 0px !important;" })
+                            <a href="@Url.Action("TermsandCondition", "Home")" style="text-decoration: none; color: #333; cursor: pointer; float:left; margin-left:10px; margin-top:15px; width:auto; margin-bottom: 0px;" target="_blank">
+                                Terms and Conditions
+                            </a>
+                        </div>
+                        <div style="height: 5px; clear: both;">@Html.ValidationMessageFor(x => x.Terms)<br /></div>
+                        <label style="color: #fff; width: 100%; margin-bottom: 0px;">
+                            <input id="btnRegister" type="submit" class="btn btn-default btn-lg" value="Join Youffer" style="background: #1699cd; width: 100%; color: #fff; height: 46px; outline: 0; text-decoration: none; padding: 0px !important;" />
+                        </label>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function DisableRegister() {
+        $("#btnRegister").prop("disabled", "disabled");
+        injectOverlay(".popup-register #popup");
+        showOverlay(".popup-register #popup");
+        setOverlayCustomClass(".popup-register #popup", "border-radius-large");
+    }
+
+    function EnableRegister() {
+        $("#btnRegister").removeAttr("disabled");
+    }
+
+    $(document).ready(function () {
+        $(".registerTxt").on("keyup", function () {
+            $("#divRegisterFail").html("");
+        });
+    });
+</script>

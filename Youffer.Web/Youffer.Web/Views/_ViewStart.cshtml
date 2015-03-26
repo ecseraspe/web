@@ -1,0 +1,11 @@
+﻿@{
+    if (Youffer.Web.Filter.YoufferSecurity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_NewYoufferLayout.cshtml";
+    }
+
+    else {
+        Layout = "~/Views/Shared/_YoufferLayout.cshtml";    
+    }
+    
+}

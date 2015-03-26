@@ -1,0 +1,98 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebClientWishListModel
+
+<style>
+    .rating table {
+        float: left;
+    }
+</style>
+<div class="lead">
+    @{
+        AjaxOptions ajaxOptions = new AjaxOptions();
+        ajaxOptions.HttpMethod = "Post";
+        ajaxOptions.OnBegin = "DisableMarkAsPurchased()";
+        ajaxOptions.OnComplete = "MarkAsPurchasedComplete";
+    }
+    @using (Ajax.BeginForm("MarkAsPurchased", "Lead", ajaxOptions))
+    {
+        @Html.HiddenFor(x => x.WishListId)
+        @Html.HiddenFor(x => x.PurchasedInterest)
+
+        <div style="text-align: center;">
+            <h3 class="text-center">Mark as purchased</h3>
+
+            <div style="display: inherit;">
+                <div style="margin-left:19%;" class="text-center BigRounded-Image">
+                    <img class="client-pic" src="@Model.Client.ImageUrl" />
+                    <br /><br />
+                </div>
+                <div style="clear: both;"></div>
+                <div style="margin-top:10px; text-align: center;" class="text-center">
+                    @if (Model.Client.Age > 0)
+                    {
+                        <span>@Model.Client.FirstName,&nbsp; @Model.Client.Age</span>
+                    }
+                    else
+                    {
+                        <span>
+                            @Model.Client.FirstName
+                        </span>
+                    }
+                    <br />
+
+                    <div class="rating" style="padding-left:27px; text-align: center; height: 30px; margin-top: 10px;">
+                        <span class="star">
+                            @{ Html.RenderAction("GetRating", "Common", new { rating = Model.Review.Rating, disabled = true, title = "Your Rating", className = Guid.NewGuid() }); }
+
+                        </span>&nbsp;
+                    </div>
+                    <span>Your Review: @Model.Review.Message</span>
+                    <span class="clearfix"></span>
+                    <div style="text-align: center; margin-top: 20px;"><input type="button" onclick="fnOnDlgConfirmNo(); $('.CnfrmPopBtns').show();" class="buy-button" value="No" style="text-align: center; margin-right: 40px;"><input type="submit" class="buy-button" id="btnMarkAsPurchased" value="Yes" style="text-align: center; margin-right: 10px;"></div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+
+    function DisableMarkAsPurchased() {
+        $("#btnMarkAsPurchased").prop("disabled", "disabled");
+        showLoader();
+    }
+
+    function MarkAsPurchasedComplete(res) {
+        hideLoader();
+        // show popConfirm buttons so that it can visible.
+        $(".CnfrmPopBtns").show();
+        $("#btnMarkAsPurchased").removeAttr("disabled");
+        fnOnDlgConfirmNo();
+        if (res.responseJSON.AuthError) {
+            handleAjaxError(res.responseJSON);
+            return;
+        }
+        if (res.responseJSON.result == true) {
+            popAlert("", "User marked as purchased.");
+            $('#popalert').delay(3000).fadeOut("slow", function () {
+                closePopAlert();
+            });
+
+            var wishListId = res.responseJSON.wishListId;
+            if (wishListId != undefined && wishListId != null) {
+                // remove row from dashboard review client
+                var dashboardReviewRow = $("#tblDashboardReviewclient #Detail_" + wishListId);
+                if (dashboardReviewRow != undefined) {
+                    $(dashboardReviewRow).remove();
+                }
+            }
+        }
+        else {
+            popAlert("", "Some error occured. Please try again.");
+        }
+    }
+
+    fnOnDlgConfirmNo = function () {
+        $(".CnfrmPopBtns").show();
+        closeConfirmDlg();
+    }
+</script>

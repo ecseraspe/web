@@ -1,0 +1,87 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebClientModel
+
+<div class="lead">
+
+    <div style="display: inherit;">
+        <div style="width:50%; float:left;">
+            <img class="client-pic" src="@Model.ImageUrl" width="85%"/>
+            <br /><br />
+        </div>
+
+        <div style="width:50%; float:left;">
+            @Model.FirstName, @Model.Age
+            <br />
+
+            <span class="interest-in">
+                Interest in:
+                <h4>Automobile </h4>
+            </span>
+
+            <div class="rating">
+                <span class="star">
+                    Rate:
+                    @for (int ranking = 0; ranking < Model.Ranking; ranking++)
+                    {
+                        <img src="/img/star.png" />
+                    }
+                    @{
+                        decimal k = (5m - Model.Ranking);
+                        while (k > 0)
+                        {
+                            <img src="/img/star-grey.png" />
+                            k--;
+                        }
+                    }
+                </span>
+                <span class="rate">(@Model.Ranking)</span>
+                <br />
+            </div>
+
+            <div style="margin-top: 10px;">
+                Availibility: @(Model.IsAvailable ? Model.PhoneNumber : "Not Available")
+                <br />
+            </div>
+
+            <button class="buy-button buy-pop" onclick="ShowPurchaseConfirmationPopup('@Model.WishListId');" style="margin-top:10px;" >Buy</button> <br />
+
+            <span class="clearfix"></span>
+        </div>
+
+        <br /><br />
+        <span class="clearfix"></span>
+    </div>
+
+    <div style="display: inherit;">
+
+
+        <div class="review-container">
+            <h5 style="margin: 0 0 10px 0px;" class="text-center">Previous Reviews</h5>
+
+            <div class="review">
+                <div class="date">12/04/2014</div>
+                <div class="rank">Rate: 3.0</div>
+                <span class="clearfix"></span>
+
+                <div class="review-box">
+                    <textarea readonly>lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pellentesque accumsan risus sit amet fringilla. Phasellus laoreet blandit tempus.</textarea>
+                </div>
+            </div>
+
+            <div class="review">
+                <div class="date">12/04/2014</div>
+                <div class="rank">Rate: 5.0</div>
+                <span class="clearfix"></span>
+
+                <div class="review-box">
+                    <textarea readonly>lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.</textarea>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <span class="clearfix"></span>
+</div>
+
+<!-- firstname,Age, country, Age, Gender -->

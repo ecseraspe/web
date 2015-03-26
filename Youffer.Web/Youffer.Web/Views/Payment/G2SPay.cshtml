@@ -1,0 +1,34 @@
+﻿@model string
+@{
+    ViewBag.Title = "G2S Payment";
+}
+<style>
+    iframe
+    {
+        outline: none;
+        width: 100%;
+        border: 0;
+        height: 1600px;
+    }
+
+    body .page-container
+    {
+        padding-top: 0;
+    }
+</style>
+<script type="text/javascript">
+    function iFrameLoaded() {
+        debugger;
+        if (document.getElementById("g2SiFrame").contentWindow.location.host) {
+            if (document.getElementById("g2SiFrame").contentWindow.location.host == "www.youffer.com") {
+                document.location.href = document.getElementById("g2SiFrame").contentWindow.location.href;
+            }
+            else if (document.getElementById("g2SiFrame").contentWindow.location.host == "") {
+                document.location.href = "http://www.youffer.com/";
+            }
+        }
+    }
+</script>
+<div class="page-container container">
+    <iframe src="@Model" id="g2SiFrame" onload="iFrameLoaded();"></iframe>
+</div>

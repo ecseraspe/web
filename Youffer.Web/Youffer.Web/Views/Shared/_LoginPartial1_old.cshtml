@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Youffer.Web.Filter.YoufferSecurity.IsAuthenticated)
+{
+    <div class="companyHeader">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @using (Html.BeginForm("LogOut", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="submit" value="Logout" name="Logout" id="logout-button" class="login-btn" />
+                }
+            </li>
+        </ul>
+    </div>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="@Url.Action('WhatIsYouffer', 'Home')">What is Youffer?</a>
+        </li>
+
+        <li>
+            <a href="@Url.Action('HowItWorks', 'Home')">How It Works?</a>
+        </li>
+
+        <li>
+            <a href="#" style="color: #1699cd; font-weight: 400;">Download App</a>
+        </li>
+
+        <li class="login-popup">
+            <a class="login-btn" style="cursor: pointer" onclick="login();">Login</a>
+        </li>
+
+        <li class="register-popup">
+            <a class="signup-btn" style="cursor: pointer" onclick="register();">Register</a>
+        </li>
+    </ul>
+<div id="_register"></div>
+<div id="_login"></div>
+<script>
+    function register() {
+        $.ajax({
+            url: '@Url.Action("Register", "Account")'
+        }).done(function (data) {
+            $("#_register").html(data);
+        });
+    }
+
+    function login() {
+        $.ajax({
+            url: '@Url.Action("Login", "Account")'
+        }).done(function (data) {
+            $("#_login").html(data);
+        });
+    }
+</script>
+}

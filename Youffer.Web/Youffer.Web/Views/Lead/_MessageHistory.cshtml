@@ -1,0 +1,73 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebClientWishListModel
+<style>
+    .chat-bubble1, .chat-bubble {
+        padding-top: 5px !important;
+    }
+</style>
+<div id="divNewMessageHiddenData" style="display:none;">
+    <input type="hidden" id="ChatWindowForPushNotification" value="1" />
+    <input type="hidden" name="ClientId" id="hClientId" value="@Model.Client.ClientId" />
+    <input type="hidden" name="WishListId" id="hWishListId" value="@Model.WishListId" />
+    <input type="hidden" name="FirstName" id="hFirstName" value="@Model.Client.FirstName" />
+    <input type="hidden" name="Image" id="hImage" value="@Model.Client.ImageUrl" />
+</div>
+<div id="messageHistoryPopup" class="popup-chat" style="display:block; height:410px; max-height:600px;max-width:400px !important;">
+    @*    back to new message window<input class="buy-button" id="reply-message" data-clientid="@Model.Client.ClientId" data-wishlistid="@Model.WishListId" onclick="ShowNewMessageWindow(this,1);" value="Reply" /><br />*@
+    <div class="popup-content" style="height:100%;">
+        <div class="lead" style="margin-bottom:0px; height:100%;">
+            <div style="display: inherit; height:100%;">
+                <div style="margin:10px 0px 10px 0px; padding: 15px 0px 15px 10px;  height:55px;" class="recip">
+                    <div class="VerySmallRounded-Image" style="margin-top:-7px;">
+                        <img class="client-pic" src="@Model.Client.ImageUrl" />
+                    </div>
+                    @(Model.Client.FirstName.ToLower().Equals(Youffer.Web.Common.Helper.GlobalConstants.SuperAdmin.ToLower()) ? "Youffer" : Model.Client.FirstName)
+                </div>
+
+                <div class="chat-div" id="divMessageHistory" style="height:240px; overflow:auto;">
+                    @Html.Partial("_MessageHistoryContent", Model)
+                    <span class="clearfix"></span>
+                </div>
+                <div class="bottom" style="height:105px;;">
+                    @using (Ajax.BeginForm("InstantMessage", "Client", new AjaxOptions() { HttpMethod = "POST", OnBegin = "ValidateInstantMessage", OnComplete = "InstantMessageComplete", OnSuccess = "ClearInstantMessageBox" }))
+                    {
+                        @Html.HiddenFor(x => x.WishListId)
+                        <input type="hidden" id="hWishListId" name="hWishListId" value="@Model.WishListId" />
+                        <textarea style="width:100%; font-size:13px; height:55px;" type="text" id="txtInstantMessage" name="txtInstantMessage" placeholder="Instant Message" value="" />
+                        <center>
+                            <input id="btnSendInstantMessage" class="buy-button" type="submit" value="Send" />
+                        </center>
+                    }
+                </div>
+                <span class="clearfix"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#divMessageHistory").scroll(function () {
+            if ($(this).scrollTop() == 0) {
+                var wishListId = $("#hWishListId").val();
+                if (wishListId != undefined) {
+                    GetMoreMessageConversation(wishListId);
+                }
+            }
+        });
+    });
+
+    function ValidateInstantMessage() {
+        var message = $("#txtInstantMessage").val()
+        if (message != undefined) {
+            if (message.trim().length > 0) {
+                $("#btnSendInstantMessage").prop("disabled", "disabled");
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    function InstantMessageComplete(data) {
+        $("#btnSendInstantMessage").removeProp("disabled");
+    }
+</script>

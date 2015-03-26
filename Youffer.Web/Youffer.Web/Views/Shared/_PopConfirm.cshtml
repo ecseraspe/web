@@ -1,0 +1,57 @@
+﻿<div id="dlgconfirm" class="dlgpanel" style="width: 350px; z-index: 9994;" align="left">
+    <span style="display: none" id="productid">0</span>
+    <div class="dlgdraghandle popdialogheader">
+        <div style="padding: 10px">
+            <table cellpadding="0" cellspacing="0" border="0" style="width: 100%">
+                <tr>
+                    <td class="popdialogtitle" id="confirmTitle" style="display: none;"></td>
+                    <td align="right">
+                        <a class="closeConfirmDlg" onclick="fnOnDlgConfirmNo('c');">
+                            <div class="rollover pointy Cs_close_icon"></div>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="sepmain">
+    </div>
+    <div style="margin: 20px">
+        <span id="confirmMessage"></span>
+        <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; margin-top: 25px">
+            <!-- upload popup -->
+            <tr>
+                <td>
+                    <table id="privacyConfirm" style="display:none;">
+                        <tr>
+                            <td><div id="rdPrivate" class="privacyLevel" tabindex="1" onclick="fnChangePrivacyLevel(this.id)"><input class="rdPrivacyLevel ez-hide" type="radio" name="rdPrivacy" value="1" style="float:left;" /></div>
+                            <td><span style="float: left; padding-top: 2px;">Private</span><span class="QuestionMark" title="‘Private’ events are only visible to you." style="margin-left:5px;"></span></td>
+                        </tr>
+                        <tr>
+                            <td><div id="rdMyConnections" class="privacyLevel" tabindex="2" onclick="fnChangePrivacyLevel(this.id)"><input class="rdPrivacyLevel ez-hide" type="radio" name="rdPrivacy" value="2" style="float:left;" /></div>
+                            <td><span style="float: left; padding-top: 2px;">My Connections</span><span class="QuestionMark" title="‘My Connections’ means only the people you are connected to can see your event." style="margin-left:5px;"></span></td>
+                        </tr>
+                        <tr>
+                            <td><div id="rdPublic" class="privacyLevel" tabindex="3" onclick="fnChangePrivacyLevel(this.id)"><input class="rdPrivacyLevel ez-hide" type="radio" name="rdPrivacy" value="3" style="float:left;" /></div>
+                            <td><span style="float: left; padding-top: 2px;">Public</span><span class="QuestionMark" title="‘Public’ means anyone who navigates to your page can see your event." style="margin-left:5px;"></span></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <!-- upload popup  -->
+            <tr>
+                <td style="float:left;width: 100%;margin-bottom:10px;">
+                    <label id='lblchlremember' style='display:none'><input id="chkremember" type="checkbox" value="Clickme" onclick="SetDeleteConfirmCookie();" /> Do not show this message again </label>
+                    <div class="CnfrmPopBtns" style="text-align: center;"><input type="button" onclick="fnOnDlgConfirmNo();" class=" buy-button" value="No" style="text-align: center; margin-right: 10px;"/><input type="button" onclick="fnOnDlgConfirmYes();" class="buy-button" id="okAlert" value="Yes" style="text-align: center; margin-right: 10px;" /></div>
+                </td>
+                <td>  </td>
+
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //$("#dlgconfirm").draggable({ handle: '.dlgdraghandle', containment: 'window' });
+</script>

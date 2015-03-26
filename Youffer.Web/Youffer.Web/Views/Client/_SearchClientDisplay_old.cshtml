@@ -1,0 +1,47 @@
+﻿@model List<Youffer.Web.Resources.ViewModel.WebClientWishListModel>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <tr id="Detail_@item.WishListId" data-ispurchased="true" data-wishlistid="@item.WishListId" data-companyid="@item.CompanyId" data-firstname="@item.Client.FirstName" data-imageurl="@(item.Client.ImageUrl !=null ?@item.Client.ImageUrl:@Youffer.Web.Common.Dummy.DummyData.NoImage)" data-interest="@item.PurchasedInterest" data-age="@item.Client.Age">
+            <td class="profile-pop">
+                <span class="name">
+                    <span class="client-pic-span">
+                        <img class="client-pic" src="@item.Client.ImageUrl" />
+                    </span>
+                    <span style="margin-top: 40px; margin-left: 78px; display: block;">@item.Client.FirstName</span>
+                </span>
+            </td>
+            <td class="">
+                @if (item.Client.Age > 0)
+                {@item.Client.Age}
+                else
+                { <span>--</span> }
+            </td>
+            <td>
+                @if (!string.IsNullOrWhiteSpace(item.Client.Gender))
+                {@item.Client.Gender}
+                else
+                { <span>--</span> }
+            </td>
+            <td data-rate="@item.Ranking.ToString("N1")">
+                <div class="rating">
+                    <span class="star">
+                        @{ Html.RenderAction("GetRating", "Common", new { rating = item.Ranking, disabled = true, className = Guid.NewGuid(), isSearchable = true }); }
+                    </span>                    
+                    <br />
+                </div>
+            </td>
+            <td>
+                @using (Html.BeginForm("Checkout", "Payment", FormMethod.Post))
+                {
+                    <input type="submit" class="buy-button buy-pop" style="margin-top:10px;" value="Buy ($5)" /> <br />
+                    @Html.Hidden("clientInterest", item.SubInterest.FirstOrDefault());
+                    @Html.Hidden("clientId", item.WishListId);
+                }
+                <a href="#" style="font-size: 12px;" class="profile-pop" onclick="GetclientProfileAndReview('@item.WishListId', '@item.SubInterest.FirstOrDefault()');"> View Profile </a>
+            </td>
+        </tr>
+    }
+}

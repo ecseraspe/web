@@ -1,0 +1,57 @@
+﻿@{Youffer.Web.Resources.ViewModel.WebCompanyDashboardModel sessionModel = @Session["companyModel"] as Youffer.Web.Resources.ViewModel.WebCompanyDashboardModel;}
+<div class="left" id="leftPanel">
+    <div class="sidebar collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <div style="padding-left: 20px; min-height: 50px;">
+                    <a href="@Url.Action("Dashboard", "Admin")" style="padding: 0;">
+                    <div class="company-logo" style="word-break: break-all; word-wrap: break-word;">
+                        <div class="client-pic-span" style="float: left; margin-right: 5px; margin-top: 0px;"><img class="client-pic" style="width: 100%; min-height: 80px; overflow: hidden;" src="@sessionModel.CompanyLogo" /></div>
+                        @*<div class="client-pic-span" style="float: left; margin-right: 5px; height: 60px; width: 20%; margin-top: 0px;"><img class="client-pic" style="width: 100%; min-height: 70px; overflow: hidden;" src="@sessionModel.CompanyLogo" /></div>*@
+                        <div style="width: 54%; word-break: break-all; word-wrap: break-word; float: left; height: 60px;">@sessionModel.CompanyName</div>
+                        </div></a>
+                </div>
+            </li>
+            <li>
+                <a href="@Url.Action("Dashboard", "Admin")" id="home">Dashboard</a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("MyClients", "Lead")" id="myClients">My Clients</a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("ReviewClient", "Client")" id="reviewClients">Review Clients</a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("Invoices", "Admin")" id="invoices">Invoices</a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("Search", "Client")" id="search">Search</a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("AllMessages", "Client")" id="messages">Messages</a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("Settings", "Client")" id="settings">Settings</a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("Statistics", "Client")" id="statistics">Statistics</a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("Contact", "Home")" id="contact">Contact Us</a>
+            </li>
+
+
+            <li>
+                <a href="index.html" class="login-btn" style="display:none;">Logout</a>
+            </li>
+        </ul>
+    </div>
+</div>

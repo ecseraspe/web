@@ -1,0 +1,95 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebClientWishListModel
+@using Youffer.Web.Common.Extensions
+@using Youffer.Web.Filter
+@if (Model.SubInterest.IsAny())
+{
+    int subInterestCount = Model.SubInterest.Count();
+    Random rnd = new Random();
+    int interest = rnd.Next(0, subInterestCount);   
+    <div class="client-container-new">
+        <div class="lead-new block-client-new">
+            <div class="client-name">
+                @if (Model.Client.Age > 0)
+                {
+                    @(Model.Client.FirstName + ", " + Model.Client.Age)
+                }
+                else
+                {
+                    @Model.Client.FirstName
+                }
+            </div>
+            <div class="price-tag-new">
+                <em class="order-new">Order-</em>
+                    <em>@YoufferSecurity.CurrentAmountWithCurrency</em>                
+            </div>
+            <div style="display: inherit;width: 100%;">
+                @if (!string.IsNullOrWhiteSpace(Model.Client.ImageUrl))
+                {
+                    <div class="roundImages" style="position: relative; background: url(@Model.Client.ImageUrl) center no-repeat; background-size: cover;">
+                        <div class="strip">
+                            @if (Convert.ToInt16(Model.Ranking) == 5)
+                            {
+                                <img src="data:image/png;base64,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" />
+                            }
+                        </div>
+                    </div><br />
+                }
+                else
+                {
+                    <div class="roundImages" style="position: relative; background: url(@Youffer.Web.Common.Dummy.DummyData.NoImage) center no-repeat; background-size: cover;">
+                        <div class="strip">
+                            @if (Convert.ToInt16(Model.Ranking) == 5)
+                            {
+                                <img src="data:image/png;base64,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" />
+                            }
+                        </div>
+                    </div><br />
+                }
+                <div class="interest-in-new" title="@Model.SubInterest[interest]">
+                    <h5>Needs:</h5>
+                    <h4>@Model.SubInterest[interest]</h4>
+                </div>
+                <div class="button-container">
+                    @if (Youffer.Web.Filter.YoufferSecurity.IsAuthenticated)
+                    {
+                        if (!String.IsNullOrEmpty(Model.PurchasedInterest))
+                        {
+                            <a style="cursor:pointer;" onclick="GetclientProfileAndReview('@Model.Client.ClientId', '@Model.PurchasedInterest',true);"> View Profile </a>
+                        }
+                        else
+                        {
+                            <a style="cursor:pointer;" onclick="GetclientProfileAndReview('@Model.Client.ClientId', '@Model.SubInterest[interest]');"> View Profile </a>
+                        }
+                        using (Html.BeginForm("Checkout", "Payment", FormMethod.Post))
+                        {
+                            <input type="submit" class="buy-button-new" style="margin-top:10px;" value="Buy (@YoufferSecurity.CurrentAmountWithCurrency)" /> <br />                           
+                            @*<input type="submit" class="buy-button-new" style="margin-top:10px;" value="Buy ($5)" /> <br />*@
+                            @Html.Hidden("clientInterest", Model.SubInterest[interest]);
+                            @Html.Hidden("clientId", Model.WishListId);
+                        }
+                        }
+                    else
+                    {
+                        <a style="cursor:pointer;" onclick="ShowRegisterForm(); return false;" href="#"> View Profile </a>
+                        <input type="submit" class="buy-button-new" onclick="ShowRegisterForm(); return false;" style="margin-top:10px;" value="Buy (@YoufferSecurity.CurrentAmountWithCurrency)" /> <br />
+                    }
+                    <div class="clearfix-new"></div>
+                </div>
+                <hr class="client-box-hr">
+                <div style="padding: 0 7px 7px 7px;">
+                    @if (!string.IsNullOrWhiteSpace(Model.Client.Flag))
+                    {<img class="flag-new" src="@Model.Client.Flag" />}
+                    <div class="rating-new">
+                        <span class="star-new">
+                            @{Html.RenderAction("GetRating", "Common", new { rating = Model.Ranking, disabled = true, className = Guid.NewGuid(), title = "" });}
+                        </span>
+                    </div>
+                    <div class="clearfix-new"></div>
+                </div>
+                <div class="clearfix-new"></div>
+            </div>
+            <span class="clearfix-new"></span>
+        </div>
+    </div>
+}
+

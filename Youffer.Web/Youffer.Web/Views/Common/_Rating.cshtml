@@ -1,0 +1,58 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebRatingViewModel
+@using Youffer.Web.Common.Extensions
+<table align="right">
+    <tr>
+        <td>
+            @if (!string.IsNullOrWhiteSpace(Model.Title))
+            {
+                @Model.Title
+            }
+        </td>
+        <td>
+
+            @{
+                decimal rank = Convert.ToDecimal(Model.Rating).RateThis(true);
+                double Rank = Convert.ToDouble(rank);
+            }
+            @for (double index = 0.5; index <= 5; )
+            {
+                if (Rank > 0 && Rank == index)
+                {
+                    if (Model.Disabled)
+                    {
+                        <input type="radio" name="rating@(Model.RatingClassName)" id="str@(index)" value="@index" class="@Model.RatingClassName {split:2}" checked="checked" disabled="disabled" />
+                    }
+                    else
+                    {
+                        <input type="radio" name="rating@(Model.RatingClassName)" id="str@(index)" value="@index" class="required @Model.RatingClassName {split:2}" checked="checked" />
+                    }
+                }
+                else
+                {
+                    if (Model.Disabled)
+                    {
+                        <input type="radio" name="rating@(Model.RatingClassName)" id="str@(index)" value="@index" class="@Model.RatingClassName {split:2}" disabled="disabled" />
+                    }
+                    else
+                    {
+                        <input type="radio" name="rating@(Model.RatingClassName)" id="str@(index)" value="@index" class="required @Model.RatingClassName {split:2}" />
+                    }
+                }
+                index = (index + 0.5);
+            }
+        </td>
+        @if (Model.ShowRating)
+        {
+            <td>
+                (@Model.Rating.ToString("N1"))
+            </td>
+        }
+    </tr>
+</table>
+<script>
+    $(document).ready(function () {
+        $('input.@(Model.RatingClassName)').rating({
+            callback : @Html.Raw(Model.CallbackMethod)
+            });
+    });
+</script>

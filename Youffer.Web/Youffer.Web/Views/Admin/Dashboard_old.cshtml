@@ -1,0 +1,179 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebCompanyDashboardModel
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_YoufferLayout.cshtml";
+}
+<style>
+    .star-rating-control {
+        padding: 0px !important;
+    }
+
+    .client-pic-span {
+        height: 69px !important;
+    }
+</style>
+
+@Styles.Render("~/Content/ratingCss")
+@Scripts.Render("~/bundles/ratingJS")
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<div class="page-container">
+    @Html.Partial("~/Views/Shared/CompanyLeftPanel.cshtml")
+
+    <div class="dash-page">
+        <div class="content-section-b">
+            <input type="hidden" value="@Model.SubBusinessType.Count()" id="hBusinessTypeCount" />
+            <div class="row">
+                <div class="col-lg-2">
+
+                    <a href="@Url.Action("Search", "Client")">
+                        <div class="stat orange">
+                            <img src="/img/icons/Search.png" class="icon" />
+                            <br />
+                            <div style="background: rgba(0, 0, 0, 0.4);">
+                                Search
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-2">
+                    <a href="@Url.Action("MyClients", "Lead")">
+                        <div class="stat blue">
+                            <img src="/img/icons/clients.png" class="icon" />
+                            <br />
+                            <div style="background: rgba(0, 0, 0, 0.4);">
+                                My Clients
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-2">
+                    <a href="@Url.Action("AllMessages", "Client")">
+                        <div class="stat yellow">
+                            <img src="/img/icons/Send_message.png" class="icon" />
+                            <br />
+                            <div style="background: rgba(0, 0, 0, 0.4);">
+                                Messages
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-2">
+                    <a href="@Url.Action("ReviewClient", "Client")">
+                        <div class="stat purple">
+
+                            <img src="/img/icons/rate_client.png" class="icon" />
+                            <br />
+                            <div style="background: rgba(0, 0, 0, 0.4);">
+                                Rate Clients
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-2">
+                    <a href="@Url.Action("Settings", "Client")">
+                        <div class="stat green">
+
+                            <img src="/img/icons/Setting_icon.png" class="icon" />
+                            <br />
+                            <div style="background: rgba(0, 0, 0, 0.4);">
+                                Settings
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-2">
+                    <a href="@Url.Action("HowItWorks", "Home")">
+                        <div class="stat red">
+
+                            <img src="/img/icons/how_works.png" class="icon" />
+                            <br />
+                            <div style="background: rgba(0, 0, 0, 0.4);">
+                                How It Works
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+            <!-- /.container -->
+        </div>
+
+        <div class="content-section-b">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-heading page-title" style="text-align: center;">Suggested Clients</h2>
+                </div>
+                <div class="col-lg-6"></div>
+            </div>
+            @{
+                if (Model != null && Model.ClientWishList != null)
+                {
+                    if (Model.ClientWishList.Any())
+                    {
+                        <div>
+                            <div class="container">
+                                <div id="divDashboardClients" class="clientBox">
+                                    @Html.Partial("_Clients", Model.ClientWishList)
+                                </div>
+                            </div>
+
+                            @*comment out the code when API team confirm about paging.*@
+                            @*@if (Model.ClientWishList.Count > 7)
+                            {
+                                <div id="divLoadMoreDashboardClient" class="search-div" style="clear:both; margin:auto;">
+                                    <div class="big-btn" style="margin:auto; float: none;">
+                                        <a style="cursor:pointer;" onclick="GetMoreDashboardClient(8, BindMoreDashboardClient);">Show More</a>
+                                    </div>
+                                </div>
+                            }*@
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row">
+                            <center><h4>Sorry, no results to display.</h4></center>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="row">
+                        <center><h4>Sorry, no results to display.</h4></center>
+                    </div>
+                }
+
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    if (window.opener) {
+        window.opener.location.href = '@Url.Action("Dashboard", "Admin")';
+        window.close();
+    }
+
+    $(document).ready(function () {
+        var businessTypeCount = $("#hBusinessTypeCount").val();
+        if (parseInt(businessTypeCount) == 0) {
+            ShowCompleteRegistration();
+        }
+    });
+
+    function BindMoreDashboardClient(data) {
+        if (data != null && data != undefined && data.length > 0) {
+            $("#divDashboardClients").append(data);
+            $("#divLoadMoreDashboardClient").show();
+        }
+        else {
+            $("#divLoadMoreDashboardClient").hide();
+            var view = "<div class='row'></div><div class='row'><h4 class='section-heading text-center' '>No more results to show</h4></div>";
+            $("#divDashboardClients").append(view);
+        }
+    }
+</script>

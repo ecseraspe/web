@@ -1,0 +1,44 @@
+﻿<ul class="nav navbar-nav navbar">
+    <li><a href="@Url.Action("Dashboard", "Admin")" id="home">Home</a></li>
+    <li><a href="@Url.Action("Search", "Client")" id="search" style="color: #1699cd;">Search</a></li>
+    <li><a href="@Url.Action("ReviewClient", "Client")" id="reviewClients">Review Clients</a></li>
+    <li><a href="@Url.Action("Invoices", "Admin")" id="invoices">Invoices</a></li>
+    <li><a href="@Url.Action("MyClients", "Lead")" id="myClients">My Clients</a></li>
+    <li><a href="@Url.Action("AllMessages", "Client")" id="messages">Messages</a></li>
+    <li><a href="@Url.Action("Settings", "Client")" id="settings">Settings</a></li>
+    <li><a href="@Url.Action("Statistics", "Client")" id="statistics">Statistics</a></li>
+    <li><a href="@Url.Action("Contact", "Home")" id="contact">Contact Us</a></li>
+</ul>
+
+<script>
+    $(document).ready(function () {
+        $('.menuBar a').removeClass("activeMenu");
+        if (window.location.href.indexOf('/MyClients') > -1) {
+            $('#myClients').addClass("activeMenu");
+        }
+        else if (window.location.href.indexOf('/Dashboard') > -1) {
+            $('#home').addClass("activeMenu");
+        }
+        else if (window.location.href.indexOf('/ReviewClient') > -1) {
+            $('#reviewClients').addClass("activeMenu");
+        }
+        else if (window.location.href.indexOf('/Invoices') > -1) {
+            $('#invoices').addClass("activeMenu");
+        }
+        else if (window.location.href.indexOf('/Search') > -1) {
+            $('#search').addClass("activeMenu");
+        }
+        else if (window.location.href.indexOf('/AllMessages') > -1) {
+            $('#messages').addClass("activeMenu");
+        }
+        else if (window.location.href.indexOf('/Settings') > -1) {
+            $('#settings').addClass("activeMenu");
+        }
+        else if (window.location.href.indexOf('/Statistics') > -1) {
+            $('#statistics').addClass("activeMenu");
+        }
+        else if (window.location.href.indexOf('/Contact') > -1) {
+            $('#contact').addClass("activeMenu");
+        }
+    })
+</script>

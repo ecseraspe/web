@@ -1,0 +1,11 @@
+﻿@model List<Youffer.Web.Resources.ViewModel.WebClientWishListModel>
+@using Youffer.Web.Common.Extensions
+@if (Model.IsAny())
+{ 
+    foreach (var item in Model)
+    {
+        @Html.Partial("_newClient", item);
+    }
+    <div style="clear:both;"></div>
+    
+}

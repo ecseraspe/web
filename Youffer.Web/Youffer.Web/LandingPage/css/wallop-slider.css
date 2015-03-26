@@ -1,0 +1,43 @@
+/**************************************************
+
+  wallop-slider.css
+
+  This files contains the basic styles required
+  for the slider to work.
+
+  Note: There is no animation included in this file.
+
+**************************************************/
+
+.wallop-slider {
+	position: relative;
+	overflow: hidden;
+	width: 318px;
+	margin: auto;
+	padding-top: 124px;
+	height: 605px;
+}
+
+.wallop-slider__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wallop-slider__item {
+  display: none;
+  position: absolute;
+  /*top: 0;*/
+  left: 0;
+  width: 100%;
+}
+
+.wallop-slider__item img {
+  display: block;
+  width: 100%;
+}
+
+.wallop-slider__item--current {
+  display: block;
+  position: relative;
+}

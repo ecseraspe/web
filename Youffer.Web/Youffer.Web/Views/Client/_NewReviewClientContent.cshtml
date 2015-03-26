@@ -1,0 +1,45 @@
+﻿@model List<Youffer.Web.Resources.ViewModel.WebClientWishListModel>
+
+@if (Model.Any())
+{
+    foreach (Youffer.Web.Resources.ViewModel.WebClientWishListModel item in Model)
+    {
+        <tr id="Detail_@(item.WishListId)" data-interest="@item.PurchasedInterest" data-companyid="@item.CompanyId" data-firstname="@item.Client.FirstName" data-imageurl="@(item.Client.ImageUrl !=null ?@item.Client.ImageUrl:@Youffer.Web.Common.Dummy.DummyData.NoImage)" data-age="@item.Client.Age">
+            <td title="View client profile" data-wishlistid="@item.WishListId" onclick="GetclientProfileAndReview('@item.Client.ClientId', '@item.PurchasedInterest',true);" style="cursor: pointer;">
+                <div class="name">
+                    <div>
+                        <table>
+                            <tr style="border-bottom: 0; height: 30px;">
+                                <td style="padding-right: 3px;">
+                                    @if (!string.IsNullOrWhiteSpace(item.Client.ImageUrl))
+                                    {
+                                        <div class="smaller-image" style="background: url(@item.Client.ImageUrl) center no-repeat; background-size: cover;"></div>
+                                    }
+                                    else
+                                    {
+                                        <div class="smaller-image" style="background: url(@Youffer.Web.Common.Dummy.DummyData.NoImage) center no-repeat; background-size: cover;"></div>
+                                    }
+                                </td>
+                                <td style="padding-right: 3px;">
+                                    <div style="width: 70px; word-break:break-all;">@item.Client.FirstName</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>           
+            </td>
+            <td data-wishlistid="@item.WishListId" onclick="GetclientProfileAndReview('@item.Client.ClientId', '@item.PurchasedInterest',true);" style="cursor: pointer;">@item.CreatedOn.ToString("MM/dd/yyyy")</td>
+            <td style="text-align: center;">
+                <span data-wishlistid="@item.WishListId" title="Write a review" style="cursor: pointer; color: #1699cd;" id="rate-@(item.Client.ClientId)" onclick="ShowReviewForm(this);">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAMAAADX9CSSAAAAmVBMVEX///85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms85ms+1/XmpAAAAM3RSTlMAAXioCQPDKroYCFDMABfFEcgHCzoCdA0cD7eisLUVRTUQN0k8XHzkbCYGPwRZXW3H5iGjjhyaAAAAjUlEQVR4Xo3K1w7CMBQE0TXghOJLSKP33tv/fxwYCa24fmEejwZhyEZjC5mlEcsAyPIw6SPeGvzUTDr50KDb07x6DAxQqek7rlvQFX+c7Kaev05ue6Yrni/oZKDVoJPpiulk5SYh04H1piDTJd3tS4R+PJ2pdPaH56Ff3l5cRXMZWUBu96rKPeEToxIAL95OCXiVwg4qAAAAAElFTkSuQmCC" style="margin-right: 4px;" title="Write a review" />
+                </span>
+            </td>
+            <td data-wishlistid="@item.WishListId" style="text-align: center;">
+                <span title="Mark as purchased" id="purchase-@(item.Client.ClientId)" data-wishlistid="@item.WishListId" style="cursor: pointer;" onclick="MarkAsPurchased(this);">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAMAAAC6CgRnAAAA7VBMVEX///8I0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0ABq0KLSAAAATnRSTlMAAAHrexFBAgsDBdWMqo8g4HmiCeLznRebGgjDD3zKRFUqtS7BP0ozf3ANPe1fad7ZiAev1xL5zppNO3eoxV1S7wTHOIa6/U/mDin1UQy7BCKoAAAA80lEQVR4Xm3S5W7DMBiF4fPZ4bQrbIUVxszMzPjd/+XMrdc4cfz8OtIrS5ZlZKa3N5b6/fZuTcDSafKEXAiRIxqcV6+ZlKywZY2gxXNcMq8TddlhFiPr7JIKAKLOTqsAFtnWWq6MDhJQsZPs0JCVU9COnXzaG48AiZVmfLrWaxNbVorIY20KAz32A8nKQUSHnLUjPY7JV/GkR+ZqDdCZXp6K5z1xwZlLoMmTOEhEu/hqV5zFsMqGFEDc4n83t5xzB+WeXR4eoYgnV3vGWCTLySNofim+kPl/r4Xy9k4wKPgwqfuJIvE1TJn5u/rzCxeKQ4LxB9/6kQPEr7NBAAAAAElFTkSuQmCC" style="margin-right: 4px;" title="Mark as purchased" />
+                </span>
+            </td>
+        </tr>
+    }
+}
+

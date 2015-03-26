@@ -1,0 +1,50 @@
+﻿@model Youffer.Web.Resources.ViewModel.LoginModel
+<script>
+    $.validator.unobtrusive.parse(document);
+    $(document).ready(function () {
+        $("#loginForm input").on("keyup", function () { $("#divLoginFail").html(""); });
+    });
+</script>
+<div class="popup-login">
+    <div class="popup-signup" id="popup" style="">
+        <div onclick="closeLoginPopup();" class="Cs_close_icon" style="margin-right: 0px"></div>
+        <h4 class="text-center">Login</h4>
+        <div class="popup-content">
+            <!-- login form begin -->
+            <div class="popup-content-login" style="display: block;">
+                @using (Ajax.BeginForm("Login", "Account", new { }, new AjaxOptions { HttpMethod = "POST", OnBegin = "DisableLogin", OnComplete = "EnableLogin", OnSuccess = "FormLoginSuccess" }, new { @class = "login-form", id = "loginForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div id="divLoginFail" style="margin-top:5px; height:5px;"> @Html.ValidationMessage("loginFail")</div>
+                    <div class="input-wrap" style="max-height: 600px; margin-top: 30px;">
+                        <div class="register-img-Div"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD0AAAAmCAMAAABArWODAAAA6lBMVEUXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNbJh/MnAAAATXRSTlMAAQIDBAUGBwgJCgsNDhARExQWGhweICIkJikrLjAzNjg7PkFER0tOUVVYXF9jZ2tvc3d7f4OIjJGVmp6jqK2yt7zBx8zR19zi6O3z+e6mPhMAAAHRSURBVHhendRtU9pAGIXhOzFYGouWglSQvlhECoK1LVqoINWINAnn//+dzuzslEETEzgfM3Pl2czZJ4DzU1ulB7gVaG1h42P4iqczqIab4vk+7lh40sileL8Znnq8mctoPZRwRpvgSziOZbXiD9DNjz/DhWS0fZvDUZzPhmW8qda0ZgXzJdm5K/B2oSdaYYWdm2x85XCy1DMtncFFFm7j/JAStKnu4/IlG9XY/aNkbaorL9Jx4FMJlaxtdYVZGh67nEpp2lbnDJPxOc61MrRmu5wm2LiJHyhLm+qqkZ7kcZ/3kXJoqUPxyZhbj56UrW1161vzHfe38mlb3WprdGIucX69KEPDbk34DjM6t554FGuUzMC7V9SbMMit+3AYqYs3MVtxLg2gucylozp07LX/1jGvkG52zF5m6nsf95dMgj3+m3mJwixTXzn4weoYq12OGzjDDN2CeqTknEM7VduielL6knEYpeqJZ4pNz8MefpCi+9iK0xMd4Y6TdNQwv/isdGHwXAe+eZydkWsvjtW2KG+STe2cg8WabsHBo3ImqlG4tdoW9Wmp/OngDK3W1MO51Ea5dmgbrT7mIJvlvkg1Em4Dyn+1ccIqrwOAL9oqbdx/gqNjjmwq9SkAAAAASUVORK5CYII=" style="margin-top: 16px;" class="register-img" /></div>
+                        @Html.TextBoxFor(x => x.Email, new { id = "register-input", @placeholder = "Email", type = "email", @class = "loginTxt" })
+                        @Html.ValidationMessageFor(x => x.Email)
+
+                        <div class="register-img-Div"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAMAAADypuvZAAABs1BMVEUXoNb///8XoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNYXoNZOsqSxAAAAkHRSTlMAAAIBBQPz/fv3CBRXWMPrIxcqHG3oxxjK9fkr01YvIdUpQh4TmK8PJgkGg+LA3MXXvn9Z5swEGshpzw3xlU1hINFnrYXkDDE+C7lKFjjt2YulEeDp2iUdLKZ3OXk0wXHeTkcOo1W6qJJLQ7JfLkCG7yigTHuaiRV8sGxPGaIHNxAynhsiSSddb7eUNV6RNmS5YdPOAAACdElEQVR4XpXV91PbMBQHcFWO7dgOIaMkQCATsgkpI+xRoMxR9uzee++999CfXGLJ3MlSbPf7k+R3n+hOfn4BFhHn7ozcQzgPHmZE/eGRg9QmgraCqKzGBDtUGUBMzr6xRtpuE4uU0EUrFEy7ES8tWm2UuYRq5LtWCwkr5nOu7K2SVVe+BhptpsnV2+/y09kpfb38mY8yRdo8XtMfqwWluuto46I9mTLnggBH9Va38hgPuXoQlS6XURmQqvsP0xx0GtG5LhiVREt1H7rAGvhNptHoIYqWq3tpl0XiJKIzkjNKBXKrLHLJJiTvkEruOKqJ2N6J4cJN938gVJ4Iq08X9At3jpDkfX7mBLJHbKxQpcXOxFkET9mY+ieATUS2Rt4kB6Vs0LUca1wFayS9ZLtcvIys83qIQWIrqa0X+cZ9nvlyoYf05HAqwUftc2Yk1C2T3+vbGuQaKWKeRkJ3AzH+QCfi5oaAEWuUcOQY39yCpmEp1NWTVx4M8I2SFAGNoEfCpVLMF+KauwkAaASNu+69vx1HxnrS+CCa5h8tqcCERA+pdkb9eIQVGzefbbX97H5x9CATyVcQAAMxZkYbRgcZbJ/NvhUAHRpVDNMY1fTZu/EeF/iIPqccWJTIVLVDsI6YBt/HDbwaE62QbiRyQ8FPJwn3A2sEjXfqDn/pJeYrtEauhcN+2+kgjTxOGxa1NpL2DePekab6VABs0Do2PdtZfM48S1iETdw3jk8sLQGnqD/St4n1D+gUeaOL+AaV/n3gEPXPtDXpJv3LBx0ipXVN0U1zihQcoNBv8g+XHnKOkDFR/wDnyMg+dIz+6j1amlXzAnCK/gFdOWy4PiT7wwAAAABJRU5ErkJggg==" style="margin-top: 14px;" class="register-img" /></div>
+                        @Html.PasswordFor(x => x.Password, new { id = "register-input", @placeholder = "Password", @class = "loginTxt" })
+                        @Html.ValidationMessageFor(x => x.Password)
+
+                        <div style="margin-top: -19px; font-size: 15px;"><a onclick="ShowForgotPasswordForm();" style="cursor: pointer;">Forgot Password</a></div>
+
+                        <label style="color:#fff; width:100%;margin-top: 10px;">
+                            <input type="submit" id="btnLogin" class="btn btn-default btn-lg" value="Login" style="background:#1699cd; width:100%;color:#FFF; height: 46px; outline:0; text-decoration: none; padding:0px !important;" />
+                        </label>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function DisableLogin() {
+        $("#btnLogin").prop("disabled", "disabled");
+        injectOverlay(".popup-login #popup");
+        showOverlay(".popup-login #popup");
+        setOverlayCustomClass(".popup-login #popup", "border-radius-large");
+        setOverlayImageCustomClass(".popup-login #popup", "login-overlay-img-custom-margin");
+    }
+    function EnableLogin() {
+        $("#btnLogin").removeAttr("disabled");
+    }
+</script>

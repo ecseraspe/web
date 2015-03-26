@@ -1,0 +1,237 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebContactModel
+<script type="text/javascript" language=javascript>
+    $.validator.unobtrusive.parse(document);
+</script>
+<div class="large-box">
+    <div>
+        <div class="box-heading">
+            Contact Us
+        </div>
+        <div class="large-box-data" id="">
+            <section id="ContactForm">
+                <div id="Contact" style="text-align: justify; margin: 0 auto; width: 975px;">
+                    <table style="width: 930px; margin: auto;">
+                        <tr>
+                            <td colspan="3">
+                                <h3 style="margin-top: 5px; text-align: center;">Contact Information</h3>
+                                <div class="note">
+                                    <p style="font-weight: bold;">
+                                        Even if there is something you have always wanted to experience and
+                                        can't find it on Youffer, let us know and we promise we'll do our
+                                        best to find it for you and send you there.
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: top; min-width: 150px; max-width:150px;">
+                                <aside id="contact-info">
+                                    <dl>
+                                        <h4>HEADQUARTERS OFFICE</h4>
+                                        <dd>
+                                            <address style="text-align: left; font-size: 15px; color: rgb(7, 6, 6);">
+                                                Youffer,<br />
+                                                224 Datura Street Suite 409<br />
+                                                West Palm Beach Florida 33401<br />
+                                            </address>
+                                        </dd>
+                                    </dl>
+                                </aside>
+                            </td>
+                            <td style="min-width:150px; max-width:150px; vertical-align:top">
+                                <aside id="contact-info">
+                                    <dl>
+                                        <h4>MARKETING CENTER</h4>
+                                        <dd>
+                                            <address style="text-align: left; font-size: 15px; color: rgb(7, 6, 6);">
+                                                5th floor - V-Tower<br />
+                                                23th Bar kochva St. Bnei Brak, Israel<br />
+                                            </address>
+                                        </dd>
+                                    </dl>
+                                </aside>
+                            </td>
+                            <td style="min-width:150px; max-width:150px; vertical-align:top;">
+                                <aside id="contact-info">
+                                    <dl>
+                                        <h4>SUPPORT CENTER</h4>
+                                        <dd>
+                                            <address style="text-align: left; font-size: 15px; color: rgb(7, 6, 6);">
+                                                Think Future Technologies Private Limited,<br />
+                                                12th Floor,
+                                                JMD Regent Square,<br />
+                                                Gurgaon - 122001, Haryana, India<br />
+                                            </address>
+                                        </dd>
+                                    </dl>
+                                </aside>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <aside id="contact-info" style="margin: auto; width: 350px;">
+                                    <dl>
+                                        <dd>
+                                            <table>
+                                                <tr>
+                                                    <td>Telephone:</td>
+                                                    <td><a href="tel:+911242807000" title="Click to call us">1(239)-344-7866</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Skype:</td>
+                                                    <td><a href="skype:Youffer.team?call" title="Click to call us on Skype">Youffer.team</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Email:</td>
+                                                    <td><a href="mailto:support@youffer.com" title="Click to send us an email">Support@youffer.com</a></td>
+                                                </tr>
+                                            </table>
+                                        </dd>
+                                    </dl>
+                                </aside>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
+                                <div class="map-container">
+                                    <div id="gmap_canvas" style="height: 345px; width: 846px;"></div>
+                                </div>
+                                @*<a href="http://www.map-embed.com" class="map-data">google map</a>*@
+                                <link rel="stylesheet" type="text/css" href="http://www.map-embed.com/maps.css">
+                                <script type="text/javascript">
+                                    function init_map() {
+                                        var addresses = ['28.481349223551113, 77.08501823920892', '32.093339, 34.823541', '26.712153, -80.051646'];
+                                        for (var x = 0; x < addresses.length; x++) {
+                                            $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address=' + addresses[x] + '&sensor=false', null, window["infoWindow" + (x + 1)]);
+                                        }
+                                    }
+                                    var map;
+                                    var myOptions = {
+                                        zoom: 2,
+                                        minZoom: 2,
+                                        center: new google.maps.LatLng(35, -20),
+                                        mapTypeId: 'terrain'
+                                    };
+                                    map = new google.maps.Map($('#gmap_canvas')[0], myOptions);
+                                    var information = ["<span style='min-width:235px;'><strong>Support Center,</strong><br>Think Future Technologies Pvt. Ltd.<br>12th Floor, JMD Regent Square, MG Road<br>Gurgaon 122001 , Haryana</span>", "<span style='min-width:235px;'><strong>Marketing Center,</strong><br/>5th floor - V-Tower </br> 23th Bar kochva St. Bnei Brak, Israel</span>", "<span style='min-width:235px;'><strong>Headquarters Office,</strong><br/>Youffer</br>224 Datura Street Suite 409</br>  West Palm Beach Florida 33401 </span>"];
+                                    var infoWindow1 = function (data) {
+                                        var p = data.results[0].geometry.location;
+                                        var latlng = new google.maps.LatLng(p.lat, p.lng);
+                                        var marker = new google.maps.Marker({
+                                            position: latlng,
+                                            map: map,
+                                            title: "Support Center"
+                                        });
+                                        var infowindow1 = new google.maps.InfoWindow({ content: information[0] });
+                                        google.maps.event.addListener(marker, "click", function () {
+                                            infowindow1.open(map, marker);
+                                        });
+                                        infowindow1.open(map, marker);
+                                    }
+
+                                    var infoWindow2 = function (data) {
+                                        var p = data.results[0].geometry.location
+                                        var latlng = new google.maps.LatLng(p.lat, p.lng);
+                                        var marker = new google.maps.Marker({
+                                            position: latlng,
+                                            map: map,
+                                            title: "Marketing Center"
+                                        });
+                                        var infowindow2 = new google.maps.InfoWindow({ content: information[1] });
+                                        google.maps.event.addListener(marker, "click", function () {
+                                            infowindow2.open(map, marker);
+                                        });
+                                        infowindow2.open(map, marker);
+                                    }
+
+                                    var infoWindow3 = function (data) {
+                                        var p = data.results[0].geometry.location
+                                        var latlng = new google.maps.LatLng(p.lat, p.lng);
+                                        var marker = new google.maps.Marker({
+                                            position: latlng,
+                                            map: map,
+                                            title: "Headquarters Office"
+                                        });
+                                        var infowindow3 = new google.maps.InfoWindow({ content: information[2] });
+                                        google.maps.event.addListener(marker, "click", function () {
+                                            infowindow3.open(map, marker);
+                                        });
+                                        infowindow3.open(map, marker);
+                                    }
+
+                                    google.maps.event.addDomListener(window, "load", init_map);
+                                </script>
+                                <style>
+                                    .maps-style_map:initreaction=10false_attempt10-border
+                                </style>
+                                <style>
+                                    closemap"init"if=fb_connect-start="25"check_bandwith
+                                </style>
+                                @*<a id="get-map-data" href="http://www.stromleo.de" class="map-data">stromvergleich</a>*@
+                            </td>
+                        </tr>
+                        <tr style="vertical-align: top;">
+                            <td style="width: 311px;" colspan="3">
+                                @{
+                                    AjaxOptions ajaxOptions = new AjaxOptions();
+                                    ajaxOptions.HttpMethod = "Post";
+                                    ajaxOptions.OnComplete = "DisplayStatus";
+                                }
+                                @using (Ajax.BeginForm("Contact", "Home", ajaxOptions))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <h3>Contact US Form</h3>
+                                    @*<div id="contactError" style="display: none;"></div>*@
+                                    <table style="width: 100%">
+                                        <tr>
+                                            <td style="width: 50%;">
+                                                @Html.ValidationMessageFor(m => m.Name)
+                                                @Html.TextBoxFor(m => m.Name, new { id = "Name", @class = "text", placeholder = "Enter your name", style = "width:83%; height: 41px;" })
+                                            </td>
+                                            <td style="width: 50%;">
+                                                @Html.ValidationMessageFor(m => m.EmailId)
+                                                @Html.TextBoxFor(m => m.EmailId, new { id = "EmailId", @class = "text", type = "text", placeholder = "Enter your Email", style = "width:83%; height: 41px;" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                @Html.ValidationMessageFor(m => m.Message)
+                                                @Html.TextAreaFor(m => m.Message, new { id = "Message", @class = "text", placeholder = "Enter your message", style = "height:140px;max-width: 852px;" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="padding: 0; padding-right: 62px;">
+                                                <input type="submit" value="Submit" class="buy-button" style="margin-right: 32px; margin-bottom: 20px;" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                }
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+<div class="socialLinks">
+    <div class="email">
+        <a href="mailto:support@youffer.com"></a>
+    </div>
+    <div class="fb">
+        <a href="https://www.facebook.com/youfferapp" target="_blank"></a>
+    </div>
+    @*<div class="google">
+            <a href="https://plus.google.com/u/0/110965209408083750311/posts" target="_blank"></a>
+        </div>*@
+    <div class="skype" style="margin-left: 1px;">
+        <a href="skype:youffer.team?call"></a>
+    </div>
+    @*<div class="youtube">
+            <a href="https://www.youtube.com/channel/UCQqxK3Ye_cmVBe5fN37gO8g" target="_blank"></a>
+        </div>*@
+</div>
+

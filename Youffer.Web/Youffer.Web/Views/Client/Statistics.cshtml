@@ -1,0 +1,133 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebCompanyProfileModel
+@{
+    ViewBag.Title = "Statistics";
+    Layout = "~/Views/Shared/_NewYoufferLayout.cshtml";
+}
+<script src="~/HighChart/highcharts.js"></script>
+<script src="~/HighChart/exporting.js"></script>
+
+<!-- Page Content -->
+@{Youffer.Web.Resources.ViewModel.WebCompanyDashboardModel companyModel = @Session["companyModel"] as Youffer.Web.Resources.ViewModel.WebCompanyDashboardModel;}
+<div class="large-box setting-page" style="border: 0; background: #f7f7f7;">
+    <div class="large-box-data" id="" style="padding: 15px; background: #f7f7f7;">
+        <div class="dash-container search-filter">
+            <div class="row">
+                <div class="company-pic">
+                    <div id="edit-pic" class="edit-pic" style="padding:64px;" onclick="window.location.href = '@Url.Action("Settings","Client")'">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAMAAAAYAM5SAAABaFBMVEWOjo7///+Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Pj4+QkJCRkZGRkZGQkJCRkZGSkpKUlJSWlpaUlJSWlpaWlpaYmJicnJyjo6OgoKChoaGmpqajo6OlpaWvr6+mpqaxsbGnp6eoqKixsbGqqqq3t7e1tbWwsLCvr6+5ubm1tbW9vb2/v7/AwMDAwMDBwcHCwsLFxcXIyMjHx8fGxsbIyMjNzc3Ozs7V1dX////n5+f7+/vU1NT8/Pzk5OTm5ubQ0NDo6Ojt7e3v7+/z8/P09PT39/f5+fn6+vrR0dHGxsb9/f3+/v7Z2dny8vKIiIjV1dWUlJTc3Nzd3d3f39/g4ODh4eHi4uLj4+OcnJygoKCjo6OkpKTr6+utra3u7u6urq7w8PCGhoavr6+6urr19fXAwMDDw8N3d3fHx8fIyMjKysrOzs6Dg4PBPm5ZAAAAQ3RSTlMAAAECAwQFBwgJCg4QEhMUHB4gISEnLDQ4Ozw9Q0RJS1FncXd3e4iLi4+YnaCiprK0ubzFx9HT2ujo6Ovx8/n5+fv90wkZCgAAASBJREFUeF5t0lVXA0EMhuHMdluguEuhxd3dLVt3L+7u/vcJHTJLe3iv8p3nNiBU1ur6ukqLuZl050zSdxM6/Zxsk8oEzrUY/hZZbAaT9PEw/inYrzHp0wks6GlEkwSjRRLORHskOUI0A9cP+e4Qr/be8LjhhyzLJLl35G5fD72Is0DUEqFtGEqyXyToryUaQ0ksOyRUtwDYYFISR2pOQGmWiQXPkPrQoOKEiUWSxwrlR5JYmJI62DxMxiOJonUAWGK6v0ijSRMCRB8TZZK7k6jG9x/t2olgiq7EpVsVPUf0DggiUbVNlnt55gIZxNWSPAlXEIs6aBKSoMtfKPvt6gHAsZk2wb3SKJgo+5AnLiG21WsTTLKyjuGFVGp+sJVA9g3VKoRnvGggiAAAAABJRU5ErkJggg==" style="width:26px; height:25px;" />
+                    </div>
+                    <div class="img-CompanyLogo" style="background: url(@companyModel.CompanyLogo) center no-repeat; background-size: cover;"></div>
+                    <input type="file" id="file-CompanyImage" style="display:none;" />
+                </div>
+                <div class="company-name">@companyModel.CompanyName</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="large-box" style="min-height: 537px;">
+    <div>
+        <div class="box-heading">
+            Statistics
+        </div>
+        <div class="large-box-data" id="" style="padding-top:0px !important;">
+            <div class="content-section-b" style="padding-top:0px !important;">
+                <div class="">
+                    <div class="table-responsive">
+                        <table class="table table-condensed table-striped table-bordered table-hover no-margin">
+                            <thead>
+                                <tr>
+                                    <th style="width: 30%">Total Clients:&nbsp; <span id="totalClients">Loading...</span></th>
+                                    <th style="width: 40%" class="">Total Purchases:&nbsp;<span id="totalPurchases">Loading...</span></th>
+                                    <th style="width: 30%" class="">Avg Rating:&nbsp;<span id="avgRating">Loading...</span></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+
+                    <center>
+                        <div>
+                        <div id="loading" style="display:none">Loading. . .</div>
+                        <div id="container" style=" width:1022px; height:400px; margin: 0 auto; padding: 10px;"></div>
+                    </center>
+
+                    <!-- /.container -->
+                </div>
+                <!-- /.content-section-b -->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    var _totalClients = 0;
+    var _totalPurchases = 0;
+    $(function () {
+        $.ajax({
+            url: "/Client/GetStatictics",
+            cache: false,
+            beforeSend: function () { $('#loading').show(); },
+            error: function () { $('#loading').hide(); }
+        }).done(function (data) {
+            if (data.AuthError) {
+                handleAjaxError(data.error);
+            }
+            $('#loading').hide();
+            data.dates = data.dates.split(',').filter(function (n) { return n != ''; });
+            data.TotalClients = data.TotalClients.split(',').filter(function (n) { return n != ''; }).map(function (item) { return parseInt(item, 10); });
+            data.ClientsToMakePurchase = data.ClientsToMakePurchase.split(',').filter(function (n) { return n != ''; }).map(function (item) { return parseInt(item, 10); });
+            for (var client = 0; client < data.TotalClients.length; client++) {
+                _totalClients = _totalClients + data.TotalClients[client];
+            }
+            for (var client = 0; client < data.ClientsToMakePurchase.length; client++) {
+                _totalPurchases = _totalPurchases + data.ClientsToMakePurchase[client];
+            }
+            $('#container').highcharts({
+                title: {
+                    text: 'Daily Progress',
+                    x: -20 //center
+                },
+                xAxis: {
+                    categories: data.dates, labels: {
+                        rotation: -90,
+                        align: 'right',
+                        style: {
+                            fontSize: '13px',
+                            fontFamily: 'Verdana, sans-serif'
+                        }
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: null
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom',
+                    borderWidth: 0
+                },
+                series: [{
+                    name: 'Total Clients',
+                    data: data.TotalClients, color: 'Orange'
+                }, {
+                    name: 'Total clients purchased',
+                    data: data.ClientsToMakePurchase, color: 'Green'
+                }
+                ]
+            });
+
+            $("#totalClients").html(_totalClients);
+            $("#totalPurchases").html(_totalPurchases);
+            $("#avgRating").html(data.avgRating);
+        });
+    });
+</script>

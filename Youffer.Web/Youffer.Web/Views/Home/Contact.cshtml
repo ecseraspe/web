@@ -1,0 +1,250 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebContactModel
+@{
+    ViewBag.Title = "Contact Us";
+}
+<!--[if gt IE 9]>
+
+<![endif]-->
+<style>
+    .dash-page {
+        font-weight: 200;
+    }
+
+    td {
+        padding: 0;
+    }
+
+    table {
+        width: 95%;
+    }
+
+    input {
+        text-align: left;
+        width: 90%;
+    }
+
+    textarea {
+        text-align: left;
+        width: 93.5%;
+        height: 150px;
+    }
+
+    #Contact textarea {
+        height: 338px;
+        -webkit-appearance: none;
+        font-size: 1em;
+        line-height: 1.8em;
+        border: 1px solid #e2e2e2;
+        background: #fff;
+        margin: 0 0 11px 0;
+        padding: 8px;
+        border-radius: 10px;
+        background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,rgba(0,0,0,0.05)),color-stop(100%,rgba(0,0,0,0.02)));
+        background-image: -webkit-linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.02));
+        background-image: -moz-linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.02));
+        background-image: -o-linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.02));
+        background-image: linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.02));
+        outline: 0;
+    }
+
+    #Contact form div div {
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    #Contact form {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    #Contact input[type="text"], #Contact input[type="email"] {
+        -webkit-appearance: none;
+        font-size: 1em;
+        line-height: 1.8em;
+        text-align: left;
+        border: 1px solid #e2e2e2;
+        background: #fff;
+        margin: 0 0 11px 0;
+        padding: 8px;
+        border-radius: 10px;
+        background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,rgba(0,0,0,0.05)),color-stop(100%,rgba(0,0,0,0.02)));
+        background-image: -webkit-linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.02));
+        background-image: -moz-linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.02));
+        background-image: -o-linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.02));
+        background-image: linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.02));
+        outline: 0;
+    }
+
+        #Contact input[type="text"]:hover:not(:focus), #Contact input[type="email"]:hover:not(:focus) {
+            background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,rgba(0,0,0,0.05)),color-stop(100%,rgba(0,0,0,0.1)));
+            background-image: -webkit-linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.1));
+            background-image: -moz-linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.1));
+            background-image: -o-linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.1));
+            background-image: linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.1));
+            outline: 0;
+        }
+
+    .socialLinks {
+        position: fixed;
+        right: -1px;
+        top: 37%;
+    }
+
+
+    .fb a {
+        background-image: url('../img/links.png');
+        background-position: -120px -54px;
+        background-repeat: no-repeat;
+        display: -moz-inline-stack;
+        width: 39px;
+        height: 38px;
+        display: block;
+        cursor: pointer;
+    }
+
+    .skype a {
+        background-image: url('../img/skype-icon.png');
+        background-repeat: no-repeat;
+        display: -moz-inline-stack;
+        width: 38px;
+        height: 38px;
+        display: block;
+        cursor: pointer;
+        background-size: 38px 38px;
+        border-radius: 4px;
+    }
+
+    .google a {
+        background-image: url('../img/links.png');
+        background-position: -200px -54px;
+        background-repeat: no-repeat;
+        display: -moz-inline-stack;
+        width: 39px;
+        height: 38px;
+        display: block;
+        cursor: pointer;
+    }
+
+    .youtube a {
+        background-image: url('../img/links.png');
+        background-position: -400px -54px;
+        background-repeat: no-repeat;
+        display: -moz-inline-stack;
+        width: 39px;
+        height: 38px;
+        display: block;
+        cursor: pointer;
+    }
+
+    .email a {
+        background-image: url('../img/links.png');
+        background-position: -440px -54px;
+        background-repeat: no-repeat;
+        display: -moz-inline-stack;
+        width: 39px;
+        height: 38px;
+        display: block;
+        cursor: pointer;
+    }
+
+    #contact-info dt {
+        color: red;
+    }
+
+    #contact-info dd {
+        margin-left: 0;
+        margin-bottom: 5px;
+        font-style: italic;
+    }
+
+    #contact-info a {
+        text-decoration: none;
+        color: #204a65;
+    }
+
+    .note {
+        width: 90%;
+    }
+
+    #contactError {
+        color: red;
+        display: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    input, textarea {
+        width: 100%;
+    }
+
+    ::-webkit-input-placeholder {
+        font-weight: 100;
+        font-size: 1em;
+    }
+
+    ::-moz-placeholder {
+        font-weight: 100;
+        font-size: 12px;
+    }
+    /* firefox 19+ */
+    :-ms-input-placeholder {
+        font-weight: 100;
+        font-size: 12px;
+    }
+    /* ie */
+    input:-moz-placeholder {
+        font-weight: 100;
+        font-size: 12px;
+    }
+
+    h3 {
+        text-transform: uppercase;
+    }
+
+    #gmap_canvas {
+        border: 5px solid white;
+        margin: 0;
+    }
+
+    .map-container {
+        border: 2px solid black;
+        width: 850px;
+        height: 350px;
+    }
+
+    #Name, #EmailId, #Message {
+        font-size: 13px !important;
+    }
+
+    span.field-validation-error {
+        margin-bottom: 0;
+    }
+</style>
+
+<!-- Page Content -->
+@if (!Youffer.Web.Filter.YoufferSecurity.IsAuthenticated)
+{
+    <div style="padding-top: 68px;"></div>
+}
+<div class="page-container contact-page" style="padding-top:0;">
+    @Html.Partial("_Contact", Model);
+</div>
+
+<script>
+    function DisplayStatus(data) {
+        if (data.responseJSON) {
+            if (data.responseJSON.result == true) {
+                popAlert("", "Your request will be responded soon");
+                $('#popalert').delay(3000).fadeOut("slow", function () {
+                    closePopAlert();
+                });
+                $("#Name").val("");
+                $("#EmailId").val("");
+                $("#Message").val("");
+            }
+            else {
+                popAlert("Error", "Some error found, try refreshing the page and re-submit the form");
+            }
+        }
+    }
+</script>

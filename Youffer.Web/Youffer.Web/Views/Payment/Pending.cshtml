@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Pending";
+}
+
+<div class="page-container container">
+    <h2>@ViewBag.Title</h2>
+    <p>You will be redirected to HomePage in 10 seconds, if not then click <a href="/Lead/MyClients">here...</a></p>
+</div>
+<script type="text/javascript">
+    function formatPage() {
+        if (companyId) {
+            jQuery('.page-container.container').css("width", "1024px");
+            jQuery('.page-container.container').css("padding-top", "0");
+        }
+    }
+    window.onload = function () {
+        setTimeout(function () {
+            location.pathname = "Lead/MyClients"
+        }, 10000);
+        formatPage();
+    }
+    formatPage();
+</script>

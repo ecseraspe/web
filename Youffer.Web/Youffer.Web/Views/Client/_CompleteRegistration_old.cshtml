@@ -1,0 +1,153 @@
+﻿@model  Youffer.Web.Resources.ViewModel.WebCompanyProfileModel
+
+@Styles.Render("~/Content/DropDownCss")
+@Scripts.Render("~/bundles/DropDownJS")
+<link href="~/Content/CustomChosen.css" rel="stylesheet" />
+
+@*<link href="~/Content/chosen.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/chosen.jquery.js"></script>
+    <script src="~/Scripts/prism.js"></script>*@
+
+<style>
+    #registerChosenPopUp .chosen-container {
+        outline: 0;
+        font-weight: 400;
+        display: block;
+        width: 100%;
+        min-height: 45px !important;
+        padding: 6px 12px 6px 43px !important;
+        font-size: 16px !important;
+        line-height: 1.428571429;
+        color: #555;
+        vertical-align: middle;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc !important;
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1) !important;
+        -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        margin-bottom: 10px !important;
+    }
+
+    #registerChosenPopUp .chosen-container-multi .chosen-choices li.search-field input[type="text"], #registerChosenPopUp .chosen-container-multi .chosen-choices li.search-choice {
+        margin-top: 7px;
+        display: block;
+    }
+
+     #registerChosenPopUp .chosen-results{
+         height: 150px;
+     }
+
+    #register-input {
+        margin-bottom: 20px;
+    }
+
+    .dlgpanel {
+        min-height: 380px;
+        overflow: hidden;
+    }
+
+    .register-form{
+        margin-top: -30px;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $.validator.unobtrusive.parse(document);
+        $("#ddlBusinesstype").chosen({ no_results_text: "Oops, nothing found!" });
+        $('#ddlBusinesstype').on('change', function (evt, params) {
+            if ($(this).val() != null && $(this).val() != undefined) {
+                $("#hSelectedBusinessTypes").val($(this).val().join(","));
+            }
+            else {
+                $("#hSelectedBusinessTypes").val("");
+            }
+        });
+    });
+
+    function RegisterSuccess(data) {
+        if (data) {
+            popAlert("Company details submitted successfully!");
+            closePopAlert();
+            if ($("#btnSearchDashboardClient").length > 0) {
+                $("#btnSearchDashboardClient").click();
+            }
+        }
+        else {
+            popAlert("company detail could not be update. Please try again");
+        }
+    }
+</script>
+
+<!-- popup Register -->
+<div class="popup-register">
+    <div class="popup-signup1" id="popup" style="">
+        <div class="popup-content1">
+            <!-- register form begin -->
+            <div class="popup-content-login1" style="display: block;">
+                <h4 class="text-center" style="font-weight:400;margin-top: 20px;">Please complete registration details</h4> <br />
+                @using (Ajax.BeginForm("CompleteRegister", "Client", new { }, new AjaxOptions { HttpMethod = "POST", OnSuccess = "RegisterSuccess", OnFailure = "RegisterFail" }, new { @class = "register-form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="input-wrap" style="margin-top: 30px;">
+                        @Html.HiddenFor(x => x.SelectedBusinessTypeId, new { id = "hSelectedBusinessTypes" })
+                        <div class="register-img-Div"> <img src="/img/icons/Comapnyname.png" style="margin-top: 6px;" class="register-img" /></div>
+                        @Html.TextBoxFor(x => x.CompanyName, new { id = "register-input", @placeholder = "Company Name" })
+                        @Html.ValidationMessageFor(x => x.CompanyName)
+
+                        <div class="register-img-Div">
+                            <img src="/img/icons/MainBussinesType.png" style="margin-top: 15px; z-index: 99999;" class="register-img" />
+                        </div>
+                        <div id="registerChosenPopUp" style="margin-bottom: 20px;">
+                            <select id="ddlBusinesstype" multiple data-placeholder="Select Business Type">
+                                @foreach (var i in Model.BusinessTypes)
+                                {
+                                    <option value="@i.BusinessTypeId">@i.BusinessType</option>
+                                }
+                            </select>
+                        </div>
+                        @Html.ValidationMessageFor(x => x.SelectedBusinessTypeId)
+
+                        <div class="register-img-Div">
+                            <img src="/img/icons/PhoneNumber.png" style="margin-top: 11px;" class="register-img" />
+                        </div>
+                        @Html.TextBoxFor(x => x.PhoneNumber, new { id = "register-input", @placeholder = "Phone Number" })
+                        @Html.ValidationMessageFor(x => x.PhoneNumber)
+
+                        <label style="color:#fff; width:100%; margin-bottom: 0px;">
+                            <center>
+                                <input type="submit" class="btn btn-default btn-lg" value="Save Details" style="background:#1699cd; width:100%;color:#fff; height: 46px; outline:0; text-decoration: none; margin-top: 30px;" />
+                            </center>
+                        </label>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /popup Register-->
+<!-- /popup -->
+<div class="popup-wrapper" style="">
+</div>
+<!-- /popup -->
+
+<script>
+    $(document).ready(function () {
+        setTimezoneCookie();
+        //$(".popup-wrapper").css('display', 'block');
+        $(".popup-register").css('display', 'block');
+        $(".popup-signup").css('display', 'block');
+        //$("#dlgblock").hide();
+    });
+    $('.popup-wrapper').click(function () {
+        //$(".popup-wrapper").css('display', 'none');
+        //$(".popup-register").css('display', 'none');
+        //$(".popup-signup").css('display', 'none');
+    });
+
+</script>

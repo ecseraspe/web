@@ -1,0 +1,48 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebClientWishListModel
+@{
+    Layout = null;
+}
+
+<div class="popup-note" style="display:block;">
+    <div class="popup-content">
+        <div class="lead">
+            <h4 class="text-center">Add Notes</h4>
+            <div style="display: inherit;">
+                <div class="review-container">
+                    @Html.Partial("_NewNote", Model.Note)
+
+                    @if (Model.NoteList.Any())
+                    {
+                        <h5 style="margin: 30px 0px -10px 0px;" class="text-center">Previous Notes</h5>
+                        <div id="noteHistory">
+                            @foreach (var item in Model.NoteList)
+                            {
+                                @Html.HiddenFor(x => x.WishListId, new { id = "hWishListId" })
+                                <div class="review" title="Show full message.">
+                                    <div class="review-box" style="cursor:pointer;" onclick="ShowSpecificNote(this)">
+                                        <pre>@Html.Raw(item.NoteText)</pre>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <span class="clearfix"></span>
+        </div>
+
+
+    </div>
+</div>
+<script>
+    function ShowSpecificNote(obj) {
+        var wishListId = $("#hWishListId").val();
+        if (wishListId != undefined && wishListId.length > 0) {
+            var noteText = $(obj).html();
+            var data = '<span id="popmessage"><div style="text-decoration: underline; color: blue;cursor: pointer;text-decoration: none;" id="note" onclick="ShowNoteHistory(\'' + wishListId + '\');">Back To Notes</div><br><div style="min-height: 300px; overflow: auto;">  ' + noteText + ' </div></span>';
+            popAlert("Note", data);
+        }
+    }
+
+</script>

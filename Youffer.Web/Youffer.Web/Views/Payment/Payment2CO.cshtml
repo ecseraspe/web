@@ -1,0 +1,37 @@
+﻿@model List<Youffer.Resources.Models.CheckOutDetailsModel>
+@{
+    ViewBag.Title = "Proceed To Payment";
+    Layout = null;
+}
+<form id="form2CO" action="@(Model[0].URL2CO)" method="post">
+    <p style="text-align: center">
+        <div style="width: 500px; margin: auto; font-weight: 400;">
+            Redirecting to 2Checkout.......
+            <br />
+            Please do not refresh the page or click back button!
+            @Html.Hidden("tPrice", (Model[0].Price + Model[0].ProcessingFee))
+
+        </div>
+        <div id="postData">
+            <input type='hidden' name='sid' value='@(Model[0].AccountNo)'>
+            <input type='hidden' name='mode' value='@(Model[0].Mode2CO)'>
+            <input type='hidden' name='currency_code' value='@(Model[0].CurrencyCode)'>
+            <input type='hidden' name='clientId' value='@(Model[0].UserId)'>
+            @for (int index = 0; index < Model.Count(); index++)
+            {
+                <input type='hidden' name='li_@(index)_type' value='product'>
+                <input type='hidden' name='li_@(index)_name' value='@(Model[index].Need)'>
+                <input type='hidden' name='li_@(index)_product_id' value='@(Model[index].Id)'>
+                <input type='hidden' name='li_@(index)_price' value='@(Model[index].Price + Model[index].ProcessingFee)'>
+                <input type='hidden' name='li_@(index)_quantity' value='1'>
+                <input type='hidden' name='li_@(index)_tangible' value='Y'>
+            }
+        </div>
+    </p>
+</form>
+<script>
+    window.onload = function () {
+        document.getElementById("form2CO").submit();
+    }
+
+</script>

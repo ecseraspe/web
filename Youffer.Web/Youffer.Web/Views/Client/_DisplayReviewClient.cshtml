@@ -1,0 +1,58 @@
+﻿@model List<Youffer.Web.Resources.ViewModel.WebClientWishListModel>
+
+@if (Model.Any())
+{
+    foreach (Youffer.Web.Resources.ViewModel.WebClientWishListModel item in Model)
+    {
+        <tr id="Detail_@(item.WishListId)" data-interest="@item.PurchasedInterest" data-companyid="@item.CompanyId" data-firstname="@item.Client.FirstName" data-imageurl="@(item.Client.ImageUrl !=null ?@item.Client.ImageUrl:@Youffer.Web.Common.Dummy.DummyData.NoImage)" data-age="@item.Client.Age">
+            <td onclick="GetclientProfileAndReview('@item.Client.ClientId', '@item.PurchasedInterest',true);" style="cursor: pointer;">
+                <div class="name">
+                    <div style="min-width:100px; text-overflow:ellipsis;">
+                        <table>
+                            <tr style="border-bottom: 0; height: 30px;">
+                                <td style="padding-right: 3px;">
+                                    @if (!string.IsNullOrWhiteSpace(item.Client.ImageUrl))
+                                    {
+                                        <div class="smaller-image" style="background: url(@item.Client.ImageUrl) center no-repeat; background-size: cover;"></div>
+                                    }
+                                    else
+                                    {
+                                        <div class="smaller-image" style="background: url(@Youffer.Web.Common.Dummy.DummyData.NoImage) center no-repeat; background-size: cover;"></div>
+                                    }
+                                </td>
+                                <td style="padding-right: 3px;">
+                                    <div style="width: 70px; word-break:break-all;">@item.Client.FirstName</div>
+                                </td>
+                                <td style="padding-right: 3px;">
+                                    <div>
+                                        @if (item.Client.IsOnline)
+                                        {
+                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAAY1BMVEU0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwA0wwDKBuRHAAAAIHRSTlMA5MbDymoIDcQM5r4fv2wL4sHjbnHlHswOI8slc2vHdGS5gQsAAABPSURBVHheRcdHEsMgFMBQAaG5956E+58yMxnsr5Ue4GypVP12AItJ/0IFbUg5HbHpqaEXGJSgYxYMGIFmFEz41/3rBnvWcQLESxfF5+vhB+U0DS7btNEMAAAAAElFTkSuQmCC" title="Online" />
+                                        }
+                                        else
+                                        {
+                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAAtFBMVEXxn5z2aWj8CAj8CAj7Ly/6aGX008rn5ODm4t3x8+rw1s/4Ozry6eDt8+v5NTPqysbk6+buy8f5QD78KCj5MjHwzcjzfHz4gH76OTj6Li38Dw78BAT7DQz8AwP7NjX7KSn4cXD1enryvbf5Ojn7MC3629Dj9O7n0Mz4MzL3Li3svrf97uDl6OPj6eXxycT2bGr6Jyf8AgL8AgH8Hh71Y2Lmycjp2ND+5df+AAD9AAD9AQD/AAARHpgAAAAAOHRSTlMLaePkwHAOAAAAHMAAAMkkAAe8w8cNZHK0wdvj2+S3w2l2CsPOEAAiyNEqAAAADnTJ6OjMexIAAOnJUOUAAABsSURBVHheRcxFEsQwDETRDjMNMzPzSDP3v1fscsr5q35aCHECwzatpuN6PoIwIpalWY6iQfwTMbXa6LDYSl30xFZRHwMNHmJUY4wJaUwxI/1gjsWyEq3W2Gx3f5L3/eGI0/lyvd0fz9f78y0BFPMZyrlOGlcAAAAASUVORK5CYII=" title="Offline" />
+                                        }
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>          
+            </td>
+            <td onclick="GetclientProfileAndReview('@item.Client.ClientId', '@item.PurchasedInterest',true);" style="cursor: pointer;">@item.PurchasedInterest</td>
+            <td onclick="GetclientProfileAndReview('@item.Client.ClientId', '@item.PurchasedInterest',true);" style="cursor: pointer;">@item.CreatedOn.ToString("MM/dd/yyyy")</td>
+            <td style="text-align:center;">
+                <span title="Write a review" style="cursor: pointer; color: #1699cd;" id="rate-@(item.Client.ClientId)" data-clientid="@item.Client.ClientId" data-wishlistid="@item.WishListId" data-companyid="@item.CompanyId" onclick="ShowReviewForm(this);">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAMAAABFjsb+AAABI1BMVEX////5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tztDfzYCAAAAYHRSTlMAzzAB7E8FA/EdcO5f2SfpAqMH15bSZUQuIkiL8s4yPeO/OOWANLHrSxNem4XDvhqwymFR6nxA9gpXYq0xl3e0XDl1RssPG8xszbIYHlneDJLi06z0UO3CCcnEGREIBBUxTtyDAAAAt0lEQVR4XmXOxZaDQBRF0YsnQAJE3d3dXdrdXf7/KzpNoAawB1V3ndEDMYNdm4dV6DcIq5zDByt/IKtaUlgRvGtL21RRi8LAnVD/pAgSMX3FK0Aylc7QNM2D2b/5QrGEvXKLcuPAWW80oWNO2Y4+ur2+ANNgOAKgKmMQmEwBDzBfgMByBVkSme0OxJHjWHNxZ+cX7CVpV9cu7Qae27t7kbSHR1n/n55fYHh9I/e9fxjr8wum7x8AfwfsEvCDBOkfAAAAAElFTkSuQmCC" class="rate-pop" title="Write a Review" />
+                </span>
+            </td>
+            <td style="text-align:center;">
+                <span title="Mark as purchased" style="cursor: pointer;" id="purchase-@(item.Client.ClientId)" data-clientid="@item.Client.ClientId" data-wishlistid="@item.WishListId" data-companyid="@item.CompanyId" onclick="MarkAsPurchased(this);">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAMAAAC6CgRnAAAA7VBMVEX///8I0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0ABq0KLSAAAATnRSTlMAAAHrexFBAgsDBdWMqo8g4HmiCeLznRebGgjDD3zKRFUqtS7BP0ozf3ANPe1fad7ZiAev1xL5zppNO3eoxV1S7wTHOIa6/U/mDin1UQy7BCKoAAAA80lEQVR4Xm3S5W7DMBiF4fPZ4bQrbIUVxszMzPjd/+XMrdc4cfz8OtIrS5ZlZKa3N5b6/fZuTcDSafKEXAiRIxqcV6+ZlKywZY2gxXNcMq8TddlhFiPr7JIKAKLOTqsAFtnWWq6MDhJQsZPs0JCVU9COnXzaG48AiZVmfLrWaxNbVorIY20KAz32A8nKQUSHnLUjPY7JV/GkR+ZqDdCZXp6K5z1xwZlLoMmTOEhEu/hqV5zFsMqGFEDc4n83t5xzB+WeXR4eoYgnV3vGWCTLySNofim+kPl/r4Xy9k4wKPgwqfuJIvE1TJn5u/rzCxeKQ4LxB9/6kQPEr7NBAAAAAElFTkSuQmCC" title="Mark as purchased" />
+                </span>
+            </td>
+        </tr>
+    }
+}

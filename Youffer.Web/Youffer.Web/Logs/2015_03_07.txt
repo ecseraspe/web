@@ -1,0 +1,10 @@
+﻿Initiate request "api/common/get-businesstypes" at 3/7/2015 9:12:06 AM
+Request "api/common/get-businesstypes" complete at 3/7/2015 9:12:06 AM
+Initiate request "api/common/get-businesstypes" at 3/7/2015 9:35:30 AM
+Request "api/common/get-businesstypes" complete at 3/7/2015 9:35:31 AM
+Initiate request "api/common/get-businesstypes" at 3/7/2015 9:36:16 AM
+Request "api/common/get-businesstypes" complete at 3/7/2015 9:36:16 AM
+Initiate request "api/common/get-businesstypes" at 3/7/2015 9:39:33 AM
+Request "api/common/get-businesstypes" complete at 3/7/2015 9:39:33 AM
+Initiate request "api/common/get-businesstypes" at 3/7/2015 9:40:11 AM
+Request "api/common/get-businesstypes" complete at 3/7/2015 9:40:12 AM

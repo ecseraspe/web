@@ -1,0 +1,74 @@
+﻿@using Youffer.Web.Filter;
+    @model Youffer.Web.Resources.ViewModel.WebClientWishListModel
+    @if (Model != null)
+    {
+        var validImagesExtensions = Youffer.Web.Common.Helper.AppSettings.Get<string>(Youffer.Web.Common.Helper.GlobalConstants.ValidImageExtensions);
+        var validHtmlExtensions = ".htm, .html";
+        foreach (var message in Model.MessageList)
+        {
+            //Note : client message div class = "chat-bubble" and company message class ="chat-bubble1"
+            if (message.FromUser == YoufferSecurity.UserId)
+            {
+                <div style="text-align:center; clear:both; font-size:12px;">
+                    <div>@message.CreatedOn.ToString("MM/dd/yyyy HH:mm") &nbsp; UTC</div>
+                    <div class="chat-bubble1">
+                        @if (message.MessageMedia != null)
+                        {
+                            if (validImagesExtensions.Contains(message.MessageMedia.Extension.ToLower()))
+                            {
+                                <a target="_blank" href="@message.MessageMedia.FileName"><img src="@message.MessageMedia.FileName" /> </a>
+                            }
+                            else if (validHtmlExtensions.Contains(message.MessageMedia.Extension.ToLower()))
+                            {
+                                <div class="iFrameWrapper">
+                                    <iframe frameborder="0" scrolling="no" src="@message.MessageMedia.FileName"></iframe>
+                                    <a target="_blank" href="@message.MessageMedia.FileName"> <p class="hoverDescription">Click to view</p> </a>
+                                </div>
+                            }
+                            else
+                            {
+                                <a target="_blank" href="@message.MessageMedia.FileName">Attachment: @message.MessageMedia.OriginalFileName</a>
+                            }
+
+                        }
+                        else
+                        {
+                            @Html.Raw(message.MessageDescription)
+                        }
+                        <div class="arrow-down"></div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div style="text-align:center; clear:both; font-size:12px;">
+                    <div>  @message.CreatedOn.ToString("MM/dd/yyyy HH:mm") &nbsp; (UTC)</div>
+                    <div class="chat-bubble">
+                        @if (message.MessageMedia != null)
+                        {
+                            if (validImagesExtensions.Contains(message.MessageMedia.Extension.ToLower()))
+                            {
+                                <a target="_blank" href="@message.MessageMedia.FileName"><img src="@message.MessageMedia.FileName" /> </a>
+                            }
+                            else if (validHtmlExtensions.Contains(message.MessageMedia.Extension.ToLower()))
+                            {
+                                <div class="iFrameWrapper">
+                                    <iframe frameborder="0" scrolling="no" src="@message.MessageMedia.FileName"></iframe>
+                                    <a target="_blank" href="@message.MessageMedia.FileName"> <p class="hoverDescription">Click to view</p> </a>
+                                </div>
+                            }
+                            else
+                            {
+                                <a target="_blank" href="@message.MessageMedia.FileName">Attachment: @message.MessageMedia.OriginalFileName</a>
+                            }
+                        }
+                        else
+                        {
+                            @Html.Raw(message.MessageDescription)
+                        }
+                        <div class="arrow-down"></div>
+                    </div>
+                </div>
+            }
+        }
+    }

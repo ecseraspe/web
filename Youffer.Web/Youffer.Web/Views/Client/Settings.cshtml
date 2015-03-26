@@ -1,0 +1,295 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebCompanyProfileModel
+@{
+    ViewBag.Title = "Settings";
+}
+<link href="~/Content/chosen.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui.css" rel="stylesheet" />
+<script src="~/Scripts/chosen.jquery.js"></script>
+<script src="~/Scripts/prism.js"></script>
+<script>
+    $(document).ready(function () {
+        if ($('#ddlBusinesstype').val() != null && $('#ddlBusinesstype').val() != undefined) {
+            $(".hSelectedBusinessTypeId").val($('#ddlBusinesstype').val().join(","));
+        }
+        else {
+            $(".hSelectedBusinessTypeId").val("");
+        }
+
+        $("#ddlBusinesstype").chosen({ no_results_text: "Oops, nothing found!" });
+
+        $('#ddlBusinesstype').on('change', function (evt, params) {
+            if ($(this).val() != undefined && $(this).val() != null) {
+                $(".hSelectedBusinessTypeId").val($(this).val().join(","));
+                $("#error").hide().html("");
+            }
+            else {
+                $(".hSelectedBusinessTypeId").val("");
+            }
+        });
+    });
+</script>
+<style>
+    .chosen-container {
+        width: 400px !important;
+    }
+
+    .chosen-choices {
+        border-radius: 10px !important;
+    }
+
+    .chosen-container .chosen-results {
+        max-height: 165px;
+    }
+
+    .chosen-container-single .chosen-single span {
+        height: 42px !important;
+        font-size: 15px;
+        padding-top: 6px;
+    }
+
+    .chosen-container-single .chosen-default, .chosen-single .chosen-single-with-deselect, .chosen-container-single .chosen-single {
+        height: 42px !important;
+        border-radius: 10px;
+    }
+
+        .chosen-container-single .chosen-single div b, .chosen-container-active.chosen-with-drop .chosen-single div b {
+            margin-top: 10px !important;
+        }
+
+        .chosen-container-single .chosen-single abbr {
+            margin-top: 10px !important;
+        }
+
+    .chosen-container-multi {
+        float: left !important;
+    }
+
+    #ddlBusinesstype_chosen {
+        min-height: 42px !important;
+    }
+
+        #ddlBusinesstype_chosen .chosen-choices {
+            min-height: 42px !important;
+        }
+
+    .chosen-container-multi .chosen-choices li.search-field input[type="text"], .chosen-container-multi .chosen-choices li.search-choice {
+        margin-top: 7px;
+        display: block;
+    }
+
+    .setting-page .control-label {
+        margin-top: 10px;
+    }
+
+    .field-validation-error {
+        margin-left: 20px;
+        vertical-align: middle;
+        color: red;
+        float: none !important;
+        display: initial !important;
+        height: auto !important;
+    }
+
+    span.field-validation-valid {
+        display: initial;
+    }
+</style>
+
+<div class="large-box setting-page" style="border: 0; background: #f7f7f7;">
+    <div class="large-box-data" id="" style="padding: 15px; background-color:transparent;">
+        <div class="dash-container search-filter">
+            <div class="row">
+                <div class="company-pic">
+                    <div id="edit-pic" class="edit-pic">Edit Logo</div>
+                    <div class="img-CompanyLogo" style="background: url(@Model.ImageUrl) center no-repeat; background-size: cover;"></div>
+                    <input type="file" id="file-CompanyImage" style="display:none;" />
+                </div>
+                <div class="company-name">@Model.CompanyName</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="large-box setting-page">
+    <div class="box-heading">
+        Settings
+    </div>
+    <div class="large-box-data" id="" style="padding: 0;">
+        <div class="dash-container">
+
+            @using (Html.BeginForm("Settings", "Client", FormMethod.Post, new { enctype = "multipart/form-data", id = "formSetting" }))
+            {
+                <div class="error" style="min-height: 25px; color: red;"></div>
+                @Html.HiddenFor(s => s.CompanyId)
+                @Html.HiddenFor(s => s.CompanyName)
+                @Html.HiddenFor(s => s.ImageUrl)
+                @Html.TextBoxFor(x => x.SelectedBusinessTypeId, new { @class = "not-visible hSelectedBusinessTypeId" })
+
+                <form action="#" class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label">Facebook URL</label>
+                        <div class="controls">
+                            @Html.TextBoxFor(s => s.FacebookUrl, new { type = "text", id = "fbText", placeholder = "URL", @readonly = true })
+                            <span class="tabs" href="#" id="fbUrl" onclick="ShowEditableTextbox(this);">Edit</span>
+                            @Html.ValidationMessageFor(x => x.FacebookUrl)
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Website URL</label>
+                        <div class="controls">
+                            @Html.TextBoxFor(s => s.WebsiteUrl, new { type = "text", id = "websiteText", placeholder = "URL", @readonly = true })
+                            <span class="tabs" href="#" id="websiteUrl" onclick="ShowEditableTextbox(this);">Edit</span>
+                            @Html.ValidationMessageFor(x => x.WebsiteUrl)
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Country</label>
+                        <div class="controls">
+                            <label class="control-label">@Model.Country</label>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Business Type</label>
+                        <div class="controls">
+                            <select id="ddlBusinesstype" style="width:700px; float: left;" data-placeholder="Select Business Type" multiple class="chosen-select" tabindex="-1">
+                                <option value=""></option>
+                                @foreach (var businessType in Model.BusinessTypes)
+                                {
+                                    bool status = false;
+                                    string[] arr = Model.SelectedBusinessTypeId.Split(',');
+                                    foreach (var selectedBusinessType in arr)
+                                    {
+                                        if (businessType.BusinessTypeId == selectedBusinessType)
+                                        {
+                                            status = true;
+                                            break;
+                                        }
+                                    }
+                                    if (status)
+                                    {
+                                        <option value="@businessType.BusinessTypeId" selected>@businessType.BusinessType</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@businessType.BusinessTypeId">@businessType.BusinessType</option>
+                                    }
+                                }
+                            </select>
+                            <span id="error" style="margin-left: 20px; vertical-align: middle; color: red;"></span>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+
+
+                    <div class="control-group">
+                        <label class="control-label">Phone Number</label>
+                        <div class="controls">
+                            @Html.DropDownListFor(x => x.CountryCode, new SelectList(Model.CountryCodeList, "Isd", "Display"), new { style = "height:42px; float: left;width: 100px;border-right: none;border-top-right-radius: 0px;border-bottom-right-radius: 0px;", disabled = "disabled" })
+                            @Html.TextBoxFor(s => s.PhoneNumber, new { type = "text", id = "phoneText", placeholder = "Phone Number", maxlength = "11", @readonly = true, style = " height:42px;float: left;width:300px;border-left: none;border-top-left-radius: 0px;border-bottom-left-radius: 0px; margin-right:5px;" })
+                            <span class="tabs" href="#" id="phone" style="line-height:40px;" onclick="ShowEditableTextbox(this);">Edit</span>
+                            @Html.ValidationMessageFor(x => x.PhoneNumber)
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="buy-button" onclick="return validateForm()"><i class="icon-ok"></i> Save</button>
+                    </div>
+                </form>
+            }
+            <!-- /.container -->
+        </div>
+    </div>
+    <!-- /.content-section-b -->
+</div>
+
+<!-- Page Content -->
+
+
+
+<script>
+    $(document).ready(function () {
+        hideLoader();
+        $("#error").hide().html("");
+        var status = '@ViewBag.message';
+        if (status.length > 0) {
+            popAlert("", status)
+        }
+    });
+
+    function validateForm() {
+        var val = $(".hSelectedBusinessTypeId").val().replace(',', '');
+        if (val.length <= 0) {
+            // put your error here
+            $("#error").show().html("Busness Type is required.");
+
+            return false;
+        }
+        if (!$("#formSetting").valid()) {
+            return false;
+        }
+        showLoader('Saving changes...');
+        return true;
+
+    }
+    function ShowEditableTextbox(obj) {
+        var textId = new Array("fbUrl", "websiteUrl", "phone");
+        var id = "";
+        var name = new Array("FacebookUrl", "WebsiteUrl", "PhoneNumber");
+        for (var i = 0; i < textId.length; i++) {
+            if (textId[i] == obj.id) {
+                id = name[i];
+                break;
+            }
+        }
+        makeEditable(id);
+    };
+
+    function makeEditable(fieldName) {
+        $("input[name=" + fieldName + "]").prop('readonly', false);
+        $("input[name=" + fieldName + "]").css("border-color", "grey").focus();
+        if (fieldName == "PhoneNumber") {
+            $("select[name='CountryCode']").removeProp("disabled");
+            $("select[name='CountryCode']").css("border-color", "grey").focus();
+        }
+    }
+
+    $('#editLogo').click(function () {
+        $('.error').html("");
+    })
+
+    $(document).ready(function () {
+        $("#edit-pic").bind("click", function () { $("#file-CompanyImage").click(); })
+        $("#file-CompanyImage").bind("change", function () {
+            if (this.files[0] != null && this.files[0] != undefined) {
+                var fileSize = this.files[0].size / 1024 / 1024;
+                var fileName = $(this).val();
+                if (fileSize > 4) {
+                    popAlert("", "You can not upload an image greater than 4 MB.");
+                    return false;
+                }
+                else {
+                    var isValidFileName = ValidateImageFileExtension(fileName);
+                    if (!isValidFileName) {
+                        popAlert("", "Invalid file. Please upload .jpeg, .jpg, .gif and .png image.");
+                        return false;
+                    }
+                    else {
+                        var data = new FormData();
+                        var files = $("#file-CompanyImage").get(0).files;
+                        if (files.length > 0) {
+                            data.append("UploadedImage", files[0]);
+                        }
+                        UploadCompanyImage(data);
+                    }
+                }
+            }
+        })
+    });
+
+</script>

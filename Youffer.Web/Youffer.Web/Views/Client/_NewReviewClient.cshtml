@@ -1,0 +1,24 @@
+﻿@model List<Youffer.Web.Resources.ViewModel.WebClientWishListModel>
+@if (Model.Any())
+{
+    <div id="errMsgReviewClient"></div>
+    <div id="divReviewClient" style="max-height:500px;">
+        <table id="tblDashboardReviewclient" class="tableCls" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th style="width:20%">Name</th>
+                    <th style="width:25%" class="">Date</th>
+                    <th style="width:20%; text-align: center;" class="">Write A Review</th>
+                    <th style="width:20%;  text-align: center;" class="">Mark As Purchased</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.Partial("_NewReviewClientContent", Model)
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <center><h2>No clients to display <br />Use Youffer and get more clients.</h2></center>
+}

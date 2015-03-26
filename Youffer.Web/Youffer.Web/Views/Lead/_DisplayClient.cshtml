@@ -1,0 +1,118 @@
+﻿@model  List<Youffer.Web.Resources.ViewModel.WebClientWishListModel>
+@*<style>
+    div.star-rating-readonly a {
+        cursor: inherit !important;
+    }
+</style>*@
+
+@if (Model.Any())
+{
+    foreach (Youffer.Web.Resources.ViewModel.WebClientWishListModel item in Model)
+    {
+        <tr style="cursor: pointer;" class="Detail_@item.WishListId" data-ispurchased="true" data-wishlistid="@item.WishListId" data-companyid="@item.CompanyId" data-firstname="@item.Client.FirstName" data-imageurl="@(item.Client.ImageUrl !=null ?@item.Client.ImageUrl:@Youffer.Web.Common.Dummy.DummyData.NoImage)" data-interest="@item.PurchasedInterest" data-age="@item.Client.Age">
+            <td style="width:19%; cursor:pointer;" class=" profile-pop" data-clientid="@item.Client.ClientId" onclick="GetclientProfileAndReview('@item.WishListId', '@item.PurchasedInterest',true);">
+                <div class="name">
+                    <div style="min-width:100px; text-overflow:ellipsis;">
+                        <table>
+                            <tr style="border-bottom: 0; height: 30px;">
+                                <td style="padding-right: 3px;">
+                                    @if (!string.IsNullOrWhiteSpace(item.Client.ImageUrl))
+                                    {
+                                        <div class="smaller-image" style="background: url(@item.Client.ImageUrl) center no-repeat; background-size: cover;"></div>
+                                    }
+                                    else
+                                    {
+                                        <div class="smaller-image" style="background: url(@Youffer.Web.Common.Dummy.DummyData.NoImage) center no-repeat; background-size: cover;"></div>
+                                    }
+                                </td>
+                                <td style="padding-right: 3px;">
+                                    <div style="width: 70px; word-break:break-all;">@item.Client.FirstName</div>
+                                </td>
+                                <td style="padding-right: 3px;">
+                                    <div>
+                                        @if (item.Client.IsOnline)
+                                        {
+                                            <img class="isOnlineIcon" title="Online" src="@Youffer.Web.Common.Helper.GlobalConstants.OnlineImage" />
+                                        }
+                                        else
+                                        {
+                                            <img class="isOnlineIcon" title="Offline" src="@Youffer.Web.Common.Helper.GlobalConstants.OfflineImage" />
+                                        }
+
+                                        @if (item.Client.MarkPurchased)
+                                        {
+                                            <img title="Purchased Mark" class="markPurchasedIcon" src="@Youffer.Web.Common.Helper.GlobalConstants.MarkAsPurchasedConfirmationIcon" />
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>            
+            </td>
+            <td style="width:5%; cursor:pointer;" data-clientid="@item.Client.ClientId" onclick="GetclientProfileAndReview('@item.WishListId', '@item.PurchasedInterest',true);">
+                @if (item.Client.Age > 0)
+                {@item.Client.Age}
+                else
+                { <span>--</span> }
+            </td>
+            <td style="width:7%; cursor:pointer;" data-clientid="@item.Client.ClientId" onclick="GetclientProfileAndReview('@item.WishListId', '@item.PurchasedInterest',true);">
+                @if (!string.IsNullOrWhiteSpace(item.Client.Gender))
+                {@item.Client.Gender}
+                else
+                { <span>--</span> }
+            </td>
+            <td style="width:20%; cursor:pointer;" title="@item.PurchasedInterest" data-clientid="@item.Client.ClientId" onclick="GetclientProfileAndReview('@item.WishListId', '@item.PurchasedInterest',true);">
+                <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width: 90%;display: block;">
+                    @item.PurchasedInterest
+                </span>
+
+            </td>
+
+            <td @*Note do not remove data-rate otherwise sorting wil not work*@ data-rate="@item.Ranking.ToString("N1")" style="width:15%; cursor:pointer;" data-clientid="@item.Client.ClientId" onclick="GetclientProfileAndReview('@item.WishListId', '@item.PurchasedInterest',true);">
+                <div class="rating">
+                    <span class="star">
+                        @{ Html.RenderAction("GetRating", "Common", new { rating = item.Ranking, disabled = true, className = Guid.NewGuid(), title = "", isSearchable = true }); }
+                    </span>
+                    <br />
+                </div>
+            </td>
+            <td style="width:12%; cursor:pointer;" data-clientid="@item.Client.ClientId" onclick="GetclientProfileAndReview('@item.WishListId', '@item.PurchasedInterest',true);">
+                @if (!string.IsNullOrWhiteSpace(item.Client.PhoneNumber))
+                {@item.Client.PhoneNumber}
+                else
+                { <span>--</span> }
+            </td>
+            <td style="width:31%; cursor: initial;" class="action-icons">
+                <span id='rate-@item.Client.ClientId' data-wishlistid='@item.WishListId' data-companyid='@item.CompanyId' onclick="ShowReviewForm(this);">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAMAAABFjsb+AAABI1BMVEX////5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tzv5tztDfzYCAAAAYHRSTlMAzzAB7E8FA/EdcO5f2SfpAqMH15bSZUQuIkiL8s4yPeO/OOWANLHrSxNem4XDvhqwymFR6nxA9gpXYq0xl3e0XDl1RssPG8xszbIYHlneDJLi06z0UO3CCcnEGREIBBUxTtyDAAAAt0lEQVR4XmXOxZaDQBRF0YsnQAJE3d3dXdrdXf7/KzpNoAawB1V3ndEDMYNdm4dV6DcIq5zDByt/IKtaUlgRvGtL21RRi8LAnVD/pAgSMX3FK0Aylc7QNM2D2b/5QrGEvXKLcuPAWW80oWNO2Y4+ur2+ANNgOAKgKmMQmEwBDzBfgMByBVkSme0OxJHjWHNxZ+cX7CVpV9cu7Qae27t7kbSHR1n/n55fYHh9I/e9fxjr8wum7x8AfwfsEvCDBOkfAAAAAElFTkSuQmCC" class="rate-pop" title="Rate" />
+                </span>
+                <span id="message-@(item.Client.ClientId)" data-wishlistid="@item.WishListId" onclick="ShowNewMessageWindow(this);">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAABGlBMVEX////vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7vAK7uPA1VAAAAXXRSTlMABBgDZQFwSdU/Be8wDPK42eFfr4u6JFNUjIqsy5lkj972b3kz8xncqXwc0Vy7Ft+czybtTcYdLo6SlaMUNexdtKT3crnIDTHoExponQtXruP9zIbJI9rbeAZWf2akAMbEAAAApklEQVR4Xk3M1Y7CABgF4akB2xZ3d3dn3d1def/XIGlg83+XJyeDo6cPwumIW2HNmy/6y6FcMhCM41Db0RgARuIqBWBmshprs4ILKL0o/KtUa1B3IzSatE5MhE4Xu4+0NWQ0RppM0aw5wmIbdnbFsGftg3pwyIZydOzEfKcaDvXs/AKAS4/HZV/fGLe+u/vN+eHx6Xn5qr8h8f7xufxSkL5/fv+8sAKCHxHiMRy+nQAAAABJRU5ErkJggg==" class="msg-pop" title="Message" />
+                </span>
+                <span id="note-@(item.Client.ClientId)" data-wishlistid="@item.WishListId" onclick="ShowNoteHistory('@item.WishListId');">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAMAAADH72RtAAAAk1BMVEX///8Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4Are4gkWVDAAAAMXRSTlMAX59PTW+ehjCPIGsOBa+UQm4ZuYQvQT4MG8MGeLZ5bBDWrVFHI04yIqUJBIhGSJ2Oez4ntwAAAGhJREFUeF5VyFUOwzAURcETKIfLzIz7X13bF8lXns8Bpt1aAiyWE9Is79TGcChmFaMSp9UfDCEKFL1mjBuFjWKe2ChoN2xcuFFoVmsLzWa7s9DsP0e8MZqTN+cGXK43xf3xBF7vUAL4AoZYBkVUsK6eAAAAAElFTkSuQmCC" class="note-pop" title="Notes" />
+                </span>
+                <span>
+                    @if (item.Client.MarkPurchased)
+                    {
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAA4VBMVEX///8I0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AALGLspAAAAS3RSTlMAj0+fIEB/AQlfBm4dKbSXLLs4qLW4VpKkRGah1baRuiJJYS57NZrmFB7LxosKoys0VWlaJYS5sjuwlXV5v32NSLGlQlAYnQJSnm+xyjxpAAAAmElEQVR4XlXL1Y7DMAAF0RsnaRiKzMzMzLD//0GrWHVrn8eRBpRmKwETX7qblAJhh5VRPCpTqVgGVCTXkJhmIijtfVr9yRJAzxckXrGEcgWCag2EgKr7oJTQJ7W8TrfXF9JgaBB1LCTXmUx1cZzNF0vZ45O2gkGw5hM22511OAoJp/PlCpZuoOw7WPIfJjhPywBeb5n3p/0DKkoMdyXT1DMAAAAASUVORK5CYII=" class="purchased-pop" title="Mark as purchased" id="purchase-@(item.Client.ClientId)" data-clientid="@item.Client.ClientId" data-wishlistid="@item.WishListId" data-companyid="@item.CompanyId" onclick="popAlert('','You have already marked this user as purchased.');" />
+                    }
+                    else
+                    {
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAA4VBMVEX///8I0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AAI0AALGLspAAAAS3RSTlMAj0+fIEB/AQlfBm4dKbSXLLs4qLW4VpKkRGah1baRuiJJYS57NZrmFB7LxosKoys0VWlaJYS5sjuwlXV5v32NSLGlQlAYnQJSnm+xyjxpAAAAmElEQVR4XlXL1Y7DMAAF0RsnaRiKzMzMzLD//0GrWHVrn8eRBpRmKwETX7qblAJhh5VRPCpTqVgGVCTXkJhmIijtfVr9yRJAzxckXrGEcgWCag2EgKr7oJTQJ7W8TrfXF9JgaBB1LCTXmUx1cZzNF0vZ45O2gkGw5hM22511OAoJp/PlCpZuoOw7WPIfJjhPywBeb5n3p/0DKkoMdyXT1DMAAAAASUVORK5CYII=" class="purchased-pop" title="Mark as purchased" id="purchase-@(item.Client.ClientId)" data-clientid="@item.Client.ClientId" data-wishlistid="@item.WishListId" data-companyid="@item.CompanyId" onclick="MarkAsPurchased(this)" />
+                    }
+                </span>
+                <span>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAARCAMAAADe472QAAAAeFBMVEX////vIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgDvIgADcqNOAAAAJ3RSTlMAP59vX693T++LO7BZwRB2deSxvQwwLIagq1NF0d83V7lJmEQYXT1EnYzHAAAAXklEQVR4Xn3Nxw6GIBSE0QsiCvbe+1/e/w29ihoWxG8xyVkNxJ59FESANXDGMo5LFfyJ8wdhWict4o5YBhS5hj8xoqw0OC5CSg2UKnQ9DKMQiJfTeSFX6wafL7v6wQ6oCgRck0MUNwAAAABJRU5ErkJggg==" class="report-pop" title="Report" id="purchase-@(item.Client.ClientId)" data-clientid="@item.Client.ClientId" data-wishlistid="@item.WishListId" data-companyid="@item.CompanyId" onclick="FakeCallReport('@item.WishListId','Detail_@item.WishListId');" />
+                </span>
+                <span id="delete-@(item.Client.ClientId)" data-wishlistid="@item.WishListId" onclick="DeleteClient('@item.WishListId','@item.PurchasedInterest');">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAQCAMAAAD+iNU2AAAA4VBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2IOqBAAAAS3RSTlMAr59vqTuoKCEarbenaHlXhz06LwYwqnhqKWxnjJSZD6NtQSMeB0NlP06WUBKXSl0LnByKLnoygExcEJiVFD6lAaakm00ItA1kLWuwkxv0AAAAoElEQVR4Xj3M1a7DQAwEUG8aToPQpMzMzAwX/v+D6nilzMPIR7YMlKLO9AKkUQZY5TzNLUEQmIFlMCwp2aZ36jtpERobiKBdh0qVu28DA60EMl3VAtdE+xHkyE7zz0J3uiCSzd5iibaHozF5Mp3N0bHnW+TVGrLorbLbkw9H8ukcX8j4VkZfb47KLZLv8Ai4ny8plELP/XDCz28myb+G8xcN5gw/mY1aBQAAAABJRU5ErkJggg==" class="delete-pop" title="Delete" />
+                </span>
+                <input type="hidden" id="facebookImageUrl_@item.WishListId" value="@item.Client.ImageUrl" />
+                <input type="hidden" id="firstName_@item.WishListId" value="@item.Client.FirstName" />
+            </td>
+        </tr>
+    }
+}
+

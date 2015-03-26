@@ -1,0 +1,69 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebNoteModel
+@{
+    Layout = null;
+}
+<script type="text/javascript" language=javascript>
+    $.validator.unobtrusive.parse(document);
+</script>
+<style>
+    .field-validation-error {
+        display: block;
+        min-height: 25px;
+    }
+
+    .field-validation-valid {
+        display: block;
+        min-height: 25px;
+    }
+</style>
+<div class="review-new">
+    @{
+        AjaxOptions ajaxOptions = new AjaxOptions();
+        ajaxOptions.HttpMethod = "Post";
+        ajaxOptions.OnComplete = "NoteComplete";
+    }
+    @using (Ajax.BeginForm("NewNote", "Lead", ajaxOptions))
+    {
+        <div class="review-box">
+            @Html.HiddenFor(s => s.UserId, new { id = "note-wishListId" })
+            @Html.HiddenFor(s => s.CompanyId, new { id = "note-companyId" })
+            @Html.ValidationMessageFor(s => s.NoteText)
+            @Html.TextAreaFor(s => s.NoteText, new { id = "txtNewNote", @placeholder = "For personal usage only, it won't be visible to the client" })<br />
+        </div>
+        <center>
+            <button class="buy-button" style="margin-top:10px;">Save</button>
+            <input type="button" class="buy-button" style="margin-top:10px;" onclick='ClearMessage();' value="Cancel" /> <br />
+        </center>
+    }
+</div>
+
+<script type="text/javascript">
+    //noteHistory
+    function ClearMessage() {
+        $("#txtNewNote").val("");
+        $(".field-validation-error span").html("");
+    }
+    function NoteComplete(data) {
+        var result = data.responseJSON.result;
+        if (result != null && result != undefined) {
+            var noteHtml = "";
+            noteHtml += "<div class='review' title='Show full message.'>";
+            noteHtml += "<div class='review-box'><textarea readonly id='note-" + result.Id + "' onclick='ShowSpecificNote(this)'>";
+            noteHtml += result.NoteText + "</textarea></div></div>";
+            if ($('#noteHistory').length) {
+                $("#noteHistory").prepend(noteHtml);
+            }
+            else {
+                var note = "<h5 style='margin: 30px 0px -10px 0px;' class='text-center'>Previous Notes</h5><div id='noteHistory'>";
+                note += noteHtml;
+                note += "</div>";
+                $(".review-container").append(note);
+            }          
+            $("#txtNewNote").val("");
+        }
+        else {
+            var data = "Some error occured. Please try again.";
+            popAlert("Error", data);
+        }
+    }
+</script>

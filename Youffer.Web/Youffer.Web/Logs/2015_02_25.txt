@@ -1,0 +1,263 @@
+﻿Initiate request "api/common/get-businesstypes" at 2/25/2015 9:52:33 AM
+Request "api/common/get-businesstypes" complete at 2/25/2015 9:52:35 AM
+Initiate request "api/common/get-businesstypes" at 2/25/2015 9:53:01 AM
+Request "api/common/get-businesstypes" complete at 2/25/2015 9:53:03 AM
+Initiate request "api/common/get-businesstypes" at 2/25/2015 9:53:07 AM
+Request "api/common/get-businesstypes" complete at 2/25/2015 9:53:08 AM
+Initiate request "api/common/get-businesstypes" at 2/25/2015 2:21:36 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 2:21:46 PM
+Initiate request "api/common/get-businesstypes" at 2/25/2015 2:38:51 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 2:38:53 PM
+Initiate request "api/common/get-businesstypes" at 2/25/2015 2:38:56 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 2:38:57 PM
+Initiate request "token" at 2/25/2015 2:40:46 PM
+Request "token" complete at 2/25/2015 2:40:48 PM
+response of "token" at 2/25/2015 2:40:48 PM  is The user name or password is incorrect.
+Initiate request "token" at 2/25/2015 2:40:53 PM
+Request "token" complete at 2/25/2015 2:40:54 PM
+response of "token" at 2/25/2015 2:40:54 PM  is The user name or password is incorrect.
+Initiate request "token" at 2/25/2015 2:41:13 PM
+Request "token" complete at 2/25/2015 2:41:14 PM
+response of "token" at 2/25/2015 2:41:14 PM  is The user name or password is incorrect.
+Initiate request "token" at 2/25/2015 2:41:35 PM
+Request "token" complete at 2/25/2015 2:41:36 PM
+response of "token" at 2/25/2015 2:41:36 PM  is The user name or password is incorrect.
+Initiate request "token" at 2/25/2015 2:41:42 PM
+Request "token" complete at 2/25/2015 2:41:43 PM
+response of "token" at 2/25/2015 2:41:43 PM  is The user name or password is incorrect.
+Initiate request "token" at 2/25/2015 2:42:18 PM
+Request "token" complete at 2/25/2015 2:42:19 PM
+response of "token" at 2/25/2015 2:42:19 PM  is The user name or password is incorrect.
+Initiate request "token" at 2/25/2015 2:43:33 PM
+Request "token" complete at 2/25/2015 2:43:34 PM
+response of "token" at 2/25/2015 2:43:34 PM  is The user name or password is incorrect.
+Initiate request "api/common/get-businesstypes" at 2/25/2015 3:08:29 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 3:08:42 PM
+Initiate request "api/common/get-businesstypes" at 2/25/2015 3:08:45 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 3:08:46 PM
+Initiate request "token" at 2/25/2015 3:09:11 PM
+Request "token" complete at 2/25/2015 3:09:12 PM
+response of "token" at 2/25/2015 3:09:12 PM  is The user name or password is incorrect.
+Initiate request "api/common/get-businesstypes" at 2/25/2015 4:51:49 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 4:51:59 PM
+Initiate request "api/common/get-businesstypes" at 2/25/2015 4:52:25 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 4:52:26 PM
+Initiate request "api/common/get-businesstypes" at 2/25/2015 4:53:31 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 4:53:32 PM
+Initiate request "api/common/get-businesstypes" at 2/25/2015 4:53:39 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 4:53:41 PM
+Initiate request "api/common/get-businesstypes" at 2/25/2015 4:54:19 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 4:54:21 PM
+Initiate request "api/common/get-businesstypes" at 2/25/2015 4:54:25 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 4:54:26 PM
+Initiate request "token" at 2/25/2015 4:54:37 PM
+Request "token" complete at 2/25/2015 4:54:38 PM
+response of "token" at 2/25/2015 4:54:38 PM  is The user name or password is incorrect.
+Initiate request "token" at 2/25/2015 4:55:32 PM
+Request "token" complete at 2/25/2015 4:55:33 PM
+response of "token" at 2/25/2015 4:55:33 PM  is The user name or password is incorrect.
+Initiate request "api/common/get-businesstypes" at 2/25/2015 5:03:19 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 5:03:21 PM
+Initiate request "api/common/get-businesstypes" at 2/25/2015 5:03:31 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 5:03:32 PM
+Initiate request "token" at 2/25/2015 5:03:49 PM
+Request "token" complete at 2/25/2015 5:03:49 PM
+response of "token" at 2/25/2015 5:03:49 PM  is The user name or password is incorrect.
+Initiate request "token" at 2/25/2015 5:04:05 PM
+Request "token" complete at 2/25/2015 5:04:06 PM
+response of "token" at 2/25/2015 5:04:06 PM  is The user name or password is incorrect.
+Initiate request "api/common/get-businesstypes" at 2/25/2015 5:04:57 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 5:04:59 PM
+Initiate request "api/common/get-businesstypes" at 2/25/2015 5:05:21 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 5:05:22 PM
+Initiate request "token" at 2/25/2015 5:05:59 PM
+Request "token" complete at 2/25/2015 5:06:00 PM
+response of "token" at 2/25/2015 5:06:00 PM  is The user name or password is incorrect.
+Initiate request "api/common/get-businesstypes" at 2/25/2015 5:14:33 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 5:14:34 PM
+Initiate request "api/common/get-businesstypes" at 2/25/2015 5:14:40 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 5:14:42 PM
+Initiate request "api/account/register" at 2/25/2015 5:15:38 PM
+Request "api/account/register" complete at 2/25/2015 5:15:50 PM
+Initiate request "token" at 2/25/2015 5:15:50 PM
+Request "token" complete at 2/25/2015 5:15:50 PM
+Initiate request "api/company/getdashboard?lastPageId=0&fetchCnt=8&interest=" at 2/25/2015 5:19:04 PM
+Request "api/company/getdashboard?lastPageId=0&fetchCnt=8&interest=" complete at 2/25/2015 5:19:15 PM
+Initiate request "api/company/company-details" at 2/25/2015 5:19:15 PM
+Request "api/company/company-details" complete at 2/25/2015 5:19:16 PM
+Initiate request "api/company/payment-config?country=Others" at 2/25/2015 5:19:16 PM
+Request "api/company/payment-config?country=Others" complete at 2/25/2015 5:19:17 PM
+Initiate request "api/company/getcompanymessages?lastpageId=0&fetchCount=10&sortBy=&direction=desc" at 2/25/2015 5:19:20 PM
+Request "api/company/getcompanymessages?lastpageId=0&fetchCount=10&sortBy=&direction=desc" complete at 2/25/2015 5:19:21 PM
+Initiate request "api/company/unreviewedclients?lastpageId=0&fetchCount=10" at 2/25/2015 5:19:21 PM
+Request "api/company/unreviewedclients?lastpageId=0&fetchCount=10" complete at 2/25/2015 5:19:22 PM
+Initiate request "api/company/company-details" at 2/25/2015 5:20:51 PM
+Request "api/company/company-details" complete at 2/25/2015 5:20:52 PM
+Initiate request "/api/common/states" at 2/25/2015 5:20:53 PM
+Request "/api/common/states" complete at 2/25/2015 5:20:54 PM
+response of "/api/common/states" at 2/25/2015 5:20:54 PM is exception  One or more errors occurred.
+System.AggregateException: One or more errors occurred. ---> Newtonsoft.Json.JsonSerializationException: Error converting value "Alabama" to type 'Youffer.Resources.Models.StateModel'. Path '[0]', line 1, position 10. ---> System.ArgumentException: Could not cast or convert from System.String to Youffer.Resources.Models.StateModel.
+   at Newtonsoft.Json.Utilities.ConvertUtils.EnsureTypeAssignable(Object value, Type initialType, Type targetType)
+   at Newtonsoft.Json.Utilities.ConvertUtils.ConvertOrCast(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   --- End of inner exception stack trace ---
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateList(IList list, JsonReader reader, JsonArrayContract contract, JsonProperty containerProperty, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at System.Net.Http.Formatting.JsonMediaTypeFormatter.<>c__DisplayClass8.<ReadFromStreamAsync>b__6()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Youffer.Web.Common.Helper.HttpClientHelper.Get[T](String url) in c:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\Helper\HttpClientHelper.cs:line 48
+---> (Inner Exception #0) Newtonsoft.Json.JsonSerializationException: Error converting value "Alabama" to type 'Youffer.Resources.Models.StateModel'. Path '[0]', line 1, position 10. ---> System.ArgumentException: Could not cast or convert from System.String to Youffer.Resources.Models.StateModel.
+   at Newtonsoft.Json.Utilities.ConvertUtils.EnsureTypeAssignable(Object value, Type initialType, Type targetType)
+   at Newtonsoft.Json.Utilities.ConvertUtils.ConvertOrCast(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   --- End of inner exception stack trace ---
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateList(IList list, JsonReader reader, JsonArrayContract contract, JsonProperty containerProperty, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at System.Net.Http.Formatting.JsonMediaTypeFormatter.<>c__DisplayClass8.<ReadFromStreamAsync>b__6()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)<---
+
+Initiate request "api/company/getdashboard?lastPageId=0&fetchCnt=8&interest=" at 2/25/2015 5:20:56 PM
+Request "api/company/getdashboard?lastPageId=0&fetchCnt=8&interest=" complete at 2/25/2015 5:21:07 PM
+Initiate request "api/company/company-details" at 2/25/2015 5:21:07 PM
+Request "api/company/company-details" complete at 2/25/2015 5:21:08 PM
+Initiate request "api/company/payment-config?country=Others" at 2/25/2015 5:21:08 PM
+Request "api/company/payment-config?country=Others" complete at 2/25/2015 5:21:08 PM
+Initiate request "api/company/getdashboard?lastPageId=0&fetchCnt=8&interest=" at 2/25/2015 5:21:09 PM
+Request "api/company/getdashboard?lastPageId=0&fetchCnt=8&interest=" complete at 2/25/2015 5:21:19 PM
+Initiate request "api/company/company-details" at 2/25/2015 5:21:19 PM
+Request "api/company/company-details" complete at 2/25/2015 5:21:20 PM
+Initiate request "api/company/payment-config?country=Others" at 2/25/2015 5:21:21 PM
+Request "api/company/payment-config?country=Others" complete at 2/25/2015 5:21:21 PM
+Initiate request "api/company/getdashboard?lastPageId=0&fetchCnt=8&interest=" at 2/25/2015 5:21:21 PM
+Request "api/company/getdashboard?lastPageId=0&fetchCnt=8&interest=" complete at 2/25/2015 5:21:32 PM
+Initiate request "api/company/company-details" at 2/25/2015 5:21:32 PM
+Request "api/company/company-details" complete at 2/25/2015 5:21:33 PM
+Initiate request "api/company/payment-config?country=Others" at 2/25/2015 5:21:33 PM
+Request "api/company/payment-config?country=Others" complete at 2/25/2015 5:21:33 PM
+Initiate request "api/company/unreviewedclients?lastpageId=0&fetchCount=10" at 2/25/2015 5:21:34 PM
+Request "api/company/unreviewedclients?lastpageId=0&fetchCount=10" complete at 2/25/2015 5:21:35 PM
+Initiate request "api/company/getcompanymessages?lastpageId=0&fetchCount=10&sortBy=&direction=desc" at 2/25/2015 5:21:36 PM
+Request "api/company/getcompanymessages?lastpageId=0&fetchCount=10&sortBy=&direction=desc" complete at 2/25/2015 5:21:36 PM
+Initiate request "api/company/company-details" at 2/25/2015 5:22:26 PM
+Request "api/company/company-details" complete at 2/25/2015 5:22:27 PM
+Initiate request "/api/common/states" at 2/25/2015 5:22:28 PM
+Request "/api/common/states" complete at 2/25/2015 5:22:28 PM
+response of "/api/common/states" at 2/25/2015 5:22:28 PM is exception  One or more errors occurred.
+System.AggregateException: One or more errors occurred. ---> Newtonsoft.Json.JsonSerializationException: Error converting value "Alabama" to type 'Youffer.Resources.Models.StateModel'. Path '[0]', line 1, position 10. ---> System.ArgumentException: Could not cast or convert from System.String to Youffer.Resources.Models.StateModel.
+   at Newtonsoft.Json.Utilities.ConvertUtils.EnsureTypeAssignable(Object value, Type initialType, Type targetType)
+   at Newtonsoft.Json.Utilities.ConvertUtils.ConvertOrCast(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   --- End of inner exception stack trace ---
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateList(IList list, JsonReader reader, JsonArrayContract contract, JsonProperty containerProperty, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at System.Net.Http.Formatting.JsonMediaTypeFormatter.<>c__DisplayClass8.<ReadFromStreamAsync>b__6()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Youffer.Web.Common.Helper.HttpClientHelper.Get[T](String url) in c:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\Helper\HttpClientHelper.cs:line 48
+---> (Inner Exception #0) Newtonsoft.Json.JsonSerializationException: Error converting value "Alabama" to type 'Youffer.Resources.Models.StateModel'. Path '[0]', line 1, position 10. ---> System.ArgumentException: Could not cast or convert from System.String to Youffer.Resources.Models.StateModel.
+   at Newtonsoft.Json.Utilities.ConvertUtils.EnsureTypeAssignable(Object value, Type initialType, Type targetType)
+   at Newtonsoft.Json.Utilities.ConvertUtils.ConvertOrCast(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   --- End of inner exception stack trace ---
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateList(IList list, JsonReader reader, JsonArrayContract contract, JsonProperty containerProperty, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at System.Net.Http.Formatting.JsonMediaTypeFormatter.<>c__DisplayClass8.<ReadFromStreamAsync>b__6()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)<---
+
+Initiate request "api/company/company-details" at 2/25/2015 5:22:30 PM
+Request "api/company/company-details" complete at 2/25/2015 5:22:31 PM
+Initiate request "api/common/get-businesstypes" at 2/25/2015 5:22:31 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 5:22:33 PM
+Initiate request "api/company/company-details" at 2/25/2015 5:23:19 PM
+Request "api/company/company-details" complete at 2/25/2015 5:23:20 PM
+Initiate request "api/company/updatecompany" at 2/25/2015 5:23:20 PM
+Request "api/company/updatecompany" complete at 2/25/2015 5:23:22 PM
+Initiate request "api/company/company-details" at 2/25/2015 5:23:22 PM
+Request "api/company/company-details" complete at 2/25/2015 5:23:24 PM
+Initiate request "api/common/get-businesstypes" at 2/25/2015 5:23:24 PM
+Request "api/common/get-businesstypes" complete at 2/25/2015 5:23:25 PM
+Initiate request "api/company/getdashboard?lastPageId=0&fetchCnt=8&interest=" at 2/25/2015 5:23:31 PM
+Request "api/company/getdashboard?lastPageId=0&fetchCnt=8&interest=" complete at 2/25/2015 5:23:41 PM
+Initiate request "api/company/company-details" at 2/25/2015 5:23:41 PM
+Request "api/company/company-details" complete at 2/25/2015 5:23:42 PM
+Initiate request "api/company/payment-config?country=Others" at 2/25/2015 5:23:42 PM
+Request "api/company/payment-config?country=Others" complete at 2/25/2015 5:23:43 PM
+Initiate request "api/company/unreviewedclients?lastpageId=0&fetchCount=10" at 2/25/2015 5:23:43 PM
+Request "api/company/unreviewedclients?lastpageId=0&fetchCount=10" complete at 2/25/2015 5:23:44 PM
+Initiate request "api/company/getcompanymessages?lastpageId=0&fetchCount=10&sortBy=&direction=desc" at 2/25/2015 5:23:45 PM
+Request "api/company/getcompanymessages?lastpageId=0&fetchCount=10&sortBy=&direction=desc" complete at 2/25/2015 5:23:46 PM
+Initiate request "api/company/company-details" at 2/25/2015 5:23:48 PM
+Request "api/company/company-details" complete at 2/25/2015 5:23:49 PM
+Initiate request "/api/common/states" at 2/25/2015 5:23:50 PM
+Request "/api/common/states" complete at 2/25/2015 5:23:50 PM
+response of "/api/common/states" at 2/25/2015 5:23:50 PM is exception  One or more errors occurred.
+System.AggregateException: One or more errors occurred. ---> Newtonsoft.Json.JsonSerializationException: Error converting value "Alabama" to type 'Youffer.Resources.Models.StateModel'. Path '[0]', line 1, position 10. ---> System.ArgumentException: Could not cast or convert from System.String to Youffer.Resources.Models.StateModel.
+   at Newtonsoft.Json.Utilities.ConvertUtils.EnsureTypeAssignable(Object value, Type initialType, Type targetType)
+   at Newtonsoft.Json.Utilities.ConvertUtils.ConvertOrCast(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   --- End of inner exception stack trace ---
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateList(IList list, JsonReader reader, JsonArrayContract contract, JsonProperty containerProperty, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at System.Net.Http.Formatting.JsonMediaTypeFormatter.<>c__DisplayClass8.<ReadFromStreamAsync>b__6()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Youffer.Web.Common.Helper.HttpClientHelper.Get[T](String url) in c:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\Helper\HttpClientHelper.cs:line 48
+---> (Inner Exception #0) Newtonsoft.Json.JsonSerializationException: Error converting value "Alabama" to type 'Youffer.Resources.Models.StateModel'. Path '[0]', line 1, position 10. ---> System.ArgumentException: Could not cast or convert from System.String to Youffer.Resources.Models.StateModel.
+   at Newtonsoft.Json.Utilities.ConvertUtils.EnsureTypeAssignable(Object value, Type initialType, Type targetType)
+   at Newtonsoft.Json.Utilities.ConvertUtils.ConvertOrCast(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   --- End of inner exception stack trace ---
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateList(IList list, JsonReader reader, JsonArrayContract contract, JsonProperty containerProperty, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at System.Net.Http.Formatting.JsonMediaTypeFormatter.<>c__DisplayClass8.<ReadFromStreamAsync>b__6()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken)<---
+
+Initiate request "api/company/searchclient" at 2/25/2015 5:24:05 PM
+Request "api/company/searchclient" complete at 2/25/2015 5:24:06 PM
+response of "api/company/searchclient" at 2/25/2015 5:24:06 PM  is An error has occurred.

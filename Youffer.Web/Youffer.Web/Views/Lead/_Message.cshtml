@@ -1,0 +1,197 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebClientWishListModel
+
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
+<script src="~/Scripts/ckeditor/adapters/jquery.js"></script>
+<script>
+
+    function SetCkEditorHtml(data, fileName, err) {
+        if (err != undefined) {
+            $("#uploadError").show();
+            $("#uploadError").html(err);
+            RemoveFileLogic();
+        }
+        else {
+            AddFileLogic(data, fileName);
+          
+        }
+    }
+    $.validator.setDefaults({ ignore: null })
+    $.validator.unobtrusive.parse(document);
+</script>
+
+<input type="hidden" id="hHtml" value="" />
+<div class="popup-msg" style="display:block;">
+    <div class="lead scrollit">
+        <div style="display: inherit;">
+            @if (!Model.Message.IsBulkMessage || Model.Message.IsBulkMessage == null)
+            {
+                <div style="background-color:#f5f5f5; height:60px; padding:5px; margin-top:10px;" class="recip">
+                    <span style="float:left; vertical-align:middle; margin-right:10px; padding-top:10px;">To:</span>
+                    <div class=" VerySmallRounded-Image" style="margin-top:5px;"><img class="client-pic" src="@Model.Client.ImageUrl" /></div>
+                    <span style="vertical-align:middle; margin-right:10px; padding-top:10px; float:left;">@Model.Client.FirstName</span>
+                </div>
+            }
+            <div style="margin-top: 20px;">
+                @{
+                    AjaxOptions ajaxOptions = new AjaxOptions();
+                    ajaxOptions.HttpMethod = "Post";
+                    ajaxOptions.OnComplete = "MessageClientComplete";
+                }
+                @using (Ajax.BeginForm("SendAttachment", "Lead", ajaxOptions, new { id = "form_SendAttachment" }))
+                {
+                    @Html.HiddenFor(x => x.Message.IsBulkMessage)
+                    @Html.HiddenFor(x => x.WishListId)
+                    @Html.HiddenFor(x => x.Message.ToUser)
+
+
+                    @Html.HiddenFor(x => x.Message.FileName)
+                    if (Model.Message.IsBulkMessage && Model.Message.IsBulkMessage != null)
+                    {
+                        @Html.HiddenFor(x => x.Message.IsHtml, new { Value = "true" })
+                        @Html.TextAreaFor(s => s.Message.MessageDescription, new { @style = "min-height:200px !important; max-height:200px !important; min-width:400px !important; max-width:400px !important;", @class = "text-editor" })
+                        @Html.HiddenFor(x => x.Message.DoesContainMedia, new { Value = "true" })
+                    }
+                    else
+                    {
+                        @Html.HiddenFor(x => x.Message.IsHtml, new { Value = "false", @id = "hIsHtml" })
+                        @Html.TextAreaFor(s => s.Message.MessageDescription, new { @id = "txtMessageDescription", @style = "min-height:200px !important; max-height:200px !important; min-width:400px !important; max-width:400px !important;" })
+                        <span id="span_frame_messageDescription" style="min-height:200px !important; max-height:200px !important; min-width:400px !important; max-width:400px !important; overflow:hidden; display:none;">
+                            <iframe id="frame_messageDescription" style="min-height:200px !important; max-height:200px !important; min-width:400px !important; max-width:400px !important; overflow:auto; border: 1px solid;">@Model.Message.MessageDescription</iframe>
+                        </span>
+                        @Html.HiddenFor(x => x.Message.DoesContainMedia, new { Value = "false", @id = "hDoesContainMedia" })
+                    }
+                    <div class="bottom">
+                        <div class="">
+                            <a id="aUploadHtml" style="cursor:pointer;">Upload HTML</a>
+                            <a id="aRemoveFile" style="display:none; cursor:pointer;">Remove File</a>
+                            <input type="file" id="fileHtml" onchange="$('#uploadError').html('');ReadHtmlFileOnBrowser(0, null, SetCkEditorHtml);" value="Upload HTML" style="display:none;">
+                        </div>
+                        <div style="text-align: right;width:50%;">
+                            @if (!Model.Message.IsBulkMessage || Model.Message.IsBulkMessage == null)
+                            {
+                                <a style="float: right; cursor: pointer;" id="message-history" data-wishlistid="@Model.WishListId" onclick="ShowMessageHistory('@Model.WishListId');">View Message History</a>
+                            }
+                        </div>
+                        <span class="clearfix"></span>
+                    </div>
+                    <div class="bottom">
+                        <div style="width:100%;">
+                            <label id="lblFileName"></label>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <div style="float:left;">
+                            <input type="button" onclick="ShowDevicePreview()" value="View on mobile" style="display:none; width:140px;" id="btnDevicePreview" class="buy-button" />
+                        </div>
+                        <div style="float:right;">
+                            <input id="btnSendMessage" onclick="$('#uploadError').hide(); $('#uploadError').html('');" type="submit" class="buy-button" style="float:right;" value="Send">
+                        </div>
+                    </div>
+                    <div>@Html.ValidationMessageFor(x => x.Message.MessageDescription)</div>
+                    <div><span class="field-validation-error" id="uploadError" style="display:none;"></span></div>
+                    <span class="clearfix"></span>
+                }
+            </div>
+            <span class="clearfix"></span>
+            <script type="text/javascript">
+                function MessageClientComplete(data) {
+                    if (data.responseJSON.result == true) {
+                        var data = "Message sent successfully";
+                        popAlert("Message Sent", data);
+                    }
+                    else {
+                        var data = "Sorry, Please try again.";
+                        popAlert("Error", data);
+                    }
+                }
+
+                function ShowDevicePreview() {
+                    var data = "";
+                    // get data from textbox
+                    if ($("#txtMessageDescription").length > 0) {
+                        data = $("#txtMessageDescription").val();
+                        
+                    }
+                    else { // get data from ckeditor
+                        data = CKEDITOR.instances['Message_MessageDescription'].getData();
+                    }
+                    data = $.parseHTML(data);
+                    $(data).find("script").remove();
+                    DevicePreview("Mobile view", data);
+                }
+
+                function RemoveFileLogic() {
+                    if ($("#txtMessageDescription").length > 0) {
+                        $("#txtMessageDescription").val("");
+                        $("#hIsHtml").val("false");
+                        $("#hDoesContainMedia").val("false");
+                        $("#span_frame_messageDescription").hide();
+                        $("iframe#frame_messageDescription").contents().find("body").html("");
+                        $("#txtMessageDescription").show();
+                    }
+                    else {
+                        CKEDITOR.instances['Message_MessageDescription'].setData("");
+                    }
+
+                    $("#lblFileName").html("");
+                    $("#Message_FileName").val("");
+                    $("#btnDevicePreview").hide();
+                    $("#aRemoveFile").hide();
+                    $("#aUploadHtml").show();
+                    $("#fileHtml").replaceWith($("#fileHtml").clone());
+                }
+
+                function AddFileLogic(data, fileName) {
+                    if (fileName != undefined) {
+                        var displayFileName = fileName;
+                        $("#Message_FileName").val(fileName);
+                        if (fileName.length > 30) {
+                            var extensionIndex = fileName.lastIndexOf(".");
+                            displayFileName = fileName.substring(0, 20) + "..." + fileName.substring(extensionIndex - 4, extensionIndex) + fileName.substring(extensionIndex, fileName.length);
+                        }
+                        $("#lblFileName").html("File: " + displayFileName);
+                    }
+                    // quick message
+                    if ($("#txtMessageDescription").length > 0) {
+                        $("#txtMessageDescription").val(data);
+                        $("#hIsHtml").val("true");
+                        $("#hDoesContainMedia").val("true");
+                        $("#txtMessageDescription").hide();
+                        $("#span_frame_messageDescription").show();
+                        $("iframe#frame_messageDescription").contents().find("body").html($.parseHTML(data));
+                    }
+                    else {
+                        CKEDITOR.instances['Message_MessageDescription'].setData(data);
+                    }
+
+                    $("#btnDevicePreview").show();
+                    $("#aRemoveFile").show();
+                    $("#aUploadHtml").hide();
+                }
+
+                $(document).ready(function () {
+                    $("#aUploadHtml").bind("click", function () { $(".field-validation-error span").remove(); $("#uploadError").hide(); $("#uploadError").html(""); $("#fileHtml").click(); })
+                    $("#aRemoveFile").bind("click", function () { RemoveFileLogic(); })
+                    if ($('.text-editor').length > 0) {
+                        $('.text-editor').ckeditor();
+                        $('#btnSendMessage').bind('click', function () {
+                            $('.text-editor').ckeditorGet().updateElement();
+                        });
+                    }
+
+                    if ($("#txtMessageDescription").length > 0) {
+                        $("#txtMessageDescription").change(function () { $("#uploadError").hide(); $("#uploadError").html(""); });
+                        $("#txtMessageDescription").on("keyup", function () { $("#uploadError").hide(); $("#uploadError").html(""); });
+                    }
+                    if ($("iframe#frame_messageDescription").length > 0) {
+                        $('iframe#frame_messageDescription').contents().find('body').bind("click", "a", function (event) {
+                            event.preventDefault();
+                        });
+                    }
+
+                });
+
+            </script>
+        </div>
+    </div>
+</div>

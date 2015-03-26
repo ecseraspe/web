@@ -1,0 +1,175 @@
+body {
+  padding-top: 20px;
+  background:#f9f9f9;
+}
+
+h2{
+font-weight: 200;
+}
+
+.clear{
+clear:both;
+}
+
+.font-med{
+font-size:20px;
+}
+
+.navbar {
+margin-bottom: 20px;
+}
+
+.navbar-default {
+background-color: transparent;
+border-color: transparent;
+border-bottom: 2px solid #fff;
+padding-bottom: 20px;
+}
+
+.navbar-default .navbar-nav>li>a {
+color: #777;
+font-size: 20px;
+}
+
+.navbar-default .navbar-nav>li>a.active {
+color: #E69536;
+font-size: 20px;
+}
+
+.navbar-brand {
+float: left;
+height: 50px;
+padding:0;
+font-size: 18px;
+line-height: 20px;
+}
+
+.navbar-brand>img {
+display: block;
+width: 190px;
+margin-top: -12px;
+}
+
+.bottom-nav{
+width: 214px;
+margin: auto;
+margin-bottom: 2px;
+}
+
+.bottom-nav a{
+color:#1699CD;
+}
+
+.bottom-nav a:hover{
+color:#1699CD;
+}
+
+.container{
+max-width:730px;
+}
+
+.intro{
+margin-top: 227px;
+margin-left: 40px;
+text-align:right;
+}
+
+.intro h2{
+font-size: 30px;
+color: #777777;
+margin-bottom: 30px;
+text-align:center;
+font-family: trebuchet ms;
+}
+
+.logo{
+text-align: center;
+}
+
+.logo img{
+width:250px;
+}
+
+.phone{
+width:366px;
+height:723px;
+background:url(../img/iphone.png);
+}
+
+.btn-orange{
+color:#fff;
+background-color: #1699CD;
+border-color: #fff;
+}
+
+.btn-orange:hover{
+color:#fff;
+background-color: #1699CD;
+border-color: #1699CD;
+}
+
+.btn-orange:focus{
+color:#fff;
+}
+
+.dwn-btn{
+opacity:1;
+visibility:visible;
+
+-webkit-transition: all .5s ease-in-out;
+-moz-transition: all .5s ease-in-out;
+-o-transition: all .5s ease-in-out;
+transition: all .5s ease-in-out;
+}
+
+.download-btns{
+width:300px;
+-webkit-transition: all .5s ease-in-out;
+-moz-transition: all .5s ease-in-out;
+-o-transition: all .5s ease-in-out;
+transition: all .5s ease-in-out;
+}
+
+.download-btns img{
+margin-left: 10px;
+width: 137px;
+float: left;
+}
+
+
+.small-text{
+font-size:12px;
+color:#a4a4a4;
+}
+
+
+
+/* ------------------------------- Media Query ------------------------------- */
+
+@media (max-width: 767px){
+
+.bottom-nav .nav>li{
+text-align:center;
+}
+
+.bottom-nav .navbar-nav{
+margin:15px 0px;
+}
+
+.intro {
+margin-top: 10px;
+margin-left: 00px;
+text-align: center;
+}
+
+.phone{
+margin: auto;
+margin-top: 60px;
+}
+
+.bottom-nav{
+width: 100%;
+}
+
+
+}

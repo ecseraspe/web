@@ -1,0 +1,251 @@
+﻿@model Youffer.Web.Resources.ViewModel.CheckoutModel
+@using Youffer.Web.Filter
+@{
+    ViewBag.Title = "Place Your Order";
+    string currencySymbol = YoufferSecurity.CurrentCurrency;
+}
+
+<style type="text/css">
+    .secure {
+        background-image: url("/img/secure.png");
+        width: 65px;
+        height: 24px;
+        float: right;
+        margin-right: 5px;
+    }
+
+    .payment-container {
+        border: 1px solid #dddddd;
+        border-radius: 5px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .payment-container {
+        margin-top: 5px;
+        margin-bottom: 50px;
+    }
+
+    .payment-options {
+        width: 60%;
+        float: left;
+        padding: 25px;
+    }
+
+    .checkout-details {
+        width: 40%;
+        float: left;
+        border-left: 1px solid #dddddd;
+        background: #f7f7f7;
+        display: table-cell;
+        vertical-align: top;
+        font-size: 13px;
+        height: 200px;
+    }
+
+    .clear {
+        clear: both;
+    }
+
+    .order-top {
+        background: #ededed;
+    }
+
+    .order-row {
+        padding: 10px 15px;
+        border-top: 1px solid #dddddd;
+    }
+
+    .order-head {
+        color: #b2b2b2;
+        border-top: none;
+    }
+
+    .paypal-radio-button {
+        display: inline-block;
+        background-image: url(/img/paypal-grey.png);
+        color: transparent;
+        height: 21px;
+        width: 76px;
+        background-repeat: no-repeat;
+        margin-bottom: 15px;
+    }
+
+    .active .paypal-radio-button {
+        background-image: url(/img/paypal-blue.png);
+    }
+
+    .co-radio-button {
+        display: inline-block;
+        background-image: url(/img/2co-grey.png);
+        color: transparent;
+        height: 20px;
+        width: 116px;
+        background-repeat: no-repeat;
+        margin-bottom: 15px;
+        background-size:100%;
+    }
+
+    .active .co-radio-button {
+        background-image: url(/img/2co-blue.png);
+    }
+
+    .g2s-radio-button {
+        display: inline-block;
+        background-image: url(/img/g2s-grey.png);
+        color: transparent;
+        height: 23px;
+        width: 240px;
+        background-repeat: no-repeat;
+        margin-bottom: 15px;
+        background-size: contain;
+    }
+
+    .active .g2s-radio-button {
+        background-image: url(/img/g2s-blue.png);
+    }
+
+    .payment-submit {
+        background: #00b22d url("//cdnil20.fiverrcdn.com/assets/v2_buttons/btn-progress-ddd-d03e656e7b0a82f5bdbc756e8e2ba31e.gif") no-repeat -2000px -2000px;
+        display: inline-block;
+        font: 500 16px/16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #fff;
+        text-transform: uppercase;
+        border: 1px solid #028a25;
+        padding: 16px 40px;
+        margin: 0;
+        -webkit-transition: color 0.2s, background-color 0.2s, box-shadow 0.2s, border 0.2s;
+        -moz-transition: color 0.2s, background-color 0.2s, box-shadow 0.2s, border 0.2s;
+        -o-transition: color 0.2s, background-color 0.2s, box-shadow 0.2s, border 0.2s;
+        transition: color 0.2s, background-color 0.2s, box-shadow 0.2s, border 0.2s;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        float: right;
+    }
+
+        .payment-submit:disabled {
+            background: grey;
+            border: 1px solid grey;
+        }
+
+    input[type="radio"] {
+        -webkit-appearance: none;
+        width: 15px;
+        height: 15px;
+        background-image: url('/img/radio-off.png');
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-apperarance: none;
+    }
+
+        input[type="radio"]:focus {
+            outline: none;
+        }
+
+    .active input[type="radio"] {
+        -webkit-appearance: none;
+        width: 15px;
+        height: 15px;
+        background-image: url('/img/radio-on.png');
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-apperarance: none;
+    }
+
+    .payment-error {
+        max-width: 300px;
+        display: block;
+        float: left;
+    }
+</style>
+<div class="page-container container">
+    <h2>@ViewBag.Title</h2>
+    <h4>Select a Payment Method</h4>
+    <div class="secure"></div>
+    <div class="clear"></div>
+    <div class="payment-container">
+        <div class="payment-options">
+            @using (Html.BeginForm("ProceedToPayment", "Payment", FormMethod.Post, new { id = "payment-form" }))
+            {
+                <ul>
+                    @if (YoufferSecurity.IsIndianPayment)
+                    {
+                        <li><label>@Html.RadioButton("PaymentMethod", 3) <span class="co-radio-button">@Model.PaymentMethods[2]</span></label></li>
+                    }
+                    else
+                    {
+                        <li><label>@Html.RadioButton("PaymentMethod", 1) <span class="paypal-radio-button">@Model.PaymentMethods[1]</span></label></li>
+                        <li><label>@Html.RadioButton("PaymentMethod", 2) <span class="g2s-radio-button">@Model.PaymentMethods[2]</span></label></li>
+                    }
+                </ul>
+                @*@Html.HiddenFor(x => x.ProcessingFee)*@
+                @Html.HiddenFor(x => x.ClientId)
+                @Html.HiddenFor(x => x.ClientInterest)
+                @Html.Hidden("productTitle", @Model.Product.Title)
+                <span class="payment-error">@ViewBag.Message</span><input type="submit" value="Continue" class="payment-submit" />
+            }
+        </div>
+        <div class="checkout-details">
+            <div class="order-head order-top order-row header">
+                <div style="width:50%;float:left;">ORDER DETAILS</div>
+                <div style="width:20%;float:left;text-align:center;">QTY</div>
+                <div style="width:30%;float:left;text-align:center;"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="order-top order-row">
+                <div style="width:50%;float:left;">@Model.Product.Title</div>
+                <div style="width:20%;float:left;text-align:center;">1</div>
+                <div style="width:30%;float:left;text-align:right;">@(string.Format("{0}{1}", currencySymbol, Model.Product.Price.ToString("N2")))</div>
+                <div class="clear"></div>
+            </div>
+            <div class="order-row">
+                <div style="width:50%;float:left;">Processing Fee</div>
+                <div style="width:20%;float:left;text-align:center;">&nbsp;</div>
+                <div style="width:30%;float:left;text-align:right;">@(string.Format("{0}{1}", currencySymbol, Model.ProcessingFee.ToString("N2")))</div>
+                <div class="clear"></div>
+            </div>
+            <div class="order-row">
+                <div style="width:50%;float:left;">&nbsp;</div>
+                <div style="width:20%;float:left;text-align:center;">&nbsp;</div>
+                <div style="width:30%;float:left;text-align:right;">Total @(string.Format("{0}{1}", currencySymbol, (Model.ProcessingFee + Model.Product.Price).ToString("N2")))</div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        $('.payment-submit').attr('disabled', 'disabled');
+        $("input[name='PaymentMethod']").change(function () {
+            $('.payment-error').html('');
+            $("ul li label").removeClass("active");
+            $(this).parent().addClass("active");
+            if ($(this).val() == 3 || $(this).val() == 2 || $(this).val() == 1) {
+                $('.payment-submit').removeAttr('disabled');
+            }
+        });
+        $('form#payment-form').submit(function () {
+            var paymentMethod = 0;
+            $("input[name='PaymentMethod']").each(function () {
+                if (this.checked == true) {
+                    paymentMethod = $(this).val();
+                }
+            });
+            if (paymentMethod > 0) {
+                return true;
+            }
+            else {
+                $('.payment-error').html('Please select payment method.');
+                return false;
+            }
+        });
+    }
+</script>

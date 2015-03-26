@@ -1,0 +1,70 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebClientModel
+<div id="divPaymentConfirmation">
+    <div class="lead">
+        <input type="hidden" value="@Model.WishListId" id="payConfirmWishListId" />
+        <div style="display: inherit;">
+            <div style="width:50%; float:left;">
+                <img class="client-pic" src="@Model.ImageUrl" id="payConfirmImage" height="80" />
+            </div>
+
+            <div style="width:50%; float:left;">
+                <span id="payConfirmName">@Model.FirstName</span>, <span id="payConfirmAge">@Model.Age</span>
+                <br />
+                <div class="rating">
+                    <span class="star">
+                        Rate:
+                        @for (int ranking = 0; ranking < Model.Ranking; ranking++)
+                        {
+                            <img src="/img/star.png" />
+                        }
+                        @{
+                            decimal k = (5m - Model.Ranking);
+                            while (k > 0)
+                            {
+                                <img src="/img/star-grey.png" />
+                                k--;
+                            }
+                        }
+                    </span>
+                    <span class="rate" id="payConfirmRanking">@Model.Ranking</span>
+                    </br>
+                </div>
+                @*<h3>Payment Confirmation</h3>*@
+
+                <span class="clearfix"></span>
+            </div>
+
+            <br /><br /><br /><br />
+            <button class="payment-button" style="margin-top:10px;" onclick="buyclient('@Model.WishListId');">Confirm Payment</button> <br />
+            <span class="clearfix"></span>
+        </div>
+    </div>
+
+
+    @*<input type="hidden" value="@Model.WishListId" id="payConfirmWishListId" />
+        <table>
+            <tr>
+                <td>
+                    <img src="@Model.ImageUrl" id="payConfirmImage" height="80" />
+                </td>
+                <td style="padding-left:50px;">
+                    Name : <span id="payConfirmName">@Model.FirstName</span>
+                    <br />
+                    Age :  <span id="payConfirmAge">@Model.Age</span>
+                    <br />
+                    Ranking : <span id="payConfirmRanking">@Model.Ranking</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align:center;">
+                    Payment Confirmation
+                </td>
+            </tr>
+        </table>*@
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".CnfrmPopBtns").hide();
+    });
+</script>

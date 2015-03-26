@@ -1,0 +1,214 @@
+﻿@model Youffer.Web.Resources.ViewModel.WebClientWishListModel
+<style>
+    .dlgpanel {
+        width: 490px;
+    }
+
+    #userProfilePopup, #userProfilePopup .lead {
+        font-size: 15px !important;
+    }
+
+        #userProfilePopup .interest-in {
+            margin-top: 13px;
+            display: block;
+        }
+</style>
+
+@if (Model != null && Model.Client != null && !string.IsNullOrWhiteSpace(Model.Client.ClientId))
+{
+    <div id="userProfilePopup">
+        <img class="flag" src="@Model.Client.Flag" />
+        <div class="lead">
+            <div style="float:left;">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="BigRounded-Image">
+                                @if (Model.Client.ImageUrl != null)
+                                {
+                                    <img class="client-pic" src="@Model.Client.ImageUrl" />
+                                }
+                                else
+                                {
+                                    <img class="client-pic" src="@Youffer.Web.Common.Dummy.DummyData.NoImage" width="100%" />
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="rating">
+                                <span class="star">
+                                    @{ Html.RenderAction("GetRating", "Common", new { rating = Model.Ranking, disabled = true, className = Guid.NewGuid(), title = "Rating" }); }
+                                </span>
+                                <span class="clearfix"></span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="display: inherit;">
+                <div style="width:50%; float:left; margin-left: 20px; margin-left: 16px !important;">
+                    @if (Model.Client.Age > 0)
+                    {
+                        <span style="padding-top: 0px; font-weight: bold;">@Model.Client.FirstName, @Model.Client.Age</span>
+                    }
+                    else
+                    {
+                        <span style="padding-top: 0px; font-weight: bold;">
+                            @Model.Client.FirstName
+                        </span>
+                    }
+                    <br />
+                    @if (!string.IsNullOrEmpty(Model.PurchasedInterest))
+                    {
+                        <span class="interest-in">
+                            <span style="font-weight: bold;">Needs:</span>
+                            <h4 style="text-align:left; margin-top: 5px;">@string.Join(", ", Model.PurchasedInterest)</h4>
+                        </span>
+                    }
+                    else if (Model.SubInterest.Any())
+                    {
+                        <span class="interest-in">
+                            <span style="font-weight: bold;">Needs:</span>
+                            <h4 style="text-align:left; margin-top: 5px;">@string.Join(", ", Model.SubInterest)</h4>
+                        </span>
+                    }
+                    <br />
+                    @*Note : purchasedInterest mean it purchased client*@
+                    @if (string.IsNullOrEmpty(Model.PurchasedInterest))
+                    {
+                        <div style="margin-top: -5px;">
+                            <span style="font-weight: bold;">Availability:&nbsp;</span>
+                            @if (Model.Client.IsAvailable)
+                            {
+                                if ((Model.Client.Availability == Youffer.Resources.Enum.Availability.Undefined))
+                                {
+                                    <span>Not Available</span>
+                                }
+                                else
+                                {
+                                    if (Model.Client.Availability == Youffer.Resources.Enum.Availability.AllDays)
+                                    {
+                                        <span>All Days</span>
+                                    }
+                                    else if (Model.Client.Availability == Youffer.Resources.Enum.Availability.WeekDaysOnly)
+                                    {
+                                        <span>Weekdays Only</span>
+                                    }
+                                    else if (Model.Client.Availability == Youffer.Resources.Enum.Availability.WeekEndsOnly)
+                                    {
+                                        <span>Weekends Only</span>
+                                    }
+                                    if (Model.Client.AvailableFrom.Length > 0 && Model.Client.AvailableTo.Length > 0)
+                                    {
+                                        <br /><div><span style="font-weight: bold;">Time:&nbsp;</span><span>@Model.Client.AvailableFrom.Substring(0, Model.Client.AvailableFrom.Length - 3) &nbsp; -  &nbsp; @Model.Client.AvailableTo.Substring(0, Model.Client.AvailableTo.Length - 3)</span></div>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                <span>Not Available</span>
+                            }
+                            @using (Html.BeginForm("Checkout", "Payment", FormMethod.Post))
+                            {
+                                <input type="submit" class="buy-button buy-pop" style="margin-top:10px;" value="Buy ($5)" /> <br />
+                                @Html.Hidden("clientInterest", Model.SubInterest.Any() ? Model.SubInterest[0] : "");
+                                @Html.Hidden("clientId", Model.WishListId);
+                            }
+                            <br />
+                        </div>
+                    }
+                    else
+                    {
+                        <div style="min-width: 230px; overflow: hidden;">
+                            <span style="font-weight: bold;">Availability:&nbsp;</span>
+                            @*Availability : @(Model.Client.IsAvailable ? ((Model.Client.Availability == Youffer.Resources.Enum.Availability.Undefined) ? "Not Available" : (Model.Client.Availability.ToString() + " " + "Timing:  " + Model.Client.AvailableFrom + " - " + Model.Client.AvailableTo)) : "Not Available")*@
+                            @if (Model.Client.IsAvailable)
+                            {
+                                if ((Model.Client.Availability == Youffer.Resources.Enum.Availability.Undefined))
+                                {
+                                    <span>Not Available</span>
+                                }
+                                else
+                                {
+                                    if (Model.Client.Availability == Youffer.Resources.Enum.Availability.AllDays)
+                                    {
+                                        <span>All Days</span>
+                                    }
+                                    else if (Model.Client.Availability == Youffer.Resources.Enum.Availability.WeekDaysOnly)
+                                    {
+                                        <span>Weekdays Only</span>
+                                    }
+                                    else if (Model.Client.Availability == Youffer.Resources.Enum.Availability.WeekEndsOnly)
+                                    {
+                                        <span>Weekends Only</span>
+                                    }
+                                    <br /><div><span style="font-weight: bold;">Time:&nbsp;</span><span>@Model.Client.AvailableFrom.Substring(0, Model.Client.AvailableFrom.Length - 3) &nbsp; -  &nbsp; @Model.Client.AvailableTo.Substring(0, Model.Client.AvailableTo.Length - 3)</span></div>
+                                }
+                            }
+                            else
+                            {
+                                <span>Not Available</span><br />
+                            }
+                            @if (!String.IsNullOrEmpty(Model.Client.PhoneNumber) && Model.Client.IsAvailable)
+                            {
+                                <span style="font-weight: bold;">Phone Number:&nbsp;</span>
+                                <span>@Model.Client.PhoneNumber</span>
+                            }
+                            else
+                            {
+                                <span style="font-weight: bold;">Phone Number:&nbsp;</span>
+                                <span>Not Available</span>
+                            }
+                            <br />
+                        </div>
+                    }
+                    <span class="clearfix"></span>
+                </div>
+
+                <br /><br />
+                <span class="clearfix"></span>
+            </div>
+            <div class="clearfix"></div>
+            <div style="display: inherit; margin-top: 20px;">
+
+
+                <div class="review-container">
+                    @if (Model.ReviewList != null && Model.ReviewList.Any())
+                    {
+                        <h4 style="margin: 0 0 10px 0px;" class="text-center">Previous Reviews</h4>
+                        foreach (var review in Model.ReviewList)
+                        {
+                            <div class="review">
+                                <div class="date">@review.ModifiedOn.ToString("MM/dd/yyyy")</div>
+                                <div class="rank">Rating: @review.Rating</div>
+                                <span class="clearfix"></span>
+
+                                <div class="review-box">
+                                    <textarea readonly>@review.Message</textarea>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <h4 style="margin: 0 0 10px 0px;" class="text-center">Not Reviewed Yet</h4>
+                    }
+                </div>
+            </div>
+            <span class="clearfix"></span>
+        </div>
+    </div>
+}
+else
+{
+    <div id="userProfilePopup">
+        <div class="row">
+            <center>
+                <h4>Sorry, unable to contact server. Please try again.</h4>
+            </center>
+        </div>
+    </div>
+}

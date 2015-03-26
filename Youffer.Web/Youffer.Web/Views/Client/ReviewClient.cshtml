@@ -1,0 +1,132 @@
+﻿@model List<Youffer.Web.Resources.ViewModel.WebClientWishListModel>
+@{
+    ViewBag.Title = "Review Clients";
+}
+<!-- Page Content -->
+<style>
+    .search-big {
+        width: 170px;
+        padding: 3px 8px;
+        border-radius: 25px;
+        border: 0;
+        outline: 0;
+        box-shadow: none;
+        float: left;
+        background-color: #2E81AF;
+        height: 30px;
+        color: white;
+        font-weight: normal;
+    }
+
+    input.search-bar {
+        border: 0;
+        outline: 0;
+        width: 84%;
+        height: 22px;
+        font-size: 16px;
+        color: white;
+        background-color: #2E81AF;
+        line-height: normal;
+        margin-left: 0;
+    }
+
+        input.search-bar placeholder {
+            color: initial;
+        }
+</style>
+@{Youffer.Web.Resources.ViewModel.WebCompanyDashboardModel companyModel = @Session["companyModel"] as Youffer.Web.Resources.ViewModel.WebCompanyDashboardModel;}
+<div class="large-box setting-page" style="border: 0; background: #f7f7f7;">
+    <div class="large-box-data" id="" style="padding: 15px; background: #f7f7f7;">
+        <div class="dash-container search-filter">
+            <div class="row">
+                <div class="company-pic">
+                    <div id="edit-pic" class="edit-pic" style="padding:64px;" onclick="window.location.href = '@Url.Action("Settings","Client")'">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAMAAAAYAM5SAAABaFBMVEWOjo7///+Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Pj4+QkJCRkZGRkZGQkJCRkZGSkpKUlJSWlpaUlJSWlpaWlpaYmJicnJyjo6OgoKChoaGmpqajo6OlpaWvr6+mpqaxsbGnp6eoqKixsbGqqqq3t7e1tbWwsLCvr6+5ubm1tbW9vb2/v7/AwMDAwMDBwcHCwsLFxcXIyMjHx8fGxsbIyMjNzc3Ozs7V1dX////n5+f7+/vU1NT8/Pzk5OTm5ubQ0NDo6Ojt7e3v7+/z8/P09PT39/f5+fn6+vrR0dHGxsb9/f3+/v7Z2dny8vKIiIjV1dWUlJTc3Nzd3d3f39/g4ODh4eHi4uLj4+OcnJygoKCjo6OkpKTr6+utra3u7u6urq7w8PCGhoavr6+6urr19fXAwMDDw8N3d3fHx8fIyMjKysrOzs6Dg4PBPm5ZAAAAQ3RSTlMAAAECAwQFBwgJCg4QEhMUHB4gISEnLDQ4Ozw9Q0RJS1FncXd3e4iLi4+YnaCiprK0ubzFx9HT2ujo6Ovx8/n5+fv90wkZCgAAASBJREFUeF5t0lVXA0EMhuHMdluguEuhxd3dLVt3L+7u/vcJHTJLe3iv8p3nNiBU1ur6ukqLuZl050zSdxM6/Zxsk8oEzrUY/hZZbAaT9PEw/inYrzHp0wks6GlEkwSjRRLORHskOUI0A9cP+e4Qr/be8LjhhyzLJLl35G5fD72Is0DUEqFtGEqyXyToryUaQ0ksOyRUtwDYYFISR2pOQGmWiQXPkPrQoOKEiUWSxwrlR5JYmJI62DxMxiOJonUAWGK6v0ijSRMCRB8TZZK7k6jG9x/t2olgiq7EpVsVPUf0DggiUbVNlnt55gIZxNWSPAlXEIs6aBKSoMtfKPvt6gHAsZk2wb3SKJgo+5AnLiG21WsTTLKyjuGFVGp+sJVA9g3VKoRnvGggiAAAAABJRU5ErkJggg==" style="width:26px; height:25px;" />
+                    </div>
+                    <div class="img-CompanyLogo" style="background: url(@companyModel.CompanyLogo) center no-repeat; background-size: cover;"></div>
+                    <input type="file" id="file-CompanyImage" style="display:none;" />
+                </div>
+                <div class="company-name">@companyModel.CompanyName</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="large-box">
+    <div>
+        <div class="box-heading">
+            <span>Review Clients</span>
+            @using (Ajax.BeginForm("SearchUnReviewClient", "Client", new AjaxOptions { HttpMethod = "POST", OnComplete = "SearchClientComplete", OnBegin = "showLoader('Searching...')" }))
+            {
+                <div>
+                    <div class="search-big right" style="float: right; margin-top: -22px;">
+                        <input type="text" class="search-bar" placeholder="Search" name="txtSearchUnReviewClient" />
+                        <input id="btnNotReviewedClientSearch" type="submit" style="width: 0; height: 0; display:none;" />
+                        <i class="fa fa-search" onclick="$('#btnNotReviewedClientSearch').click();" style="cursor:pointer;"></i>
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+            }
+        </div>
+        <div class="large-box-data" style="height:auto;padding:0;">
+            <div class="dash-container">
+                @if (Model.Any())
+                {
+                    <div id="errMsgReviewClient"></div>
+                    <div id="divReviewClient" style="max-height:500px; overflow:auto;">
+                        <table id="tblReviewclient" class="tableCls">
+                            <thead>
+                                <tr>
+                                    <th style="width:25%">Name</th>
+                                    <th style="width:25%" class="">Need</th>
+                                    <th style="width:15%" class="">Date</th>
+                                    <th style="width:15%; text-align:center;" align="center">Review</th>
+                                    <th style="width:20%; text-align:center;" align="center">Mark As Purchased</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @Html.Partial("_DisplayReviewClient", Model)
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <center><h2>No clients to display<br />Use Youffer and get more clients.</h2></center>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function BindReviewClient(data) {
+        if (moreReviewClientRefill) {
+            $("#tblReviewclient tbody").html(data);
+        }
+        else {
+            $("#tblReviewclient tbody").append(data);
+        }
+    }
+
+    $(document).ready(function () {
+        $("#divReviewClient").scroll(function () {
+            if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+                GetMoreReviewClient(-1, -1, BindReviewClient, false);
+            }
+        });
+    });
+
+    function SearchClientComplete(data) {
+        $("#errMsgReviewClient").html('');
+        closePopAlert();
+        if (data.responseText.length > 0) {
+            $("#tblReviewclient tbody").html(data.responseText);
+            $("#tblReviewclient").show();
+        }
+        else {
+            $("#tblReviewclient").hide();
+            $("#errMsgReviewClient").html("<center><h2>Sorry, no results to display.</h2></center>");
+        }
+    }
+</script>

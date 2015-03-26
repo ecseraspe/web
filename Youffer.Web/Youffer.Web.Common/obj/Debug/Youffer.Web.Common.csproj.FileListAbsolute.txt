@@ -1,0 +1,79 @@
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\Youffer.Web.Common.dll.config
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\Youffer.Web.Common.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\Youffer.Web.Common.pdb
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\log4net.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\Newtonsoft.Json.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Helpers.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Mvc.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Razor.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\Youffer.Resources.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\Youffer.Web.Resources.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\MVC Foolproof Validation.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\Youffer.Web.Resources.pdb
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\log4net.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\Newtonsoft.Json.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Helpers.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Mvc.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Razor.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\obj\Debug\Youffer.Web.Common.csprojResolveAssemblyReference.cache
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\obj\Debug\Youffer.Web.Common.dll
+C:\Users\user\Source\Workspaces\Youffer\Branches\Guest\Youffer.Web\Youffer.Web\Youffer.Web.Common\obj\Debug\Youffer.Web.Common.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\Youffer.Web.Common.dll.config
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\Youffer.Web.Common.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\Youffer.Web.Common.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\log4net.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\Newtonsoft.Json.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Helpers.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Mvc.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Razor.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\Youffer.Web.Resources.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\MVC Foolproof Validation.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\Youffer.Web.Resources.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\log4net.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\Newtonsoft.Json.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Helpers.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Mvc.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Razor.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\obj\Debug\Youffer.Web.Common.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\obj\Debug\Youffer.Web.Common.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\Youffer.Web\Youffer.Web.Common\obj\Debug\Youffer.Web.Common.pdb
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\Youffer.Web.Common.dll.config
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\Youffer.Web.Common.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\Youffer.Web.Common.pdb
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\log4net.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\Newtonsoft.Json.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Helpers.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Mvc.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Razor.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\Youffer.Web.Resources.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\MVC Foolproof Validation.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\Youffer.Web.Resources.pdb
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\log4net.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\Newtonsoft.Json.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Helpers.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Mvc.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.Razor.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\obj\Debug\Youffer.Web.Common.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\obj\Debug\Youffer.Web.Common.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\Youffer.Web\Youffer.Web.Common\obj\Debug\Youffer.Web.Common.pdb
